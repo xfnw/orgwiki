@@ -1,0 +1,5 @@
+#+TITLE: a memoir on capital letters
+#+SETUPFILE: setupfile.org
+
+you may have noticed i do not use many capital letters on this
+site. the reason is simple; i am not a capitalist.

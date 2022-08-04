@@ -1,0 +1,10 @@
+#+TITLE: xfnw's org wiki thing
+#+SETUPFILE: setupfile.org
+#+OPTIONS: TOC:nil
+
+hello, you might find some stuff here
+
+* generated with org-mode
+its like wikitext but more consistent!  learn more on the [[./about.org][about page]].
+* meow
+am fox

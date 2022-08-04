@@ -1,0 +1,20 @@
+#+TITLE: about
+#+SETUPFILE: setupfile.org
+
+after reading some of [[https://100r.co][100 rabbits]]' work, i realized that i depend on
+being always-online too much.
+
+this was created to potentially replace my old [[https://wiki.owen.bellz.org][pmwiki wiki]]. pmwiki
+does not really have any good solutions for working offline, the
+closest thing being [[https://www.pmwiki.org/wiki/Cookbook/WikiOnAStick][wiki on a stick]], which literally runs a webserver
+with a LAMP stack from a non-portable[fn:1:non-portable as in being
+difficult to run on other operating systems. in physical space, its
+still very portable.] exe file. yuck.
+
+i am also considering using [[https://vimwiki.github.io][vimwiki]], which has a more wiki-like
+syntax, however that also makes the syntax less consistent and harder
+to convert to/from. also configuring vimwiki is somewhat a nightmare
+(perhaps ive been spoiled by lisp's customizability) and it seems a
+bit overbearing about how it manages files.
+
+
