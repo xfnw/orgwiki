@@ -1,0 +1,5 @@
+(defun org-export-deterministic-reference (references)
+    (let ((new 0))
+       (while (rassq new references) (setq new (+ new 1))) 
+       new))
+ (advice-add #'org-export-new-reference :override #'org-export-deterministic-reference)
