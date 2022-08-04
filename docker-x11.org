@@ -1,0 +1,14 @@
+#+TITLE: docker x11
+#+SETUPFILE: setupfile.org
+
+
+
+to allow docker to access your X11 session and start graphical applications
+
+#+begin_src sh
+docker run -v \
+  /tmp/.X11-unix:/tmp/.X11-unix \
+  -e DISPLAY=$DISPLAY -h $HOSTNAME \
+  -v $HOME/.Xauthority:/home/user/.Xauthority
+#+end_src
+

@@ -1,0 +1,16 @@
+#+TITLE: minetest mods
+#+SETUPFILE: setupfile.org
+
+mods xfnw uses, in addition to stuff in Dreambuilder
+
+digilines digistuff display_modpack firealarm handdryer laptop
+mesecons_carts player_textures skinsdb digiscreen digiterms
+elevatorparts flatperiod icemachine letters ltc4000e pbj_pup printer
+vehicle_mash
+
+mods that are not in minetest's mod list are probably from
+https://cheapiesystems.com/git/
+
+pbj_pup is from https://github.com/minetest-mods/pbj_pup. there seems
+to be different implementations of pbj_pup and this is the one with
+the sounds

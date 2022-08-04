@@ -1,0 +1,31 @@
+#+TITLE: building a 9front iso
+#+SETUPFILE: setupfile.org
+#+OPTIONS: ^:{}
+
+instructions for building an iso are detailed in [[http://fqa.9front.org/fqa5.html#5.3][fqa 5.3]].
+
+#+begin_quote
+5.3 - Building an ISO
+
+The 9front ISO is a livecd that also serves as install media.
+
+Note: Currently, only the 386 and amd64 architectures have downloadable ISOs (rpi has a bootable image). Read: FQA 8.9 - Bootstrapping architectures not included on the ISO for more information on booting other architectures.
+
+~# put your root file system into /n/src9~\\
+~bind /root /n/src9~
+
+~# put your hg repository there~\\
+~bind -ac /dist/plan9front /n/src9~
+
+~# build the iso~\\
+~cd /sys/lib/dist~\\
+~mk /tmp/9front.$objtype.iso~
+
+#+end_quote
+
+other than that 'hg' should probably be 'git' unless you are using
+some ancient 9front version. it seems to work
+
+it also seems to do weird stuff if you are cross-compiling the iso,
+you might have to install the target arch as your current
+system^{[citation needed]}

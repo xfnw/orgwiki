@@ -1,0 +1,8 @@
+#+TITLE: IHG
+#+SETUPFILE: setupfile.org
+
+* internet
+the wifi access code is the property id, which is in the captive portal's url 
+
+~https://84jnvbol5d.execute-api.us-east-1.amazonaws.com/hotel/?propertyid=~
+*ROCGF* ~&login_url=https%3A%2F%2Fn221.network-auth.com%2Fsplash%2Flogin%3Fmauth%3...~

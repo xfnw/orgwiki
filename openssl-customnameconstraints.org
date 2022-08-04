@@ -1,0 +1,58 @@
+#+TITLE: openssl custom name constraints
+#+SETUPFILE: setupfile.org
+
+[2022-07-07]: Warning: cross-signing other CA's to add your own
+constraints does not work on latest openssl versions. see [[https://security.stackexchange.com/questions/262929/openssl-cross-sign-non-self-signed-certificate][this
+security stackexchange post]] for more information.
+
+adapted from [[https://serverfault.com/a/764699/973375][this ServerFault post]] and [[https://systemoverlord.com/2020/06/14/private-ca-with-x-509-name-constraints.html][this blogpost]].
+
+#+TOC: headlines 3
+
+* making your own name-constrained CA
+make a ~name-constraint.ini~ file
+
+#+begin_src ini
+[ req ]
+distinguished_name      = req_distinguished_name
+keyUsage                = critical, keyCertSign, cRLSign
+[ domain_ca ]
+basicConstraints = critical, CA:TRUE
+nameConstraints         = critical, permitted;DNS:.example.com
+subjectKeyIdentifier    = hash
+authorityKeyIdentifier  = keyid,issuer:always
+[ req_distinguished_name ]
+#+end_src
+
+make your ca with the name constraints 
+
+#+begin_src sh
+  openssl req -new -x509 -days 3650 -newkey rsa:4096 -sha512 -extensions domain_ca -utf8 -out my-ca.crt -keyout my-ca.key -subj '/C=US/O=Example/OU=CA' -config name-constraint.ini
+#+end_src
+
+* signing stuff with it
+
+make an ~altname.ini~ file (you only have to do this once) 
+
+#+begin_src ini
+subjectAltName          = ${ENV::CERT_SAN}
+#+end_src
+
+sign the third party
+
+
+#+begin_src sh
+CERT_SAN=DNS:meow.example.com openssl x509 -in third_party.crt -CA my-ca.crt -CAkey my-ca.key -set_serial 69 -sha512 -extfile altname.ini -out domain-cross.crt
+#+end_src
+
+on newer versions of openssl, you might need ~openssl x509 -x509toreq~ to convert the third party ca to a csr, however /this requires its private key/: 
+
+#+begin_src sh
+openssl x509 -x509toreq -in third_party.crt -signkey third_party.key -out third_party.csr
+#+end_src
+
+now you can sign the certificate request
+
+#+begin_src sh
+CERT_SAN=DNS:meow.example.com openssl x509 -in third_party.csr -CA my-ca.crt -CAkey my-ca.key -set_serial 69 -sha512 -extfile altname.ini -out domain-cross.crt
+#+end_src

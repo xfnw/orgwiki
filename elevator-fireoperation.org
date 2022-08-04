@@ -1,0 +1,10 @@
+#+TITLE: fire operation phase 2
+#+SETUPFILE: setupfile.org
+
+#+begin_quote
+Elevators shall be removed from Phase II Emergency In-Car Operation
+only when the “FIRE OPERATION” switch is in the “OFF” position and the
+car is at the designated level and the doors are in the normal open
+position.[fn:1:section 2.27.3.3.5 of ASME 17.1-2016]
+#+end_quote
+

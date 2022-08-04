@@ -1,0 +1,26 @@
+#+TITLE: pixelflut
+#+SETUPFILE: setupfile.org
+
+Pixelflut is a simple protocol for collaboratively editing pixels
+
+#+TOC: headlines 3
+
+* protocol
+
+there are 3 commands in the official specs, ~HELP~ ~SIZE~ and ~PX~
+
+- ~HELP~ returns a small helptext.
+- ~SIZE~ returns the resolution of pixels you can edit, in the form of ~SIZE <x> <y>~, for example ~SIZE 1366 768~
+- ~PX <x> <y>~ returns the color of the pixel at that position, in the form of ~PX <x> <y> <color>~, for example ~PX 400 20 00FF00~
+- ~PX <x> <y> <color>~ sets the color of the pixel at that position and does not have to return anything
+
+however some implementations add extra commands, like ~OFFSET~
+
+* servers
+- [[https://github.com/defnull/pixelflut][reference implementation]]
+- [[https://git.sr.ht/~xfnw/fbflut][fbflut]] my framebuffer implementation in c
+- [[https://vanheusden.com/constatus/][constatus]]
+- [[https://github.com/timvisee/pixelpwnr-server][pixelpwnr-server]] gpu accelerated rust implementation
+
+* see also
+- [[https://hackaday.com/2020/08/01/playing-the-pixelflut/][hackaday article]]

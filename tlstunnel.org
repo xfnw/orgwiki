@@ -1,0 +1,6 @@
+#+TITLE: tlstunnel
+#+SETUPFILE: setupfile.org
+* openbsd
+listening on ipv6 when using openbsd seems to be broken, and breaks
+acme cert generation. this can be temporarily fixed by patching
+tlstunnel to hardcode listening on your ipv6 interface

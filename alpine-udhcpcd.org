@@ -1,0 +1,11 @@
+#+TITLE: alpine udhcpcd error
+#+SETUPFILE: setupfile.org
+
+whatever you do, do not roll back your boot partition to a previous kernel version, it breaks networking and all the kernel modules
+
+resulting in errors such as this on boot
+#+begin_quote
+udhcpc: socket(AF_PACKET,2,8): Address family not supported by protocol
+#+end_quote
+
+this can be fixed by chrooting in and reinstalling the kernel, in my case ~linux-virt~
