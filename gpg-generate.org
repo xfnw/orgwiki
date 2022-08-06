@@ -12,8 +12,8 @@ guidelines]]. DO NOT USE THE OTHER ONES, /ESPECIALLY/ THE NIST AND *DSA
 ONES THAT THE NSA BACKDOORED!!!
 
 * remove limitations on uid
-annoyingly, gpg enforces a 5 character minimum length for uid's. use
-~--allow-freeform-uid~ to disable this behavior
+annoyingly, gpg enforces a 5 character minimum length for uid's by
+default. use ~--allow-freeform-uid~ to disable this behavior
 
 do put an email though, else some keyservers will not accept it
 
