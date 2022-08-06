@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-08-05 Fri 20:10 -->
+<!-- 2022-08-05 Fri 20:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>sitemap</title>
+<title>generating a gpg key</title>
 <meta name="author" content="xfnw" />
 <meta name="generator" content="Org Mode" />
 <meta charset="UTF-8">
@@ -121,32 +121,46 @@ nav { display: none; }
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">sitemap</h1>
-<ul class="org-ul">
-<li><a href="./9front-iso.html">building a 9front iso</a></li>
-<li><a href="./IHG.html">IHG</a></li>
-<li><a href="./about.html">about</a></li>
-<li><a href="./alpine-udhcpcd.html">alpine udhcpcd error</a></li>
-<li><a href="./ape-wine.html">ape wine</a></li>
-<li><a href="./beemoviescript.html">the entire bee movie script</a></li>
-<li><a href="./capital.html">a memoir on capital letters</a></li>
-<li><a href="./docker-x11.html">docker x11</a></li>
-<li><a href="./elevator-fireoperation.html">fire operation phase 2</a></li>
-<li><a href="./elevator-testscript.html">elevator emergency phone test script</a></li>
-<li><a href="./gpg-generate.html">generating a gpg key</a></li>
-<li><a href="./index.html">xfnw's org wiki thing</a></li>
-<li><a href="./mariadb-accounts.html">mariadb accounts</a></li>
-<li><a href="./minetest-mods.html">minetest mods</a></li>
-<li><a href="./minetest-skins.html">minetest skins</a></li>
-<li><a href="./ngircd-cloakhostsalt.html">ngircd cloak host salt</a></li>
-<li><a href="./openssl-customnameconstraints.html">openssl custom name constraints</a></li>
-<li><a href="./pixelflut.html">pixelflut</a></li>
-<li><a href="./rc.d.html">rc.d</a></li>
-<li><a href="./tlstunnel.html">tlstunnel</a></li>
-<li><a href="./wireguard.html">wireguard</a></li>
-<li><a href="./xfburn-failurecbd.html">xfburn FailureCBD error</a></li>
-<li><a href="./znc-freeze.html">freeze a znc account</a></li>
-</ul>
+<h1 class="title">generating a gpg key</h1>
+
+<div id="outline-container-org0000000" class="outline-2">
+<h2 id="org0000000"><span class="section-number-2">1.</span> Curve25519 keys</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+using <code>--full-generate-key --expert</code> allows you to use all the hidden
+ECC options, including Curve25519
+</p>
+
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2022-08-05 Fri]</span></span>: a word of warning: at the time of writing,
+Curve25519 seems to be the only curve-based algorithm that gpg
+supports while also being deemed safe by <a href="https://safecurves.cr.yp.to/">cr.yp.to's safecurves
+guidelines</a>. DO NOT USE THE OTHER ONES, <i>ESPECIALLY</i> THE NIST AND *DSA
+ONES THAT THE NSA BACKDOORED!!!
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0000001" class="outline-2">
+<h2 id="org0000001"><span class="section-number-2">2.</span> remove limitations on uid</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+annoyingly, gpg enforces a 5 character minimum length for uid's. use
+<code>--allow-freeform-uid</code> to disable this behavior
+</p>
+
+<p>
+do put an email though, else some keyservers will not accept it
+</p>
+
+<blockquote>
+<p>
+"There are two major products that come out of Berkeley: LSD and UNIX.
+   We don't believe this to be a coincidence." - Jeremy S. Anderson
+</p>
+</blockquote>
+</div>
+</div>
 </div>
 </body>
 </html>

@@ -1,6 +1,7 @@
 #+TITLE: sitemap
 #+SETUPFILE: setupfile.org
 - [[./9front-iso.org][building a 9front iso]]
+- [[./IHG.org][IHG]]
 - [[./about.org][about]]
 - [[./alpine-udhcpcd.org][alpine udhcpcd error]]
 - [[./ape-wine.org][ape wine]]
@@ -9,7 +10,7 @@
 - [[./docker-x11.org][docker x11]]
 - [[./elevator-fireoperation.org][fire operation phase 2]]
 - [[./elevator-testscript.org][elevator emergency phone test script]]
-- [[./IHG.org][IHG]]
+- [[./gpg-generate.org][generating a gpg key]]
 - [[./index.org][xfnw's org wiki thing]]
 - [[./mariadb-accounts.org][mariadb accounts]]
 - [[./minetest-mods.org][minetest mods]]
