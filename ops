@@ -1,1 +1,1 @@
-{"version":1,"ops":[{"type":1,"author":{"id":"bfd5d2608c99a7f26120663f99cb8f0a57f2b88c"},"timestamp":1659813412,"title":"sitemap sorting not portable","message":"different shell implementations seem to only sometimes sort `for` blocks,\nso generating the sitemap on different platforms is inconsistent","files":null}]}
+{"version":1,"ops":[{"type":5,"author":{"id":"bfd5d2608c99a7f26120663f99cb8f0a57f2b88c"},"timestamp":1659813524,"added":["sitemap"],"removed":null}]}
