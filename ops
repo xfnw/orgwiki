@@ -1,1 +1,1 @@
-{"version":1,"ops":[{"type":5,"author":{"id":"bfd5d2608c99a7f26120663f99cb8f0a57f2b88c"},"timestamp":1659813524,"added":["sitemap"],"removed":null}]}
+{"version":1,"ops":[{"type":3,"author":{"id":"a97e5b6af1645338212cfa8fcbfc0ab679063af6"},"timestamp":1659836467,"message":"i suppose a solution could be `while read fn` instead of `for fn in`","files":null}]}
