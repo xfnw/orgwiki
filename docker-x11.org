@@ -1,7 +1,7 @@
 #+TITLE: docker x11
 #+SETUPFILE: setupfile.org
 
-
+* forwarding the X11 socket
 
 to allow docker to access your X11 session and start graphical applications
 
@@ -12,3 +12,13 @@ docker run -v \
   -v $HOME/.Xauthority:/home/user/.Xauthority
 #+end_src
 
+* hostname-based access control to the local X server
+
+if you did not forward your ~.Xauthority~ file, you can still allow
+connections with the use of the ~xhost~ command
+
+#+begin_src sh
+  xhost +hostname
+#+end_src
+
+where ~hostname~ is probably the container id
