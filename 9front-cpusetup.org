@@ -1,0 +1,61 @@
+#+TITLE: setup a 9front cpu server
+#+SETUPFILE: setupfile.org
+
+configuring 9front as a cpu server will allow drawterm'ing in
+
+#+TOC: headlines 2
+
+* boot into the 9front iso
+follow the prompts until it brings you into rio with a little usage graph and a terminal 
+
+* install it to your disk
+run ~inst/start~ to start the installation
+
+* configuring it to be a cpu server
+
+this section is heavily borrowed from [[https://gist.github.com/99z/1ff7c64f700a18e4025aa3c36ae78df0#cpuauth-server-setup][this github gist]].
+
+#+begin_quote
+*make sure your nvram password is valid!*
+it needs to be equal to hostowner (glenda by default)'s password for
+the hostowner to login to drawterm, and accounts have minimum password
+requirements. if you need to [[http://fqa.9front.org/fqa7.html#7.3.2][change it]] you can use the command
+~auth/wrkey~ however this seems to delete the passwords of all users
+#+end_quote
+
+
+** setup fileserver listening
+mount the 9fat partition with ~9fs 9fat~ and then add ~service=cpu~ to
+~/n/9fat/plan9.ini~
+
+after rebooting (you can do this with the ~fshalt~ command) it will
+ask you to create a wrkey. enter the hostowner's username for
+~authid~. ~authdom~ should be a globally unique "authentication
+domain" (although it does not have to be), just use your domain name
+if unsure. leave ~secstore~ empty. ~password~ must be the hostowner's
+password.
+
+if using cwfs, reboot and stick a ~-c~ on the bootargs. then type
+~noauth~ twice and then ~end~.
+
+edit your ~/n/9fat/plan9.ini~ again, this time adding ~-a tcp!*!564~
+if using cwfs or ~-A -a tcp!*!564~ if using hjfs to the end of the
+~bootargs~ line. reboot to test if it worked, and if it did, consider
+changing ~bootargs~ to ~nobootprompt~ so you will not have to press
+enter to boot it up.
+
+** setup auth listening
+run ~ndb/query sys <sysname>~ and then fill out the information into
+~/lib/ndb/local~ and uncomment the ipnet block near the bottom.
+
+- set ~auth~ and ~cpu~ to your sysname
+- ~authdom~ must be what we set it to before, set ~ipnet~ to the same
+- ~ipmask~ ~ipgw~ and ~dns~ should be set to the values from query
+- ~ip~ should be the subnet id, /not/ your actual ip. if you want to
+  set a static ip, do that at the line outside the block, adding
+  an ~ip~ field to the ~sys=sysname ether=stuff~ line
+
+reboot and then you can set a password to your hostowner with
+~auth/changeuser your-hostowner-name~
+
+run ~netaudit~ to make sure everything's setup fine

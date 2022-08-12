@@ -1,5 +1,6 @@
 #+TITLE: sitemap
 #+SETUPFILE: setupfile.org
+- [[./9front-cpusetup.org][setup a 9front cpu server]]
 - [[./9front-iso.org][building a 9front iso]]
 - [[./about.org][about]]
 - [[./alpine-udhcpcd.org][alpine udhcpcd error]]
