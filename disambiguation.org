@@ -1,0 +1,5 @@
+#+TITLE: disambiguation
+#+SETUPFILE: setupfile.org
+
+- xfnw is a fox
+- xfwm4 is xfce's window manager
