@@ -5,20 +5,20 @@
 
 to allow docker to access your X11 session and start graphical applications
 
-#+begin_src sh
+#+begin_example sh
 docker run -v \
   /tmp/.X11-unix:/tmp/.X11-unix \
   -e DISPLAY=$DISPLAY -h $HOSTNAME \
   -v $HOME/.Xauthority:/home/user/.Xauthority
-#+end_src
+#+end_example
 
 * hostname-based access control to the local X server
 
 if you did not forward your ~.Xauthority~ file, you can still allow
 connections with the use of the ~xhost~ command
 
-#+begin_src sh
+#+begin_example sh
   xhost +hostname
-#+end_src
+#+end_example
 
 where ~hostname~ is probably the container id

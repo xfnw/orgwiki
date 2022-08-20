@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-08-20 Sat 16:20 -->
+<!-- 2022-08-20 Sat 16:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>docker X11</title>
@@ -130,13 +130,12 @@ nav { display: none; }
 to allow docker to access your X11 session and start graphical applications
 </p>
 
-<div class="org-src-container">
-<pre class="src src-sh">docker run -v \
+<pre class="example" id="org0000000">
+docker run -v \
   /tmp/.X11-unix:/tmp/.X11-unix \
   -e DISPLAY=$DISPLAY -h $HOSTNAME \
   -v $HOME/.Xauthority:/home/user/.Xauthority
 </pre>
-</div>
 </div>
 </div>
 
@@ -148,10 +147,9 @@ if you did not forward your <code>.Xauthority</code> file, you can still allow
 connections with the use of the <code>xhost</code> command
 </p>
 
-<div class="org-src-container">
-<pre class="src src-sh">xhost +hostname
+<pre class="example" id="org0000001">
+xhost +hostname
 </pre>
-</div>
 
 <p>
 where <code>hostname</code> is probably the container id

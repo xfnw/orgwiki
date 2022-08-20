@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-08-20 Sat 16:20 -->
+<!-- 2022-08-20 Sat 16:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ape wine</title>
@@ -129,19 +129,17 @@ if you have wine installed, linux will annoyingly try to run APE's as windows ex
 <p>
 run
 </p>
-<div class="org-src-container">
-<pre class="src src-sh">sudo sh -c "echo ':APE:M::MZqFpD::/bin/sh:' &gt;/proc/sys/fs/binfmt_misc/register"
+<pre class="example" id="org0000000">
+sudo sh -c "echo ':APE:M::MZqFpD::/bin/sh:' &gt;/proc/sys/fs/binfmt_misc/register"
 </pre>
-</div>
 
 <p>
 to fix it until the next boot, or 
 </p>
 
-<div class="org-src-container">
-<pre class="src src-sh">sudo sh -c "echo ':APE:M::MZqFpD::/bin/sh:' &gt;/etc/binfmt.d/ape.conf"
+<pre class="example" id="org0000000">
+sudo sh -c "echo ':APE:M::MZqFpD::/bin/sh:' &gt;/etc/binfmt.d/ape.conf"
 </pre>
-</div>
 
 <p>
 for a permanent fix after the next boot if using systemd

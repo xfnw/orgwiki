@@ -4,15 +4,15 @@
 if you have wine installed, linux will annoyingly try to run APE's as windows executables
 
 run
-#+begin_src sh
+#+begin_example sh
   sudo sh -c "echo ':APE:M::MZqFpD::/bin/sh:' >/proc/sys/fs/binfmt_misc/register"
-#+end_src
+#+end_example
 
 to fix it until the next boot, or 
 
-#+begin_src sh
+#+begin_example sh
   sudo sh -c "echo ':APE:M::MZqFpD::/bin/sh:' >/etc/binfmt.d/ape.conf"
-#+end_src
+#+end_example
 
 for a permanent fix after the next boot if using systemd
 
