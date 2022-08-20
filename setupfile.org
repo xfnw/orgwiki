@@ -99,8 +99,8 @@ Included via ~#+SETUPFILE:~ in wiki pages
 
 #+COMMENT: #+begin_example & #+begin_src
 
-#+HTML_HEAD: .example { white-space:pre-wrap; word-break:break-all; }
-#+HTML_HEAD: .src { white-space:pre-wrap; word-break:break-all; }
+#+HTML_HEAD: .example { white-space:pre-wrap; }
+#+HTML_HEAD: .src { white-space:pre-wrap; }
 #+HTML_HEAD: @media only screen {
 #+HTML_HEAD:    .example { background-color:#222211; }
 #+HTML_HEAD:    .src { background-color:#222211; }
