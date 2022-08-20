@@ -1,0 +1,13 @@
+#+TITLE: compress a git repository
+#+SETUPFILE: setupfile.org
+
+git repositories can build up files that are no longer useful, making
+them pointlessly large. we can remove them and then recompress the
+remaining stuff with these commands.
+
+#+begin_src sh
+  git gc
+  git repack -Ad
+  git gc
+#+end_src
+

@@ -11,6 +11,7 @@
 - [[./docker-x11.org][docker X11]]
 - [[./elevator-fireoperation.org][fire operation phase 2]]
 - [[./elevator-testscript.org][elevator emergency phone test script]]
+- [[./git-compression.org][compress a git repository]]
 - [[./gpg-generate.org][generating a gpg key]]
 - [[./IHG.org][IHG]]
 - [[./index.org][xfnw's org wiki thing]]
