@@ -3,7 +3,16 @@
 
 hello, you might find some stuff here
 
+* an offline-first wiki
+all  relevant  referenced  content  should  be  included  in  [[https://owen.bellz.org/git/orgwiki/][the  git
+repository]] to avoid link-rot and  to work offline. despite this, after
+following  the instructions  on the  [[./git-compression.org][git-compression]] page,  the entire
+wiki's repository is currently under  1mb in size (although the actual
+size  is somewhat  larger,  as  each page  tries  to  be a  standalone
+document, which would benefit from deduplication)
+
 * generated with org-mode
 its like wikitext but more consistent!  learn more on the [[./about.org][about page]].
+
 * meow
 am fox
