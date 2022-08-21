@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-08-21 Sun 00:10 -->
+<!-- 2022-08-21 Sun 00:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>sitemap</title>
+<title>creating accessable PDF/A files with LaTeX</title>
 <meta name="generator" content="Org Mode" />
 <meta charset="UTF-8">
 <style>
@@ -121,36 +121,82 @@ nav { display: none; }
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">sitemap</h1>
-<ul class="org-ul">
-<li><a href="./9front-cpusetup.html">setup a 9front cpu server</a></li>
-<li><a href="./9front-iso.html">building a 9front iso</a></li>
-<li><a href="./about.html">about</a></li>
-<li><a href="./alpine-udhcpcd.html">alpine udhcpcd error</a></li>
-<li><a href="./ape-wine.html">ape wine</a></li>
-<li><a href="./beemoviescript.html">the entire bee movie script</a></li>
-<li><a href="./capital.html">a memoir on capital letters</a></li>
-<li><a href="./disambiguation.html">disambiguation</a></li>
-<li><a href="./docker-x11.html">docker X11</a></li>
-<li><a href="./elevator-fireoperation.html">fire operation phase 2</a></li>
-<li><a href="./elevator-testscript.html">elevator emergency phone test script</a></li>
-<li><a href="./git-compression.html">compress a git repository</a></li>
-<li><a href="./gpg-generate.html">generating a gpg key</a></li>
-<li><a href="./IHG.html">IHG</a></li>
-<li><a href="./index.html">xfnw's org wiki thing</a></li>
-<li><a href="./latex-pdfa.html">creating accessable PDF/A files with LaTeX</a></li>
-<li><a href="./mariadb-accounts.html">mariadb accounts</a></li>
-<li><a href="./minetest-mods.html">minetest mods</a></li>
-<li><a href="./minetest-skins.html">minetest skins</a></li>
-<li><a href="./ngircd-cloakhostsalt.html">ngircd cloak host salt</a></li>
-<li><a href="./openssl-customnameconstraints.html">openssl custom name constraints</a></li>
-<li><a href="./pixelflut.html">pixelflut</a></li>
-<li><a href="./rc.d.html">rc.d</a></li>
-<li><a href="./tlstunnel.html">tlstunnel</a></li>
-<li><a href="./wireguard.html">wireguard</a></li>
-<li><a href="./xfburn-failurecbd.html">xfburn FailureCBD error</a></li>
-<li><a href="./znc-freeze.html">freeze a znc account</a></li>
-</ul>
+<h1 class="title">creating accessable PDF/A files with LaTeX</h1>
+<p>
+my <code>latex.org</code> setupfile to do this automagically can be found
+<a href="./latex.html">here</a>. (if viewing this on the web, you will probably have to change
+the extension to <code>.org</code> get view the raw source)
+</p>
+
+<div id="outline-container-org0000000" class="outline-2">
+<h2 id="org0000000"><span class="section-number-2">1.</span> tagged pdf</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+there is currently not a good solution for generating accessable
+(tagged) pdfs with LaTeX. the <code>accessability</code> package is pretty much
+the only option, and it barely works.
+</p>
+
+<pre class="example" id="org0000000">
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage[tagged, highstructure]{accessibility}
+
+\pdfpageattr{/StructParents 0/Tabs/S}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org0000003" class="outline-2">
+<h2 id="org0000003"><span class="section-number-2">2.</span> PDF/A</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org0000001" class="outline-3">
+<h3 id="org0000001"><span class="section-number-3">2.1.</span> packages</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+<code>hyperref</code> and <code>pdfx</code> let you export as a PDF/A. if exporting from
+orgmode, it will automatically include the <code>hyperref</code> package for you.
+</p>
+
+<pre class="example" id="org0000001">
+\usepackage{hyperref}
+\usepackage[a-3b]{pdfx}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org0000002" class="outline-3">
+<h3 id="org0000002"><span class="section-number-3">2.2.</span> xmpdata</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+using a <code>filename.xmpdata</code>, replacing filename with the actual
+filename of your tex file, you can specify additional metadata such as
+the copyright holder, author, title, etc
+</p>
+
+<p>
+any of these macros are optional, here are a few:
+</p>
+
+<pre class="example" id="org0000002">
+\Title     {Your Title}
+\Author    {Vulpinely Vulpine}
+\Keywords  {cool\sep
+            neat\sep
+	    foxes\sep
+	    uwu}
+\Subject   {this is very abstract}
+</pre>
+
+<p>
+more macros for the xmpdata file can be found <a href="./sample.xmpdata">in the sample xmpdata
+file</a> (borrowed from <a href="https://www.mathstat.dal.ca/~selinger/pdfa/">Peter Selinger's website</a>)
+</p>
+</div>
+</div>
+</div>
 </div>
 </body>
 </html>

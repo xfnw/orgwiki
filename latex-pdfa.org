@@ -1,0 +1,53 @@
+#+TITLE: creating accessable PDF/A files with LaTeX
+#+SETUPFILE: setupfile.org
+
+my ~latex.org~ setupfile to do this automagically can be found
+[[./latex.org][here]]. (if viewing this on the web, you will probably have to change
+the extension to ~.org~ get view the raw source)
+
+* tagged pdf
+there is currently not a good solution for generating accessable
+(tagged) pdfs with LaTeX. the ~accessability~ package is pretty much
+the only option, and it barely works.
+
+#+begin_example
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage[tagged, highstructure]{accessibility}
+
+\pdfpageattr{/StructParents 0/Tabs/S}
+#+end_example
+
+* PDF/A
+
+** packages
+~hyperref~ and ~pdfx~ let you export as a PDF/A. if exporting from
+orgmode, it will automatically include the ~hyperref~ package for you.
+
+#+begin_example
+\usepackage{hyperref}
+\usepackage[a-3b]{pdfx}
+#+end_example
+
+** xmpdata
+
+using a ~filename.xmpdata~, replacing filename with the actual
+filename of your tex file, you can specify additional metadata such as
+the copyright holder, author, title, etc
+
+any of these macros are optional, here are a few:
+
+#+begin_example
+\Title     {Your Title}
+\Author    {Vulpinely Vulpine}
+\Keywords  {cool\sep
+            neat\sep
+	    foxes\sep
+	    uwu}
+\Subject   {this is very abstract}
+#+end_example
+
+more macros for the xmpdata file can be found [[./sample.xmpdata][in the sample xmpdata
+file]] (borrowed from [[https://www.mathstat.dal.ca/~selinger/pdfa/][Peter Selinger's website]])
+
