@@ -1,1 +1,1 @@
-{"version":1,"ops":[{"type":3,"author":{"id":"a97e5b6af1645338212cfa8fcbfc0ab679063af6"},"timestamp":1659836467,"message":"i suppose a solution could be `while read fn` instead of `for fn in`","files":null}]}
+{"version":1,"ops":[{"type":3,"author":{"id":"a97e5b6af1645338212cfa8fcbfc0ab679063af6"},"timestamp":1661476108,"message":"changed to use find and while read","files":null},{"type":4,"author":{"id":"a97e5b6af1645338212cfa8fcbfc0ab679063af6"},"timestamp":1661476113,"status":2}]}
