@@ -1,0 +1,16 @@
+#+TITLE: lavfi live oscilloscope
+#+SETUPFILE: setupfile.org
+
+this pipeline turns your pulseaudio monitor into an oscilloscope using
+ffmpeg, lavfi, and mpv
+
+#+begin_example
+ffmpeg -f pulse -i 0 -acodec copy -flags low_delay -fflags nobuffer -f wav - |
+mpv - --config=no --alpha=no --mute -untimed --profile=low-latency \
+--lavfi-complex='[aid1]asplit[ao][a1];[a1]avectorscope=r=25:m=lissajous_xy:bc=100:gc=100:rc=75:bf=255:gf=80:rf=255:zoom=1[vo]' \
+#+end_example
+
+dispite all the low latency options stuck on there, there's still
+around a half-second of latency. this can be squeezed down slightly by
+using the seek bar in mpv to move it to the end, but even then there
+is still slight latency

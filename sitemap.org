@@ -16,6 +16,7 @@
 - [[./IHG.org][IHG]]
 - [[./index.org][xfnw's org wiki thing]]
 - [[./latex-pdfa.org][creating accessable PDF/A files with LaTeX]]
+- [[./lavfi-scope.org][lavfi live oscilloscope]]
 - [[./mariadb-accounts.org][mariadb accounts]]
 - [[./minetest-mods.org][minetest mods]]
 - [[./minetest-skins.org][minetest skins]]

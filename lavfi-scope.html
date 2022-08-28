@@ -6,7 +6,7 @@
 <!-- 2022-08-27 Sat 22:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>sitemap</title>
+<title>lavfi live oscilloscope</title>
 <meta name="generator" content="Org Mode" />
 <meta charset="UTF-8">
 <style>
@@ -121,37 +121,24 @@ nav { display: none; }
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">sitemap</h1>
-<ul class="org-ul">
-<li><a href="./9front-cpusetup.html">setup a 9front cpu server</a></li>
-<li><a href="./9front-iso.html">building a 9front iso</a></li>
-<li><a href="./about.html">about</a></li>
-<li><a href="./alpine-udhcpcd.html">alpine udhcpcd error</a></li>
-<li><a href="./ape-wine.html">ape wine</a></li>
-<li><a href="./beemoviescript.html">the entire bee movie script</a></li>
-<li><a href="./capital.html">a memoir on capital letters</a></li>
-<li><a href="./disambiguation.html">disambiguation</a></li>
-<li><a href="./docker-x11.html">docker X11</a></li>
-<li><a href="./elevator-fireoperation.html">fire operation phase 2</a></li>
-<li><a href="./elevator-testscript.html">elevator emergency phone test script</a></li>
-<li><a href="./git-compression.html">compress a git repository</a></li>
-<li><a href="./gpg-generate.html">generating a gpg key</a></li>
-<li><a href="./IHG.html">IHG</a></li>
-<li><a href="./index.html">xfnw's org wiki thing</a></li>
-<li><a href="./latex-pdfa.html">creating accessable PDF/A files with LaTeX</a></li>
-<li><a href="./lavfi-scope.html">lavfi live oscilloscope</a></li>
-<li><a href="./mariadb-accounts.html">mariadb accounts</a></li>
-<li><a href="./minetest-mods.html">minetest mods</a></li>
-<li><a href="./minetest-skins.html">minetest skins</a></li>
-<li><a href="./ngircd-cloakhostsalt.html">ngircd cloak host salt</a></li>
-<li><a href="./openssl-customnameconstraints.html">openssl custom name constraints</a></li>
-<li><a href="./pixelflut.html">pixelflut</a></li>
-<li><a href="./rc.d.html">rc.d</a></li>
-<li><a href="./tlstunnel.html">tlstunnel</a></li>
-<li><a href="./wireguard.html">wireguard</a></li>
-<li><a href="./xfburn-failurecbd.html">xfburn FailureCBD error</a></li>
-<li><a href="./znc-freeze.html">freeze a znc account</a></li>
-</ul>
+<h1 class="title">lavfi live oscilloscope</h1>
+<p>
+this pipeline turns your pulseaudio monitor into an oscilloscope using
+ffmpeg, lavfi, and mpv
+</p>
+
+<pre class="example" id="org0000000">
+ffmpeg -f pulse -i 0 -acodec copy -flags low_delay -fflags nobuffer -f wav - |
+mpv - --config=no --alpha=no --mute -untimed --profile=low-latency \
+--lavfi-complex='[aid1]asplit[ao][a1];[a1]avectorscope=r=25:m=lissajous_xy:bc=100:gc=100:rc=75:bf=255:gf=80:rf=255:zoom=1[vo]' \
+</pre>
+
+<p>
+dispite all the low latency options stuck on there, there's still
+around a half-second of latency. this can be squeezed down slightly by
+using the seek bar in mpv to move it to the end, but even then there
+is still slight latency
+</p>
 </div>
 </body>
 </html>
