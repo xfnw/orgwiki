@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-08-27 Sat 22:42 -->
+<!-- 2022-08-27 Sat 23:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>lavfi live oscilloscope</title>
@@ -130,7 +130,7 @@ ffmpeg, lavfi, and mpv
 <pre class="example" id="org0000000">
 ffmpeg -f pulse -i 0 -acodec copy -flags low_delay -fflags nobuffer -f wav - |
 mpv - --config=no --alpha=no --mute -untimed --profile=low-latency \
---lavfi-complex='[aid1]asplit[ao][a1];[a1]avectorscope=r=25:m=lissajous_xy:bc=100:gc=100:rc=75:bf=255:gf=80:rf=255:zoom=1[vo]' \
+--lavfi-complex='[aid1]asplit[ao][a1];[a1]avectorscope=r=25:m=lissajous_xy:bc=100:gc=100:rc=75:bf=255:gf=80:rf=255:mirror=y:zoom=1[vo]' \
 </pre>
 
 <p>
