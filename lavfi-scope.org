@@ -14,3 +14,8 @@ dispite all the low latency options stuck on there, there's still
 around a half-second of latency. this can be squeezed down slightly by
 using the seek bar in mpv to move it to the end, but even then there
 is still slight latency
+
+you can add ~:draw=line~ to the ~--lavfi-complex~ option to draw lines
+instead of dots, which can make complex stuff render better, at the
+cost of it becoming somewhat blocky and giving lines to things that
+would normally be moving fast enough to be somewhat hidden

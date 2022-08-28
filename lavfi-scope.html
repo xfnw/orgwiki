@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-08-27 Sat 23:15 -->
+<!-- 2022-08-27 Sat 23:26 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>lavfi live oscilloscope</title>
@@ -138,6 +138,13 @@ dispite all the low latency options stuck on there, there's still
 around a half-second of latency. this can be squeezed down slightly by
 using the seek bar in mpv to move it to the end, but even then there
 is still slight latency
+</p>
+
+<p>
+you can add <code>:draw=line</code> to the <code>--lavfi-complex</code> option to draw lines
+instead of dots, which can make complex stuff render better, at the
+cost of it becoming somewhat blocky and giving lines to things that
+would normally be moving fast enough to be somewhat hidden
 </p>
 </div>
 </body>
