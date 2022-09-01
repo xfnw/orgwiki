@@ -7,6 +7,7 @@
 - [[./ape-wine.org][ape wine]]
 - [[./beemoviescript.org][the entire bee movie script]]
 - [[./capital.org][a memoir on capital letters]]
+- [[./chromeos-blahaj.org][type blåhaj on chrome os]]
 - [[./disambiguation.org][disambiguation]]
 - [[./docker-x11.org][docker X11]]
 - [[./elevator-fireoperation.org][fire operation phase 2]]
