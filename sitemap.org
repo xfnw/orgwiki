@@ -17,6 +17,7 @@
 - [[./index.org][xfnw's org wiki thing]]
 - [[./latex-pdfa.org][creating accessable PDF/A files with LaTeX]]
 - [[./lavfi-scope.org][lavfi live oscilloscope]]
+- [[./libressl-ld.org][libressl ld.conf on arch]]
 - [[./mariadb-accounts.org][mariadb accounts]]
 - [[./minetest-mods.org][minetest mods]]
 - [[./minetest-skins.org][minetest skins]]

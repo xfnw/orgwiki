@@ -1,0 +1,8 @@
+#+TITLE: libressl ld.conf on arch
+#+SETUPFILE: setupfile.org
+
+archlinux libressl appears to have broken ld c linking, this fixes it
+
+#+begin_example
+sudo sh -c 'echo /usr/lib/libressl > /etc/ld.so.conf.d/libressl.conf' && sudo ldconfig
+#+end_example
