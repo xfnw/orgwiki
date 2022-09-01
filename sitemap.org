@@ -24,6 +24,7 @@
 - [[./ngircd-cloakhostsalt.org][ngircd cloak host salt]]
 - [[./openssl-customnameconstraints.org][openssl custom name constraints]]
 - [[./pixelflut.org][pixelflut]]
+- [[./polkit-libvirt.org][polkit libvirt rules]]
 - [[./rc.d.org][rc.d]]
 - [[./tlstunnel.org][tlstunnel]]
 - [[./wireguard.org][wireguard]]

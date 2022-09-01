@@ -1,0 +1,84 @@
+#+TITLE: polkit libvirt rules
+#+SETUPFILE: setupfile.org
+
+* security considerations
+
+polkit does not exactly have a great track record when it comes to
+security, if you use this you probably want to update your system
+frequently.
+
+also, just my humble opinion, but javascript does not seem like a very
+good idea to use to regulate privileges
+
+* restricting vm access to username prefixes
+
+these polkit rules make it so that vms can be somewhat managed in a
+multi-user setting. ie user ~xfnw~ will be able to access a vm named
+~xfnw-catbox~ but not one named ~cheapie-catbox~
+
+** groups
+
+- ~virtusers~ only have access to vms with names that start with their
+  username plus a dash, and the allowed actions are fairly restricting
+- ~virtadmins~ have access to all vms and to all actions
+
+** rules
+
+#+begin_src javascript
+restrictedActions = [
+    "connect.getattr",
+    "connect.search-domains",
+    "connect.read",
+    "domain.core-dump",
+    "domain.fs-freeze",
+    "domain.fs-trim",
+    "domain.getattr",
+    "domain.hibernate",
+    "domain.init-control",
+    "domain.inject-nmi",
+    "domain.open-device",
+    "domain.open-graphics",
+    "domain.pm-control",
+    "domain.read",
+    "domain.read-secure",
+    "domain.reset",
+    "domain.save",
+    "domain.screenshot",
+    "domain.send-input",
+    "domain.send-signal",
+    "domain.set-password",
+    "domain.set-time",
+    "domain.snapshot",
+    "domain.start",
+    "domain.stop",
+    "domain.suspend",
+    "network.getattr",
+    "network.read",
+    "network-port.create",
+    "network-port.read",
+];
+
+polkit.addRule(function(action, subject) {
+    if (action.id.indexOf("org.libvirt.api.") == 0) {
+        var api = action.id.replace("org.libvirt.api.", "");
+        var domain = action.lookup("domain_name");
+
+        if (subject.groups.indexOf("virtadmins") >= 0)
+            return polkit.Result.YES;
+
+        if (restrictedActions.indexOf(api) >= 0 && subject.groups.indexOf("virtusers")) {
+		if (!domain || domain.match(new RegExp("^"+subject.user+"-")))
+                    return polkit.Result.YES;
+        }
+
+        return polkit.Result.NO;
+    }
+});
+
+polkit.addRule(function(action, subject) {
+    if (action.id == "org.libvirt.unix.manage" &&
+        (subject.groups.indexOf("virtadmins") >= 0 || subject.groups.indexOf("virtusers") >= 0)) {
+            return polkit.Result.YES;
+    }
+});
+#+end_src
