@@ -1,0 +1,5 @@
+#+TITLE: type blåhaj on chrome os
+#+SETUPFILE: setupfile.org
+
+press ~C-Space~ to switch to the international keyboard, then you can type ~AltGr-S-0 a~
+(AltGr is the alt key on the right) to get the ~å~
