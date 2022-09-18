@@ -12,4 +12,5 @@ clean:
 	rm -f *.html~
 	git gc
 	git repack -Ad
+	git prune
 

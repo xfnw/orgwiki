@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-09-18 Sun 19:32 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>making citations with LaTeX</title>
+<meta name="generator" content="Org Mode" />
+<meta charset="UTF-8">
+<style>
+body {
+font-family:monospace; font-size:12pt;
+max-width: 700px; margin: 10px 20px;
+}
+@media only print {
+body {
+color:#000000; background-color:#ffffff;
+}
+}
+@media only screen {
+body {
+color:#bfbfbf; background-color:#000000;
+}
+}
+h1 { font-size:144%; }
+h2,h3,h4,h5,h6 { font-size:120%; }
+a {
+text-decoration-style:solid;
+}
+@media only print {
+a {
+background-color:#ffffff;
+color:#000000;
+}
+}
+@media only screen {
+a {
+background-color:#112222;
+color:#bfbfbf;
+}
+}
+pre {
+font-size:10.5pt;
+max-width:80ch;
+overflow:scroll;
+border: 1pt dotted #bfbfbf;
+padding:1ch;
+}
+code {
+border: 1pt dotted #bfbfbf;
+padding: 0 0.15em;
+}
+@media only screen {
+code {
+background-color:#222211;
+}
+}
+.example { white-space:pre-wrap; }
+.src { white-space:pre-wrap; }
+@media only screen {
+.example { background-color:#222211; }
+.src { background-color:#222211; }
+}
+blockquote {
+border: 1pt solid #bfbfbf;
+padding: 0 1ch;
+}
+@media only screen {
+blockquote {
+background-color: #111100;
+}
+}
+.tag { float:right; }
+.tag:before { content: "["; }
+.tag:after { content: "]"; }
+@media only screen {
+.tag { background-color:#111100; }
+.tag:before { background-color:#111100; }
+.tag:after { background-color:#111100; }
+}
+.done { }
+.done:before { content: "["; }
+.done:after { content: "]"; }
+@media only screen {
+.done { background-color: #117711; }
+}
+.todo { }
+.todo:before { content: "["; }
+.todo:after { content: "]"; }
+@media only screen {
+.todo { background-color: #bb1111; }
+}
+@media only screen {
+.DELAYED { background-color: #220077; }
+.RERUN { background-color: #775511; }
+}
+.FIXME:before,.fixme:before { content: "[FIXME] "; float:left; }
+@media only screen {
+.FIXME,.fixme { background-color: #bb1111; }
+}
+.org-center { text-align:center; }
+table { width:100%; border-collapse:collapse; }
+table, th, td { vertical-align:top; }
+img { max-width:100%;display:block;margin:auto;height:auto; }
+.timestamp { }
+@media only screen {
+.timestamp { background-color: #221122; }
+}
+@media only print {
+nav { display: none; }
+}
+.footpara { display: inline; }
+</style>
+<nav>
+<a href="index.html">home</a> /
+<a href="about.html">about</a> /
+<a href="sitemap.html">sitemap</a> /
+</nav>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">making citations with LaTeX</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org0000000">1. without a citation processor</a></li>
+<li><a href="#org0000001">2. with a citation processor</a>
+<ul>
+<li><a href="#org0000002">2.1. bibtex-style bibliography file</a></li>
+<li><a href="#org0000003">2.2. styles</a></li>
+<li><a href="#org0000004">2.3. biber</a></li>
+<li><a href="#org0000005">2.4. bibtex</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0000000" class="outline-2">
+<h2 id="org0000000"><span class="section-number-2">1.</span> without a citation processor</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+if you have just a small number of citations and do not want to use
+something like <code>bibtex</code>, you can manually create them using the
+<code>thebibliography</code> blocks. however, this quickly gets out of hand if
+you have more than a handful of references or documents.
+</p>
+
+<pre class="example" id="org0000006">
+\begin{thebibliography}{9}
+\bibitem{fur2020}
+International Anthropomorphic Research Project.  Species Popularity.
+Fur Science, 2020.
+https://furscience.com/research-findings/fursonas/3-1-species-popularity/
+
+\bibitem{arXiv:2107.02438v3}
+Trizna, D. Shell Language Processing: Unix command parsing for Machine
+Learning. Proceedings of Conference on Applied Machine Learning for
+Information Security (CAMLIS), 2021.  arXiv: 2107.02438v3
+[cs.LG]. http://arxiv.org/
+
+\end{thebibliography}
+</pre>
+
+<p>
+notice the <code>9</code>? that must be the length of the longest citation
+number, or the indentation will be wrong. for example if you had 5
+citations you would put <code>9</code>, or if you had 12 you would put <code>99</code>
+</p>
+
+<p>
+if you would like your tex file to be self-contained, but still want
+to use biber/biblatex, you can use the <code>biblatex2bibitem</code> CTAN package
+to convert them once you are done citing.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0000001" class="outline-2">
+<h2 id="org0000001"><span class="section-number-2">2.</span> with a citation processor</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org0000002" class="outline-3">
+<h3 id="org0000002"><span class="section-number-3">2.1.</span> bibtex-style bibliography file</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+sometimes referred to as a database, these files are supported by most
+of LaTeX's citation processors.
+</p>
+
+<pre class="example" id="org0000006">
+@article{arXiv:2107.02438v3,
+Author        = {Dmitrijs Trizna},
+Title         = {Shell Language Processing: Unix command parsing
+for Machine Learning},
+Eprint        = {2107.02438v3},
+ArchivePrefix = {arXiv},
+PrimaryClass  = {cs.LG},
+Abstract      = {In this article, we present a Shell Language
+Preprocessing (SLP) library},
+Year          = {2021},
+Month         = {Jul},
+Note          = {Proceedings of Conference on Applied Machine
+Learning for Information Security (CAMLIS), 2021},
+Url           = {http://arxiv.org/abs/2107.02438v3},
+File          = {2107.02438v3.pdf}
+}
+</pre>
+
+<p>
+there are other types instead of <code>article</code> too, such as <code>book</code>,
+<code>inproceedings</code>, <code>manual</code>, <code>masterthesis</code>, and <code>misc</code>.
+</p>
+
+<p>
+there are various applications and tools for generating and managing
+these. if you cite a lot of arXiv, <code>arxiv2bib</code> is nice.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0000003" class="outline-3">
+<h3 id="org0000003"><span class="section-number-3">2.2.</span> styles</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+biblatex supports various styles. here are a few, although there are
+<i>quite a few</i> more.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">name</th>
+<th scope="col" class="org-left">what it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>mla</code></td>
+<td class="org-left">mla-style</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>apa</code></td>
+<td class="org-left">apa-style</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>nature</code></td>
+<td class="org-left">used by the Nature journal</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>science</code></td>
+<td class="org-left">used by the (aptly-named) Science journal</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>phys</code></td>
+<td class="org-left">used in physics</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>numeric</code></td>
+<td class="org-left">just numbers in square brackets</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>numeric-comp</code></td>
+<td class="org-left">like <code>numeric</code> but puts multiple citations into ranges</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org0000004" class="outline-3">
+<h3 id="org0000004"><span class="section-number-3">2.3.</span> biber</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+biber provides better unicode support than other citation processors.
+</p>
+
+<p>
+since biber is a backend, it requires <code>biblatex</code> to work, which is
+probably provided by a package named similar to (dispite the name)
+<code>texmf-dist-bibtexextra</code> or <code>texlive-bibtexextra</code> in your package
+manager.
+</p>
+
+<pre class="example" id="org0000006">
+\usepackage[backend=biber, style=nature]{biblatex}
+\addbibresource{refs.bib}
+</pre>
+
+<p>
+will include a bibliography file named <code>refs.bib</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0000005" class="outline-3">
+<h3 id="org0000005"><span class="section-number-3">2.4.</span> bibtex</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+bibtex is old and has horrible unicode support, it should probably not
+be used if you want anything but latin characters.
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

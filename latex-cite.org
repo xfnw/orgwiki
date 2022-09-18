@@ -1,0 +1,98 @@
+#+TITLE: making citations with LaTeX
+#+SETUPFILE: setupfile.org
+
+#+TOC: headlines 3
+
+* without a citation processor
+if you have just a small number of citations and do not want to use
+something like ~bibtex~, you can manually create them using the
+~thebibliography~ blocks. however, this quickly gets out of hand if
+you have more than a handful of references or documents.
+
+#+begin_example
+\begin{thebibliography}{9}
+\bibitem{fur2020}
+International Anthropomorphic Research Project.  Species Popularity.
+Fur Science, 2020.
+https://furscience.com/research-findings/fursonas/3-1-species-popularity/
+
+\bibitem{arXiv:2107.02438v3}
+Trizna, D. Shell Language Processing: Unix command parsing for Machine
+Learning. Proceedings of Conference on Applied Machine Learning for
+Information Security (CAMLIS), 2021.  arXiv: 2107.02438v3
+[cs.LG]. http://arxiv.org/
+
+\end{thebibliography}
+#+end_example
+
+notice the ~9~? that must be the length of the longest citation
+number, or the indentation will be wrong. for example if you had 5
+citations you would put ~9~, or if you had 12 you would put ~99~
+
+if you would like your tex file to be self-contained, but still want
+to use biber/biblatex, you can use the ~biblatex2bibitem~ CTAN package
+to convert them once you are done citing.
+
+* with a citation processor
+
+** bibtex-style bibliography file
+sometimes referred to as a database, these files are supported by most
+of LaTeX's citation processors.
+
+#+begin_example
+@article{arXiv:2107.02438v3,
+Author        = {Dmitrijs Trizna},
+Title         = {Shell Language Processing: Unix command parsing
+for Machine Learning},
+Eprint        = {2107.02438v3},
+ArchivePrefix = {arXiv},
+PrimaryClass  = {cs.LG},
+Abstract      = {In this article, we present a Shell Language
+Preprocessing (SLP) library},
+Year          = {2021},
+Month         = {Jul},
+Note          = {Proceedings of Conference on Applied Machine
+Learning for Information Security (CAMLIS), 2021},
+Url           = {http://arxiv.org/abs/2107.02438v3},
+File          = {2107.02438v3.pdf}
+}
+#+end_example
+
+there are other types instead of ~article~ too, such as ~book~,
+~inproceedings~, ~manual~, ~masterthesis~, and ~misc~.
+
+there are various applications and tools for generating and managing
+these. if you cite a lot of arXiv, ~arxiv2bib~ is nice.
+
+** styles
+biblatex supports various styles. here are a few, although there are
+/quite a few/ more.
+
+| name           | what it is                                             |
+|----------------+--------------------------------------------------------|
+| ~mla~          | mla-style                                              |
+| ~apa~          | apa-style                                              |
+| ~nature~       | used by the Nature journal                             |
+| ~science~      | used by the (aptly-named) Science journal              |
+| ~phys~         | used in physics                                        |
+| ~numeric~      | just numbers in square brackets                        |
+| ~numeric-comp~ | like ~numeric~ but puts multiple citations into ranges |
+
+** biber
+biber provides better unicode support than other citation processors.
+
+since biber is a backend, it requires ~biblatex~ to work, which is
+probably provided by a package named similar to (dispite the name)
+~texmf-dist-bibtexextra~ or ~texlive-bibtexextra~ in your package
+manager.
+
+#+begin_example
+\usepackage[backend=biber, style=nature]{biblatex}
+\addbibresource{refs.bib}
+#+end_example
+
+will include a bibliography file named ~refs.bib~
+
+** bibtex
+bibtex is old and has horrible unicode support, it should probably not
+be used if you want anything but latin characters.
