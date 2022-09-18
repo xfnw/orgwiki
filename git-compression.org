@@ -8,6 +8,7 @@ remaining stuff with these commands.
 #+begin_example sh
   git repack -Ad
   git gc
+  git prune
 #+end_example
 
 you can also ~git gc --aggressive~ first to squeeze it even more.
