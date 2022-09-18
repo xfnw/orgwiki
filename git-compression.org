@@ -6,8 +6,9 @@ them pointlessly large. we can remove them and then recompress the
 remaining stuff with these commands.
 
 #+begin_example sh
-  git gc
   git repack -Ad
   git gc
 #+end_example
+
+you can also ~git gc --aggressive~ first to squeeze it even more.
 
