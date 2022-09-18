@@ -4,6 +4,7 @@
 - [[./9front-iso.org][building a 9front iso]]
 - [[./about.org][about]]
 - [[./alpine-udhcpcd.org][alpine udhcpcd error]]
+- [[./ansi-escapes.org][ansi escape sequences]]
 - [[./ape-wine.org][ape wine]]
 - [[./beemoviescript.org][the entire bee movie script]]
 - [[./capital.org][a memoir on capital letters]]

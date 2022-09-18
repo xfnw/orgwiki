@@ -1,0 +1,56 @@
+#+TITLE: ansi escape sequences
+#+SETUPFILE: setupfile.org
+
+this page is mostly borrowed from [[https://githhub.com/dylanaraps][dylanaraps]]' [[https://github.com/dylanaraps/pure-sh-bible][pure-sh-bible]].
+
+#+TOC: headlines 3
+
+* text colors
+
+| sequence                 | what does it do?                       | value         |
+|--------------------------+----------------------------------------+---------------|
+| ~\033[38;5;<NUM>m~       | set text foreground color.             | ~0-255~       |
+| ~\033[48;5;<NUM>m~       | set text background color.             | ~0-255~       |
+| ~\033[38;2;<R>;<G>;<B>m~ | set text foreground color. (truecolor) | ~R~, ~G~, ~B~ |
+| ~\033[48;2;<R>;<G>;<B>m~ | set text background color. (truecolor) | ~R~, ~G~, ~B~ |
+
+* text attributes
+
+| sequence  | what does it do?                       |
+|-----------+----------------------------------------|
+| ~\033[m~  | reset text formatting and colors.      |
+| ~\033[1m~ | bold text.                             |
+| ~\033[2m~ | faint text.                            |
+| ~\033[3m~ | italic text.                           |
+| ~\033[4m~ | underline text.                        |
+| ~\033[5m~ | slow blink.                            |
+| ~\033[7m~ | swap foreground and background colors. |
+| ~\033[8m~ | hidden text.                           |
+| ~\033[9m~ | strike-through text.                   |
+
+
+* cursor movement
+
+| sequence                | what does it do?                      | value            |
+|-------------------------+---------------------------------------+------------------|
+| ~\033[<LINE>;<COLUMN>H~ | move cursor to absolute position.     | ~line~, ~column~ |
+| ~\033[H~                | move cursor to home position (~0,0~). |                  |
+| ~\033[<NUM>A~           | move cursor up NUM lines.             | ~num~            |
+| ~\033[<NUM>B~           | move cursor down NUM lines.           | ~num~            |
+| ~\033[<NUM>C~           | move cursor right NUM columns.        | ~num~            |
+| ~\033[<NUM>D~           | move cursor left NUM columns.         | ~num~            |
+| ~\033[s~                | save cursor position.                 |                  |
+| ~\033[u~                | restore cursor position.              |                  |
+
+
+* erasing text
+
+| sequence        | what does it do?                                         |
+|-----------------+----------------------------------------------------------|
+| ~\033[K~        | erase from cursor position to end of line.               |
+| ~\033[1K~       | erase from cursor position to start of line.             |
+| ~\033[2K~       | erase the entire current line.                           |
+| ~\033[J~        | erase from the current line to the bottom of the screen. |
+| ~\033[1J~       | erase from the current line to the top of the screen.    |
+| ~\033[2J~       | clear the screen.                                        |
+| ~\033[2J\033[H~ | clear the screen and move cursor to ~0,0~.               |
