@@ -7,16 +7,16 @@ this page is mostly borrowed from [[https://githhub.com/dylanaraps][dylanaraps]]
 
 * text colors
 
-| sequence                 | what does it do?                       | value         |
-|--------------------------+----------------------------------------+---------------|
-| ~\033[38;5;<NUM>m~       | set text foreground color.             | ~0-255~       |
-| ~\033[48;5;<NUM>m~       | set text background color.             | ~0-255~       |
-| ~\033[38;2;<R>;<G>;<B>m~ | set text foreground color. (truecolor) | ~R~, ~G~, ~B~ |
-| ~\033[48;2;<R>;<G>;<B>m~ | set text background color. (truecolor) | ~R~, ~G~, ~B~ |
+| sequence                 | what it does                           | value                  |
+|--------------------------+----------------------------------------+------------------------|
+| ~\033[38;5;<NUM>m~       | set text foreground color. (256color)  | ~0-255~                |
+| ~\033[48;5;<NUM>m~       | set text background color. (256color)  | ~0-255~                |
+| ~\033[38;2;<R>;<G>;<B>m~ | set text foreground color. (truecolor) | ~red~, ~green~, ~blue~ |
+| ~\033[48;2;<R>;<G>;<B>m~ | set text background color. (truecolor) | ~red~, ~green~, ~blue~ |
 
-* text attributes
+* text formatting
 
-| sequence  | what does it do?                       |
+| sequence  | what it does                           |
 |-----------+----------------------------------------|
 | ~\033[m~  | reset text formatting and colors.      |
 | ~\033[1m~ | bold text.                             |
@@ -31,7 +31,7 @@ this page is mostly borrowed from [[https://githhub.com/dylanaraps][dylanaraps]]
 
 * cursor movement
 
-| sequence                | what does it do?                      | value            |
+| sequence                | what it does                          | value            |
 |-------------------------+---------------------------------------+------------------|
 | ~\033[<LINE>;<COLUMN>H~ | move cursor to absolute position.     | ~line~, ~column~ |
 | ~\033[H~                | move cursor to home position (~0,0~). |                  |
@@ -45,7 +45,7 @@ this page is mostly borrowed from [[https://githhub.com/dylanaraps][dylanaraps]]
 
 * erasing text
 
-| sequence        | what does it do?                                         |
+| sequence        | what it does                                             |
 |-----------------+----------------------------------------------------------|
 | ~\033[K~        | erase from cursor position to end of line.               |
 | ~\033[1K~       | erase from cursor position to start of line.             |
