@@ -28,7 +28,6 @@ this page is mostly borrowed from [[https://githhub.com/dylanaraps][dylanaraps]]
 | ~\033[8m~ | hidden text.                           |
 | ~\033[9m~ | strike-through text.                   |
 
-
 * cursor movement
 
 | sequence                | what it does                          | value            |
@@ -41,7 +40,8 @@ this page is mostly borrowed from [[https://githhub.com/dylanaraps][dylanaraps]]
 | ~\033[<NUM>D~           | move cursor left NUM columns.         | ~num~            |
 | ~\033[s~                | save cursor position.                 |                  |
 | ~\033[u~                | restore cursor position.              |                  |
-
+| ~\033[?25l~             | hide cursor                           |                  |
+| ~\033[?25h~             | show cursor                           |                  |
 
 * erasing text
 

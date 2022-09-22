@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-09-18 Sun 11:43 -->
+<!-- 2022-09-21 Wed 23:58 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ansi escape sequences</title>
@@ -254,7 +254,6 @@ this page is mostly borrowed from <a href="https://githhub.com/dylanaraps">dylan
 </div>
 </div>
 
-
 <div id="outline-container-org0000002" class="outline-2">
 <h2 id="org0000002"><span class="section-number-2">3.</span> cursor movement</h2>
 <div class="outline-text-2" id="text-3">
@@ -323,11 +322,22 @@ this page is mostly borrowed from <a href="https://githhub.com/dylanaraps">dylan
 <td class="org-left">restore cursor position.</td>
 <td class="org-left">&#xa0;</td>
 </tr>
+
+<tr>
+<td class="org-left"><code>\033[?25l</code></td>
+<td class="org-left">hide cursor</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>\033[?25h</code></td>
+<td class="org-left">show cursor</td>
+<td class="org-left">&#xa0;</td>
+</tr>
 </tbody>
 </table>
 </div>
 </div>
-
 
 <div id="outline-container-org0000003" class="outline-2">
 <h2 id="org0000003"><span class="section-number-2">4.</span> erasing text</h2>
