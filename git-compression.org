@@ -3,7 +3,7 @@
 
 git repositories can build up files that are no longer useful, making
 them pointlessly large. we can remove them and then recompress the
-remaining stuff with these commands.
+remaining stuff with these commands from [[https://github.com/Mic92/nixpkgs-review/issues/267#issuecomment-1106276169][SuperSandro2000's comment]].
 
 #+begin_example sh
   git repack -Ad
