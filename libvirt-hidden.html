@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-09-22 Thu 20:18 -->
+<!-- 2022-09-22 Thu 20:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>sitemap</title>
+<title>hide that a libvirt guest is in a vm</title>
 <meta name="generator" content="Org Mode" />
 <meta charset="UTF-8">
 <style>
@@ -121,43 +121,71 @@ nav { display: none; }
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">sitemap</h1>
-<ul class="org-ul">
-<li><a href="./9front-cpusetup.html">setup a 9front cpu server</a></li>
-<li><a href="./9front-iso.html">building a 9front iso</a></li>
-<li><a href="./about.html">about</a></li>
-<li><a href="./alpine-udhcpcd.html">alpine udhcpcd error</a></li>
-<li><a href="./ansi-escapes.html">ansi escape sequences</a></li>
-<li><a href="./ape-wine.html">ape wine</a></li>
-<li><a href="./beemoviescript.html">the entire bee movie script</a></li>
-<li><a href="./capital.html">a memoir on capital letters</a></li>
-<li><a href="./chromeos-blahaj.html">type blåhaj on chrome os</a></li>
-<li><a href="./disambiguation.html">disambiguation</a></li>
-<li><a href="./docker-x11.html">docker X11</a></li>
-<li><a href="./elevator-fireoperation.html">fire operation phase 2</a></li>
-<li><a href="./elevator-testscript.html">elevator emergency phone test script</a></li>
-<li><a href="./git-compression.html">compress a git repository</a></li>
-<li><a href="./gpg-generate.html">generating a gpg key</a></li>
-<li><a href="./IHG.html">IHG</a></li>
-<li><a href="./index.html">xfnw's org wiki thing</a></li>
-<li><a href="./latex-cite.html">making citations with LaTeX</a></li>
-<li><a href="./latex-pdfa.html">creating accessable PDF/A files with LaTeX</a></li>
-<li><a href="./lavfi-scope.html">lavfi live oscilloscope</a></li>
-<li><a href="./libressl-ld.html">libressl ld.conf on arch</a></li>
-<li><a href="./libvirt-hidden.html">hide that a libvirt guest is in a vm</a></li>
-<li><a href="./mariadb-accounts.html">mariadb accounts</a></li>
-<li><a href="./minetest-mods.html">minetest mods</a></li>
-<li><a href="./minetest-skins.html">minetest skins</a></li>
-<li><a href="./ngircd-cloakhostsalt.html">ngircd cloak host salt</a></li>
-<li><a href="./openssl-customnameconstraints.html">openssl custom name constraints</a></li>
-<li><a href="./pixelflut.html">pixelflut</a></li>
-<li><a href="./polkit-libvirt.html">polkit libvirt rules</a></li>
-<li><a href="./rc.d.html">rc.d</a></li>
-<li><a href="./tlstunnel.html">tlstunnel</a></li>
-<li><a href="./wireguard.html">wireguard</a></li>
-<li><a href="./xfburn-failurecbd.html">xfburn FailureCBD error</a></li>
-<li><a href="./znc-freeze.html">freeze a znc account</a></li>
-</ul>
+<h1 class="title">hide that a libvirt guest is in a vm</h1>
+
+<div id="outline-container-org0000002" class="outline-2">
+<h2 id="org0000002"><span class="section-number-2">1.</span> not much performance impact</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org0000000" class="outline-3">
+<h3 id="org0000000"><span class="section-number-3">1.1.</span> pass through cpu in information</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+this can also be done as a toggle switch in virt-manager's cpu section
+</p>
+
+<pre class="example" id="org0000000">
+&lt;cpu mode="host-passthrough" check="none" migratable="on"/&gt;
+</pre>
+
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2022-09-22 Thu]</span></span>: maybe try <code>check="partial"</code> instead? someone recommended
+that however i cannot find any documentation on what it does
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0000001" class="outline-3">
+<h3 id="org0000001"><span class="section-number-3">1.2.</span> pass through bios information</h3>
+<div class="outline-text-3" id="text-1-2">
+<pre class="example" id="org0000001">
+&lt;os&gt;
+  &lt;smbios mode="host"/&gt;
+&lt;/os&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0000005" class="outline-2">
+<h2 id="org0000005"><span class="section-number-2">2.</span> lots of performance impact</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org0000003" class="outline-3">
+<h3 id="org0000003"><span class="section-number-3">2.1.</span> disabling hypervisor optimisations</h3>
+<div class="outline-text-3" id="text-2-1">
+<pre class="example" id="org0000003">
+&lt;qemu:commandline&gt;
+  &lt;qemu:arg value='-cpu'/&gt;
+  &lt;qemu:arg value='host,hv_time,kvm=off,hv_vendor_id=null,-hypervisor'/&gt;
+&lt;/qemu:commandline&gt;
+</pre>
+
+<p>
+seems to disable KVM too. sad.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0000004" class="outline-3">
+<h3 id="org0000004"><span class="section-number-3">2.2.</span> using non-virtio drivers</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+they make vm's much faster but are easy to detect
+</p>
+</div>
+</div>
+</div>
 </div>
 </body>
 </html>

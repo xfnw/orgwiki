@@ -1,0 +1,37 @@
+#+TITLE: hide that a libvirt guest is in a vm
+#+SETUPFILE: setupfile.org
+
+* not much performance impact
+
+** pass through cpu in information
+this can also be done as a toggle switch in virt-manager's cpu section
+
+#+begin_example
+<cpu mode="host-passthrough" check="none" migratable="on"/>
+#+end_example
+
+[2022-09-22 Thu]: maybe try ~check="partial"~ instead? someone recommended
+that however i cannot find any documentation on what it does
+
+** pass through bios information
+#+begin_example
+<os>
+  <smbios mode="host"/>
+</os>
+#+end_example
+
+* lots of performance impact
+
+** disabling hypervisor optimisations
+#+begin_example
+<qemu:commandline>
+  <qemu:arg value='-cpu'/>
+  <qemu:arg value='host,hv_time,kvm=off,hv_vendor_id=null,-hypervisor'/>
+</qemu:commandline>
+#+end_example
+
+seems to disable KVM too. sad.
+
+** using non-virtio drivers
+they make vm's much faster but are easy to detect
+
