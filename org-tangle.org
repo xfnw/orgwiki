@@ -1,0 +1,32 @@
+#+TITLE: tangling with org
+#+SETUPFILE: setupfile.org
+
+tangle is a system for creating source files from org babel (literate
+programming)'s src blocks
+
+#+TOC: headlines 3
+
+* shortcuts
+
+| shortcut            | what it does                               |
+|---------------------+--------------------------------------------|
+| ~C-c C-c~           | (in a src block) execute it                |
+| ~C-c '~             | open src block in a new buffer             |
+| ~C-c C-v t~         | tangle                                     |
+| ~M-x o-j RET RET~   | jump from tangled block back to source org |
+| ~M-x o-det RET RET~ | detangle tangled block                     |
+
+* tangling
+src blocks with a ~:tangle filename~ will get tangled
+
+* detangling
+maybe untangling too?
+
+** comments
+detangle requires comments be put into the source file to work. stick
+~:comments link~ to your ~#+begin_src~ line to enable these. to enable
+them for all tangle blocks, use ~#+PROPERTY~:
+
+#+begin_example
+#+PROPERTY: header-args :tangle yes :comments link
+#+end_example

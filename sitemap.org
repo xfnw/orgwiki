@@ -27,6 +27,7 @@
 - [[./minetest-skins.org][minetest skins]]
 - [[./ngircd-cloakhostsalt.org][ngircd cloak host salt]]
 - [[./openssl-customnameconstraints.org][openssl custom name constraints]]
+- [[./org-tangle.org][tangling with org]]
 - [[./pixelflut.org][pixelflut]]
 - [[./polkit-libvirt.org][polkit libvirt rules]]
 - [[./rc.d.org][rc.d]]
