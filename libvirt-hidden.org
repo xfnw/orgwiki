@@ -33,5 +33,5 @@ that however i cannot find any documentation on what it does
 seems to disable KVM too. sad.
 
 ** using non-virtio drivers
-they make vm's much faster but are easy to detect
+virtio drivers make vm's a lot faster but are easy to detect
 
