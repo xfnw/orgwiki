@@ -1,4 +1,5 @@
 (defun org-export-deterministic-reference (references)
+  "make org export's html anchor ids deterministic."
     (let ((new 0))
        (while (rassq new references) (setq new (+ new 1))) 
        new))
