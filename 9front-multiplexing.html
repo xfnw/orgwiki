@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-09-30 Fri 12:55 -->
+<!-- 2022-09-30 Fri 12:50 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>sitemap</title>
+<title>multiplexing on 9front</title>
 <meta name="generator" content="Org Mode" />
 <meta charset="UTF-8">
 <style>
@@ -121,45 +121,78 @@ nav { display: none; }
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">sitemap</h1>
-<ul class="org-ul">
-<li><a href="./9front-cpusetup.html">setup a 9front cpu server</a></li>
-<li><a href="./9front-iso.html">building a 9front iso</a></li>
-<li><a href="./9front-multiplexing.html">multiplexing on 9front</a></li>
-<li><a href="./about.html">about</a></li>
-<li><a href="./alpine-udhcpcd.html">alpine udhcpcd error</a></li>
-<li><a href="./ansi-escapes.html">ansi escape sequences</a></li>
-<li><a href="./ape-wine.html">ape wine</a></li>
-<li><a href="./beemoviescript.html">the entire bee movie script</a></li>
-<li><a href="./capital.html">a memoir on capital letters</a></li>
-<li><a href="./chromeos-blahaj.html">type blåhaj on chrome os</a></li>
-<li><a href="./disambiguation.html">disambiguation</a></li>
-<li><a href="./docker-x11.html">docker X11</a></li>
-<li><a href="./elevator-fireoperation.html">fire operation phase 2</a></li>
-<li><a href="./elevator-testscript.html">elevator emergency phone test script</a></li>
-<li><a href="./git-compression.html">compress a git repository</a></li>
-<li><a href="./gpg-generate.html">generating a gpg key</a></li>
-<li><a href="./IHG.html">IHG</a></li>
-<li><a href="./index.html">xfnw's org wiki thing</a></li>
-<li><a href="./latex-cite.html">making citations with LaTeX</a></li>
-<li><a href="./latex-pdfa.html">creating accessable PDF/A files with LaTeX</a></li>
-<li><a href="./lavfi-scope.html">lavfi live oscilloscope</a></li>
-<li><a href="./libressl-ld.html">libressl ld.conf on arch</a></li>
-<li><a href="./libvirt-hidden.html">hide that a libvirt guest is in a vm</a></li>
-<li><a href="./mariadb-accounts.html">mariadb accounts</a></li>
-<li><a href="./minetest-mods.html">minetest mods</a></li>
-<li><a href="./minetest-skins.html">minetest skins</a></li>
-<li><a href="./ngircd-cloakhostsalt.html">ngircd cloak host salt</a></li>
-<li><a href="./openssl-customnameconstraints.html">openssl custom name constraints</a></li>
-<li><a href="./org-tangle.html">tangling with org</a></li>
-<li><a href="./pixelflut.html">pixelflut</a></li>
-<li><a href="./polkit-libvirt.html">polkit libvirt rules</a></li>
-<li><a href="./rc.d.html">rc.d</a></li>
-<li><a href="./tlstunnel.html">tlstunnel</a></li>
-<li><a href="./wireguard.html">wireguard</a></li>
-<li><a href="./xfburn-failurecbd.html">xfburn FailureCBD error</a></li>
-<li><a href="./znc-freeze.html">freeze a znc account</a></li>
+<h1 class="title">multiplexing on 9front</h1>
+<p>
+this page details how to (re)attach to processes. if you just have an
+unstable connection, and do not want to reattach from a seperate
+machine, consider aan(8) instead.
+</p>
+
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org0000000">1. text</a>
+<ul>
+<li><a href="#org0000001">1.1. pin (mq)</a></li>
+<li><a href="#org0000002">1.2. hubfs</a></li>
 </ul>
+</li>
+<li><a href="#org0000003">2. graphical</a>
+<ul>
+<li><a href="#org0000004">2.1. <span class="todo TODO">TODO</span> mounting a rio session</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0000000" class="outline-2">
+<h2 id="org0000000"><span class="section-number-2">1.</span> text</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org0000001" class="outline-3">
+<h3 id="org0000001"><span class="section-number-3">1.1.</span> pin (mq)</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+<a href="https://git.sr.ht/~kvik/mq">mq</a>'s included <a href="http://a-b.xyz/9b/2151">pin(1)</a> wrapper lets you easily re-attach to commands
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0000002" class="outline-3">
+<h3 id="org0000002"><span class="section-number-3">1.2.</span> hubfs</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+hubfs is similar to mq, but older, and does not include an equivalant
+to pin(1)
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0000003" class="outline-2">
+<h2 id="org0000003"><span class="section-number-2">2.</span> graphical</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org0000004" class="outline-3">
+<h3 id="org0000004"><span class="section-number-3">2.1.</span> <span class="todo TODO">TODO</span> mounting a rio session</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+find the rio session you want to connect to in <code>/srv</code> and then you can
+mount it to your <code>/mnt/wsys</code>
+</p>
+
+<pre class="example" id="org0000005">
+mount '#s/rio.glenda.700' /mnt/wsys 1
+</pre>
+
+<p>
+and then bind the stuff you need to the equivalants in <code>/dev</code>
+</p>
+</div>
+</div>
+</div>
 </div>
 </body>
 </html>
