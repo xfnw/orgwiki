@@ -1,0 +1,83 @@
+#+TITLE: using nxproxy
+#+SETUPFILE: setupfile.org
+
+nxproxy is the community maintained old version of NoMachine's now
+proprietary NX protocol. it like X11 forwarding but a hell of a lot
+faster. sadly, however, the community maintained version is based
+around X11 old enough that it does not support a lot of modern
+features like graphics acceleration, so this is more for stuff like
+graphical text editors. if you want remote gaming, you probably want
+to use something else.
+
+#+TOC: headlines 3
+
+* simple setup
+you probably want to tunnel this over ssh or [[./wireguard.org][wireguard]] etc, as the NX
+protocol is plaintext. the port will be 4000 plus the display number.
+
+** choosing a display number
+
+just pick one that is not in use, if your server is running its own
+X11 server, then ~0~ is probably already taken. depending on the
+server configuration, you may be able to use the ~who~ command on it
+to see which ones are in use.
+
+** client setup
+
+*** X11 access control
+give the server access to connect to your client's X11 server. the
+correct way to do with would be with ~.Xauthority~ and such, however
+we can just use ~xhost~ for this.
+
+#+begin_example
+xhost +
+#+end_example
+
+will allow any host to connect to our X11 server (this is a bad idea
+on a shared system, since anyone with access to your unix socket will
+be able to mess with your X11 server)
+
+*** starting nxproxy
+
+#+begin_example
+nxproxy -S feesh:7
+#+end_example
+
+replacing ~feesh~ with your server's hostname, and ~7~ with your
+chosen display number
+
+use ~localhost~ as the hostname if you are doing this over an ssh
+tunnel
+
+** server setup
+
+*** starting nxproxy
+
+#+begin_example
+nxproxy -C :7
+#+end_example
+
+replacing ~7~ with your chosen display number
+
+you can start this in the background with a ~&~ at the end, if you do
+not have a terminal multiplexer handy and want to run more stuff from
+the current terminal
+
+*** set the ~DISPLAY~ and start your application
+
+for example if your display number was ~7~ and you wanted to connect a
+graphical session to your emacs daemon
+
+#+begin_example
+export DISPLAY=:7
+emacsclient -c
+#+end_example
+
+* x2go
+x2go is probably a better setup, however i am unable to get it
+working. it just crashes with nothing useful in it's or X11's logs
+after connecting
+
+[2022-10-02 Sun]: be careful if you want a functional system! at the
+time of writing, x2go seems to imperatively change some system stuff
+when run, with no way to change it back
