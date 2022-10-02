@@ -1,13 +1,13 @@
 #+TITLE: using nxproxy
 #+SETUPFILE: setupfile.org
 
-nxproxy is the community maintained old version of NoMachine's now
-proprietary NX protocol. it like X11 forwarding but a hell of a lot
-faster. sadly, however, the community maintained version is based
-around X11 old enough that it does not support a lot of modern
-features like graphics acceleration, so this is more for stuff like
-graphical text editors. if you want remote gaming, you probably want
-to use something else.
+nxproxy is the community maintained old foss version of NoMachine's
+now proprietary NX protocol. it's like X11 forwarding but a hell of a
+lot faster. sadly, the community maintained version is based around
+X11 old enough that it does not support a lot of modern features like
+graphics acceleration, so this is more for stuff like graphical text
+editors. if you want remote gaming, you probably want to use something
+else.
 
 #+TOC: headlines 3
 
