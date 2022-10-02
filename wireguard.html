@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-02 Sun 15:49 -->
+<!-- 2022-10-02 Sun 16:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>wireguard</title>
@@ -132,6 +132,7 @@ nav { display: none; }
 <li><a href="#org0000002">2.1. masquerade</a></li>
 </ul>
 </li>
+<li><a href="#org0000003">3. tailscale</a></li>
 </ul>
 </div>
 </div>
@@ -148,7 +149,7 @@ pubkey to get the public key
 to get both at the same time you can
 </p>
 
-<pre class="example" id="org0000003">
+<pre class="example" id="org0000004">
 wg genkey | tee /dev/stderr | wg pubkey 2&gt;&amp;1
 </pre>
 
@@ -169,7 +170,7 @@ pubkey</code>, then the optional <code>2&gt;&amp;1</code> puts it back into stdo
 <p>
 wg-quick needs some extra PostUp options for masquerade to work
 </p>
-<pre class="example" id="org0000003">
+<pre class="example" id="org0000004">
 [Interface]
 PostUp = ip6tables -A FORWARD -i %i -j ACCEPT; ip6tables -t nat -A POSTROUTING -o eth0 -j MASQUERADE; iptables -A FORWARD -i %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 PostUp = sysctl -w net.ipv6.conf.all.forwarding=1
@@ -178,6 +179,26 @@ PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -t nat -D POSTROUTING -
 ListenPort = 51820
 </pre>
 </div>
+</div>
+</div>
+
+<div id="outline-container-org0000003" class="outline-2">
+<h2 id="org0000003"><span class="section-number-2">3.</span> tailscale</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+if you want your wireguard network to Just Work, tailscale, with it's
+Magic DNS, automatic NAT traversal, authentication with oauth, etc, is
+for you.
+</p>
+
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2022-10-02 Sun]</span></span>: tailscale uses usermode wireguard, which is slower
+than the kernelmode implementation that wg-quick etc use. although it
+arguably is a tiny bit more secure, since if there is a rce
+vulnerability in wireguard, it will not in ring 0 (though since
+openbsd, <i>the</i> secure operating system, has a kernelmode wireguard
+implementation, i assume that reasoning to be nonsense)
+</p>
 </div>
 </div>
 </div>

@@ -29,3 +29,15 @@ wg-quick needs some extra PostUp options for masquerade to work
   ListenPort = 51820
 #+end_example
 
+* tailscale
+
+if you want your wireguard network to Just Work, tailscale, with it's
+Magic DNS, automatic NAT traversal, authentication with oauth, etc, is
+for you.
+
+[2022-10-02 Sun]: tailscale uses usermode wireguard, which is slower
+than the kernelmode implementation that wg-quick etc use. although it
+arguably is a tiny bit more secure, since if there is a rce
+vulnerability in wireguard, it will not in ring 0 (though since
+openbsd, /the/ secure operating system, has a kernelmode wireguard
+implementation, i assume that reasoning to be nonsense)
