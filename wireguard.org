@@ -4,24 +4,28 @@
 #+TOC: headlines 3
 
 * genkey
-you can generate a wireguard key with wg genkey and then put it in wg pubkey to get the public key
+you can generate a wireguard key with wg genkey and then put it in wg
+pubkey to get the public key
 
 to get both at the same time you can
 
+#+begin_example
 wg genkey | tee /dev/stderr | wg pubkey 2>&1
+#+end_example
 
-(this makes a key, uses tee to send it to both stderr and wg pubkey, then the optional 2>&1 puts it back into stdout) 
+(this makes a key, uses ~tee~ to send it to both ~stderr~ and ~wg
+pubkey~, then the optional ~2>&1~ puts it back into stdout)
 
 * config with wg-quick
 
 ** masquerade
 wg-quick needs some extra PostUp options for masquerade to work
-#+begin_src wg-config
+#+begin_example
   [Interface]
   PostUp = ip6tables -A FORWARD -i %i -j ACCEPT; ip6tables -t nat -A POSTROUTING -o eth0 -j MASQUERADE; iptables -A FORWARD -i %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
   PostUp = sysctl -w net.ipv6.conf.all.forwarding=1
   PostUp = sysctl -w net.ipv4.ip_forward=1
   PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE; ip6tables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
   ListenPort = 51820
-#+end_src
+#+end_example
 
