@@ -1,0 +1,74 @@
+#+TITLE: git push to create
+#+SETUPFILE: setupfile.org
+
+several ways to get push to create, which lets you not have to
+manually create a repo
+
+#+TOC: headlines 3
+
+* git forges
+
+** gitea
+
+gitea supports push to create
+
+with app.ini
+
+#+begin_example
+[repository]
+DEFAULT_BRANCH = main
+ENABLE_PUSH_TO_CREATE_USER = true
+ENABLE_GIT_CREATE_ORG = true
+DEFAULT_PUSH_CREATE_PRIVATE = false
+#+end_example
+
+or with nixos
+
+#+begin_example
+services.gitea = {
+  settings.repository.DEFAULT_BRANCH = "main";
+  settings.repository.ENABLE_PUSH_CREATE_USER = "true";
+  settings.repository.ENABLE_PUSH_CREATE_ORG = "true";
+  settings.repository.DEFAULT_PUSH_CREATE_PRIVATE = "false";
+};
+#+end_example
+
+** git.sr.ht
+
+push to create seems to be enabled by default on sourcehut git, though
+it makes the repo private
+
+* ssh connect-command
+
+if you do not want to use a git forge, you can still get push to
+create by setting this shell script to your ssh user's connect command
+instead of git-shell
+
+#+begin_src sh
+#!/bin/sh
+
+# attempt to stop directory traversal
+SSH_ORIGINAL_COMMAND=$(echo "$SSH_ORIGINAL_COMMAND" | sed 's#/##g')
+
+remove_last_quote(){
+	handle_repo "${1%\'}"
+}
+
+handle_repo(){
+	if [ ! -d "$1" ]
+	then
+		git init --bare "$1" </dev/null >/dev/null 2>&1
+	fi
+}
+
+case "$SSH_ORIGINAL_COMMAND" in
+	git-receive-pack*)
+		remove_last_quote "${SSH_ORIGINAL_COMMAND#git-receive-pack \'}"
+		;;
+	#git-upload-pack*) # if you want clone to create too
+	#	remove_last_quote "${SSH_ORIGINAL_COMMAND#git-upload-pack \'}"
+	#	;;
+esac
+
+git-shell -c "$SSH_ORIGINAL_COMMAND"
+#+end_src
