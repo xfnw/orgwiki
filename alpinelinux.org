@@ -1,0 +1,28 @@
+#+TITLE: alpine linux
+#+SETUPFILE: setupfile.org
+
+alpine linux is a minimalist linux distro with a super fast package
+manager (apk)
+
+#+TOC: headlines 3
+
+* manpages and other documentation
+
+install the ~docs~ metapackage to automatically download the
+documentation, or install the packages suffixed with ~-doc~ to install
+the documentation for a specific package
+
+note that sometimes the ~-doc~ suffixed package is only for the main
+package when you have a few packages with different configurations of
+the same software, for example ~emacs-x11~ ~emacs-gtk3~ etc share the
+~emacs-doc~ package for their documentation (ew texinfo) which will
+not automatically get pulled in by ~docs~
+
+* mouse cursor not changing
+
+[2022-10-08 Sat]: this has been bothering me for like a year, i
+finally found the solution by accident today...
+
+if its stuck with the default pointer and never changes (ie when
+hovering over text), you are probably missing a video driver. if using
+intel graphics, the package is ~xf86-video-intel~
