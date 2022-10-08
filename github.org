@@ -1,0 +1,12 @@
+#+TITLE: github
+#+SETUPFILE: setupfile.org
+
+* suggesting changes on pr's
+when commenting on a line, you can suggest replacing it by making a
+codeblock with the language set to ~suggestion~
+
+#+begin_example
+```suggestion
+replacement stuff
+```
+#+end_example
