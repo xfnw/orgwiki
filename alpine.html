@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-08 Sat 17:24 -->
+<!-- 2022-10-09 Sun 12:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>alpine linux</title>
@@ -133,6 +133,7 @@ manager (apk)
 <ul>
 <li><a href="#org0000000">1. manpages and other documentation</a></li>
 <li><a href="#org0000001">2. mouse cursor not changing</a></li>
+<li><a href="#org0000002">3. udhcpcd address family not supported</a></li>
 </ul>
 </div>
 </div>
@@ -168,6 +169,30 @@ finally found the solution by accident today&#x2026;
 if its stuck with the default pointer and never changes (ie when
 hovering over text), you are probably missing a video driver. if using
 intel graphics, the package is <code>xf86-video-intel</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0000002" class="outline-2">
+<h2 id="org0000002"><span class="section-number-2">3.</span> udhcpcd address family not supported</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+whatever you do, do not roll back your boot partition to a previous
+kernel version, it breaks networking and all the kernel modules
+</p>
+
+<p>
+resulting in errors such as this on boot
+</p>
+<blockquote>
+<p>
+udhcpc: socket(AF_PACKET,2,8): Address family not supported by protocol
+</p>
+</blockquote>
+
+<p>
+this can be fixed by chrooting in and reinstalling the kernel, if
+using a vm, it is <code>linux-virt</code>
 </p>
 </div>
 </div>
