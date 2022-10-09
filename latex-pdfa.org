@@ -3,7 +3,9 @@
 
 my ~latex.org~ setupfile to do this automagically can be found
 [[./media/latex.org][here]]. (if viewing this on the web, you will probably have to change
-the extension to ~.org~ get view the raw source)
+the extension to ~.org~ get view the raw source). note that to use
+this you must add ~pdfa~ to ~org-latex-default-packages-alist~'s
+~hyperref~ item.
 
 * tagged pdf
 there is currently not a good solution for generating accessable
