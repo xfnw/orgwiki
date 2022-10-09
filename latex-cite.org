@@ -93,6 +93,14 @@ manager.
 
 will include a bibliography file named ~refs.bib~
 
+then, add
+
+#+begin_example
+\printbibliography
+#+end_example
+
+where you want the references to be
+
 ** bibtex
 bibtex is old and has horrible unicode support, it should probably not
 be used if you want anything but latin characters.
