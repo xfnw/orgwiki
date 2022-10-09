@@ -26,7 +26,7 @@ the only option, and it barely works.
 orgmode, it will automatically include the ~hyperref~ package for you.
 
 #+begin_example
-\usepackage{hyperref}
+\usepackage[pdfa]{hyperref}
 \usepackage[a-3b]{pdfx}
 #+end_example
 
