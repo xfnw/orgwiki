@@ -11,15 +11,28 @@ with a LAMP stack from a non-portable[fn:1:non-portable as in being
 difficult to run on other operating systems. in physical space, its
 still very portable.] exe file. yuck.
 
-i am also considering using [[https://vimwiki.github.io][vimwiki]], which has a more wiki-like
+i was also considering using [[https://vimwiki.github.io][vimwiki]], which has a more wiki-like
 syntax, however that also makes the syntax less consistent and harder
 to convert to/from. also configuring vimwiki is somewhat a nightmare
 (perhaps ive been spoiled by lisp's customizability) and it seems a
 bit overbearing about how it manages files.
 
-* TODO setupfile
+* setupfile
 
-* TODO contributing
+the [[./setupfile.org][setupfile]] is largely based on [[https://yeti.tilde.institure/brain/][yeti's brain's setupfile]]. i know you
+will probably never read this, but thank you for letting me use it :3
+
+* contributing
+
+the git repository for this wiki is available in [[https://owen.bellz.org/git/orgwiki/][several]] [[https://git.sr.ht/~xfnw/orgwiki][different]]
+[[https://github.com/xfnw/orgwiki][places]].
+
+send a [[https://git-send-email.io][patch]] to ~xfnw ate riseup doot net~ (replacing ~ate~ and ~doot~
+with the at and the full stop symbol respectively). hopefully i'll get
+a mailinglist setup Soon\trade.
+
+if you do not want to send a patch, you can instead open a pull
+request on [[https://github.com/xfnw/orgwiki/pulls][github]].
 
 ** TODO style guide
 
