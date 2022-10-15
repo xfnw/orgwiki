@@ -3,6 +3,6 @@
 
 * updating packages
 
-open ~M-x list-packages~, press ~U~ to select upgradable packages, and
+open ~M-x package-list~, press ~U~ to select upgradable packages, and
 ~x~ to confirm the operation
 
