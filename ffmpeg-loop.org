@@ -1,0 +1,10 @@
+#+TITLE: ffmpag looping
+#+SETUPFILE: setupfile.org
+
+* looping video until audio ends
+
+#+begin_example
+ffmpeg -stream_loop -1 -i something.mp4 -i stuff.mp3 -shortest -map 0:v:0 -map 1:a:0 meow.mp4
+#+end_example
+
+OvO
