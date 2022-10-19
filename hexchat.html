@@ -6,7 +6,7 @@
 <!-- 2022-10-18 Tue 23:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>sitemap</title>
+<title>hexchat</title>
 <meta name="generator" content="Org Mode" />
 <meta charset="UTF-8">
 <style>
@@ -121,50 +121,38 @@ nav { display: none; }
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">sitemap</h1>
-<ul class="org-ul">
-<li><a href="./9front-cpusetup.html">setup a 9front cpu server</a></li>
-<li><a href="./9front-iso.html">building a 9front iso</a></li>
-<li><a href="./9front-multiplexing.html">multiplexing on 9front</a></li>
-<li><a href="./about.html">about</a></li>
-<li><a href="./alpine.html">alpine linux</a></li>
-<li><a href="./ansi-escapes.html">ansi escape sequences</a></li>
-<li><a href="./ape-wine.html">ape wine</a></li>
-<li><a href="./capital.html">a memoir on capital letters</a></li>
-<li><a href="./chromeos-blahaj.html">type blåhaj on chrome os</a></li>
-<li><a href="./disambiguation.html">disambiguation</a></li>
-<li><a href="./docker-x11.html">docker X11</a></li>
-<li><a href="./elevator-fireoperation.html">fire operation phase 2</a></li>
-<li><a href="./elevator-testscript.html">elevator emergency phone test script</a></li>
-<li><a href="./emacs-package.html">emacs packages</a></li>
-<li><a href="./ffmpeg-loop.html">ffmpag looping</a></li>
-<li><a href="./git-compression.html">compress a git repository</a></li>
-<li><a href="./github.html">github</a></li>
-<li><a href="./git-push-to-create.html">git push to create</a></li>
-<li><a href="./gpg-generate.html">generating a gpg key</a></li>
-<li><a href="./hexchat.html">hexchat</a></li>
-<li><a href="./IHG.html">IHG</a></li>
-<li><a href="./index.html">xfnw's org wiki thing</a></li>
-<li><a href="./latex-cite.html">making citations with LaTeX</a></li>
-<li><a href="./latex-pdfa.html">creating accessable PDF/A files with LaTeX</a></li>
-<li><a href="./lavfi-scope.html">lavfi live oscilloscope</a></li>
-<li><a href="./libressl-ld.html">libressl ld.conf on arch</a></li>
-<li><a href="./libvirt-hidden.html">hide that a libvirt guest is in a vm</a></li>
-<li><a href="./mariadb-accounts.html">mariadb accounts</a></li>
-<li><a href="./minetest-mods.html">minetest mods</a></li>
-<li><a href="./minetest-skins.html">minetest skins</a></li>
-<li><a href="./ngircd-cloakhostsalt.html">ngircd cloak host salt</a></li>
-<li><a href="./nxproxy.html">using nxproxy</a></li>
-<li><a href="./openssl-customnameconstraints.html">openssl custom name constraints</a></li>
-<li><a href="./org-tangle.html">tangling with org</a></li>
-<li><a href="./pixelflut.html">pixelflut</a></li>
-<li><a href="./polkit-libvirt.html">polkit libvirt rules</a></li>
-<li><a href="./rc.d.html">rc.d</a></li>
-<li><a href="./tlstunnel.html">tlstunnel</a></li>
-<li><a href="./wireguard.html">wireguard</a></li>
-<li><a href="./xfburn-failurecbd.html">xfburn FailureCBD error</a></li>
-<li><a href="./znc-freeze.html">freeze a znc account</a></li>
-</ul>
+<h1 class="title">hexchat</h1>
+
+<div id="outline-container-org0000000" class="outline-2">
+<h2 id="org0000000"><span class="section-number-2">1.</span> running script commands on connect</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+the on-connect commands tab in the server settings seem to not like
+script commands. you can (ab)use <code>timer</code> to search for script
+commands.
+</p>
+
+<pre class="example" id="org0000000">
+timer 1 mycoolcommand meow
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org0000001" class="outline-2">
+<h2 id="org0000001"><span class="section-number-2">2.</span> M-a</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+the keybind <code>M-a</code> (aka <code>alt+a</code> for non-<a href="https://www.reddit.com/r/emacs/comments/cslkqc/comment/exfsx61/">emacsulates</a>) in hexchat is
+<b>hardcoded</b> in the gtk frontend to toggling away, in contrast to other
+clients which use this for channel switching.
+</p>
+
+<p>
+to change it, you must change the source code and recompile. <a href="https://github.com/xfnw/hexchat">my
+hexchat fork</a> does this, allowing you to bind it like any other key.
+</p>
+</div>
+</div>
 </div>
 </body>
 </html>

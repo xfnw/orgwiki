@@ -1,0 +1,19 @@
+#+TITLE: hexchat
+#+SETUPFILE: setupfile.org
+
+* running script commands on connect
+the on-connect commands tab in the server settings seem to not like
+script commands. you can (ab)use ~timer~ to search for script
+commands.
+
+#+begin_example
+timer 1 mycoolcommand meow
+#+end_example
+
+* M-a
+the keybind ~M-a~ (aka ~alt+a~ for non-[[https://www.reddit.com/r/emacs/comments/cslkqc/comment/exfsx61/][emacsulates]]) in hexchat is
+*hardcoded* in the gtk frontend to toggling away, in contrast to other
+clients which use this for channel switching.
+
+to change it, you must change the source code and recompile. [[https://github.com/xfnw/hexchat][my
+hexchat fork]] does this, allowing you to bind it like any other key.

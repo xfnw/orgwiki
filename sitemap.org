@@ -19,6 +19,7 @@
 - [[./github.org][github]]
 - [[./git-push-to-create.org][git push to create]]
 - [[./gpg-generate.org][generating a gpg key]]
+- [[./hexchat.org][hexchat]]
 - [[./IHG.org][IHG]]
 - [[./index.org][xfnw's org wiki thing]]
 - [[./latex-cite.org][making citations with LaTeX]]
