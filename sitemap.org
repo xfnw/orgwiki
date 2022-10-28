@@ -32,6 +32,7 @@
 - [[./minetest-skins.org][minetest skins]]
 - [[./ngircd-cloakhostsalt.org][ngircd cloak host salt]]
 - [[./nxproxy.org][using nxproxy]]
+- [[./openbsd-vnc.org][setting up vnc with xenodm on openbsd]]
 - [[./openssl-customnameconstraints.org][openssl custom name constraints]]
 - [[./org-tangle.org][tangling with org]]
 - [[./pixelflut.org][pixelflut]]

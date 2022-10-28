@@ -1,0 +1,43 @@
+#+TITLE: setting up vnc with xenodm on openbsd
+#+SETUPFILE: setupfile.org
+
+adapted from [[https://www.tumfatig.net/2011/vnc-server-on-openbsd/][this guide]], but modified to use xenodm
+
+#+begin_fixme
+currently does not work without a virtual video output
+#+end_fixme
+
+* install x11vnc
+#+begin_src sh
+pkg_add -U x11vnc
+#+end_src
+
+* enable and start xenodm
+#+begin_src sh
+rcctl enable xenodm
+rcctl start xenodm
+#+end_src
+
+* configure x11vnc
+** create file for password hash
+#+begin_src sh
+x11vnc -storepasswd /etc/x11vnc.passwd
+#+end_src
+** rc.d
+in ~/etc/rc.conf.local~ add
+#+begin_example
+x11vnc_flags="-rfbauth /etc/x11vnc.passwd -logfile /var/log/x11vnc -ncache 0 -forever -loop100 -auth guess"
+#+end_example
+
+add a ~-listen~ and ~-listen6~ to the flags to restrict listening to a
+specific interface.
+
+add ~-ssl SAVE_NOPROMPT~ to automatically make a self-signed ssl certificate
+and reuse it, or replace SAVE_NOPROMPT with the path to your pem file to use a
+ca-signed one.
+
+* enable and start x11vnc
+#+begin_src sh
+rcctl enable x11vnc
+rcctl start x11vnc
+#+end_src
