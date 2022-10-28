@@ -36,6 +36,75 @@ add ~-ssl SAVE_NOPROMPT~ to automatically make a self-signed ssl certificate
 and reuse it, or replace SAVE_NOPROMPT with the path to your pem file to use a
 ca-signed one.
 
+* TODO x11 dummy display
+skip this part if you already have a display
+
+this section borrows a lot of the Xorg configuration from Xpra.
+
+** modeline
+use ~cvt~ to make a modeline string
+
+for example to create a modeline for a ~1366x768~ resolution and ~30~
+hz, do
+#+begin_example
+cvt 1366 768 30
+#+end_example
+
+
+** xorg conf
+create the ~/etc/X11/xorg.conf.d/~ directory if it does not already
+exist, and create a file called ~10-dummy.conf~ with
+#+begin_example
+Section "Monitor"
+  Identifier "dummy_monitor"
+  HorizSync 28.0-80.0 # i have no idea what this means
+  VertRefresh 48.0-75.0
+  # 1366x768 29.89 Hz (CVT) hsync: 23.44 kHz; pclk: 39.75 MHz
+  Modeline "1360x768_30.00"   39.75  1366 1399 1527 1696  768 771 781 784 -hsync +vsync
+EndSection
+
+Section "Device"
+  Identifier "dummy_videocard"
+  Driver "dummy"
+  Option "ConstantDPI" "true"
+  VideoRam 196000
+EndSection
+
+Section "Screen"
+  DefaultDepth 24
+  Identifier "dummy_screen"
+  Device "dummy_videocard"
+  Monitor "dummy_monitor"
+  SubSection "Display"
+    Depth 24
+    Modes "1360x768_30.00"
+  EndSubSection
+EndSection
+
+#Section "ServerFlags"
+#  Option "DontVTSwitch" "true"
+#  Option "AllowMouseOpenFail" "true"
+#  Option "PciForceNone" "true"
+#  Option "AutoEnableDevices" "false"
+#  Option "AutoAddDevices" "false"
+#EndSection
+
+Section "InputDevice"
+  Identifier "dummy_mouse"
+  Option "CorePointer" "true"
+  Driver "void"
+EndSection
+
+Section "InputDevice"
+  Identifier "dummy_keyboard"
+  Option "CoreKeyboard" "true"
+  Driver "void"
+EndSection
+#+end_example
+
+replace the modeline with the one you generated in the previous step
+if nessesary.
+
 * enable and start x11vnc
 #+begin_src sh
 rcctl enable x11vnc
