@@ -3,9 +3,7 @@
 
 adapted from [[https://www.tumfatig.net/2011/vnc-server-on-openbsd/][this guide]], but modified to use xenodm
 
-#+begin_fixme
-currently does not work without a virtual video output
-#+end_fixme
+#+TOC: headlines 3
 
 * install x11vnc
 #+begin_src sh
@@ -41,6 +39,9 @@ skip this part if you already have a display
 
 this section borrows a lot of the Xorg configuration from Xpra.
 
+[2022-10-28 Fri]: this section is not yet well tested, and may have
+sub-optimal configuration
+
 ** modeline
 use ~cvt~ to make a modeline string
 
@@ -49,7 +50,6 @@ hz, do
 #+begin_example
 cvt 1366 768 30
 #+end_example
-
 
 ** xorg conf
 create the ~/etc/X11/xorg.conf.d/~ directory if it does not already
