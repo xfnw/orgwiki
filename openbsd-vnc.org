@@ -3,17 +3,15 @@
 
 adapted from [[https://www.tumfatig.net/2011/vnc-server-on-openbsd/][this guide]], but modified to use xenodm
 
+#+begin_fixme
+this currently does not work without a video output 
+#+end_fixme
+
 #+TOC: headlines 3
 
 * install x11vnc
 #+begin_src sh
 pkg_add -U x11vnc
-#+end_src
-
-* enable and start xenodm
-#+begin_src sh
-rcctl enable xenodm
-rcctl start xenodm
 #+end_src
 
 * configure x11vnc
@@ -104,6 +102,12 @@ EndSection
 
 replace the modeline with the one you generated in the previous step
 if nessesary.
+
+* enable and start xenodm
+#+begin_src sh
+rcctl enable xenodm
+rcctl start xenodm
+#+end_src
 
 * enable and start x11vnc
 #+begin_src sh

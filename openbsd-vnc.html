@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-28 Fri 18:11 -->
+<!-- 2022-10-28 Fri 18:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>setting up vnc with xenodm on openbsd</title>
@@ -129,24 +129,31 @@ nav { display: none; }
 adapted from <a href="https://www.tumfatig.net/2011/vnc-server-on-openbsd/">this guide</a>, but modified to use xenodm
 </p>
 
+<div class="fixme" id="org0000000">
+<p>
+this currently does not work without a video output 
+</p>
+
+</div>
+
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
 <li><a href="#org0000000">1. install x11vnc</a></li>
-<li><a href="#org0000001">2. enable and start xenodm</a></li>
-<li><a href="#org0000002">3. configure x11vnc</a>
+<li><a href="#org0000001">2. configure x11vnc</a>
 <ul>
-<li><a href="#org0000003">3.1. create file for password hash</a></li>
-<li><a href="#org0000004">3.2. rc.d</a></li>
+<li><a href="#org0000002">2.1. create file for password hash</a></li>
+<li><a href="#org0000003">2.2. rc.d</a></li>
 </ul>
 </li>
-<li><a href="#org0000005">4. <span class="todo TODO">TODO</span> x11 dummy display</a>
+<li><a href="#org0000004">3. <span class="todo TODO">TODO</span> x11 dummy display</a>
 <ul>
-<li><a href="#org0000006">4.1. modeline</a></li>
-<li><a href="#org0000007">4.2. xorg conf</a></li>
+<li><a href="#org0000005">3.1. modeline</a></li>
+<li><a href="#org0000006">3.2. xorg conf</a></li>
 </ul>
 </li>
+<li><a href="#org0000007">4. enable and start xenodm</a></li>
 <li><a href="#org0000008">5. enable and start x11vnc</a></li>
 </ul>
 </div>
@@ -163,32 +170,21 @@ adapted from <a href="https://www.tumfatig.net/2011/vnc-server-on-openbsd/">this
 </div>
 
 <div id="outline-container-org0000001" class="outline-2">
-<h2 id="org0000001"><span class="section-number-2">2.</span> enable and start xenodm</h2>
+<h2 id="org0000001"><span class="section-number-2">2.</span> configure x11vnc</h2>
 <div class="outline-text-2" id="text-2">
-<div class="org-src-container">
-<pre class="src src-sh">rcctl enable xenodm
-rcctl start xenodm
-</pre>
 </div>
-</div>
-</div>
-
-<div id="outline-container-org0000002" class="outline-2">
-<h2 id="org0000002"><span class="section-number-2">3.</span> configure x11vnc</h2>
-<div class="outline-text-2" id="text-3">
-</div>
-<div id="outline-container-org0000003" class="outline-3">
-<h3 id="org0000003"><span class="section-number-3">3.1.</span> create file for password hash</h3>
-<div class="outline-text-3" id="text-3-1">
+<div id="outline-container-org0000002" class="outline-3">
+<h3 id="org0000002"><span class="section-number-3">2.1.</span> create file for password hash</h3>
+<div class="outline-text-3" id="text-2-1">
 <div class="org-src-container">
 <pre class="src src-sh">x11vnc -storepasswd /etc/x11vnc.passwd
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org0000004" class="outline-3">
-<h3 id="org0000004"><span class="section-number-3">3.2.</span> rc.d</h3>
-<div class="outline-text-3" id="text-3-2">
+<div id="outline-container-org0000003" class="outline-3">
+<h3 id="org0000003"><span class="section-number-3">2.2.</span> rc.d</h3>
+<div class="outline-text-3" id="text-2-2">
 <p>
 in <code>/etc/rc.conf.local</code> add
 </p>
@@ -210,9 +206,9 @@ ca-signed one.
 </div>
 </div>
 
-<div id="outline-container-org0000005" class="outline-2">
-<h2 id="org0000005"><span class="section-number-2">4.</span> <span class="todo TODO">TODO</span> x11 dummy display</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-org0000004" class="outline-2">
+<h2 id="org0000004"><span class="section-number-2">3.</span> <span class="todo TODO">TODO</span> x11 dummy display</h2>
+<div class="outline-text-2" id="text-3">
 <p>
 skip this part if you already have a display
 </p>
@@ -227,9 +223,9 @@ sub-optimal configuration
 </p>
 </div>
 
-<div id="outline-container-org0000006" class="outline-3">
-<h3 id="org0000006"><span class="section-number-3">4.1.</span> modeline</h3>
-<div class="outline-text-3" id="text-4-1">
+<div id="outline-container-org0000005" class="outline-3">
+<h3 id="org0000005"><span class="section-number-3">3.1.</span> modeline</h3>
+<div class="outline-text-3" id="text-3-1">
 <p>
 use <code>cvt</code> to make a modeline string
 </p>
@@ -244,9 +240,9 @@ cvt 1366 768 30
 </div>
 </div>
 
-<div id="outline-container-org0000007" class="outline-3">
-<h3 id="org0000007"><span class="section-number-3">4.2.</span> xorg conf</h3>
-<div class="outline-text-3" id="text-4-2">
+<div id="outline-container-org0000006" class="outline-3">
+<h3 id="org0000006"><span class="section-number-3">3.2.</span> xorg conf</h3>
+<div class="outline-text-3" id="text-3-2">
 <p>
 create the <code>/etc/X11/xorg.conf.d/</code> directory if it does not already
 exist, and create a file called <code>10-dummy.conf</code> with
@@ -303,6 +299,17 @@ EndSection
 replace the modeline with the one you generated in the previous step
 if nessesary.
 </p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0000007" class="outline-2">
+<h2 id="org0000007"><span class="section-number-2">4.</span> enable and start xenodm</h2>
+<div class="outline-text-2" id="text-4">
+<div class="org-src-container">
+<pre class="src src-sh">rcctl enable xenodm
+rcctl start xenodm
+</pre>
 </div>
 </div>
 </div>
