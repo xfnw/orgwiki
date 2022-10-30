@@ -35,6 +35,7 @@
 - [[./nxproxy.org][using nxproxy]]
 - [[./openbsd-vnc.org][setting up vnc with xenodm on openbsd]]
 - [[./openssl-customnameconstraints.org][openssl custom name constraints]]
+- [[./openwrt-client.org][openwrt client mode]]
 - [[./org-tangle.org][tangling with org]]
 - [[./pixelflut.org][pixelflut]]
 - [[./polkit-libvirt.org][polkit libvirt rules]]

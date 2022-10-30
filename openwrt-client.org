@@ -1,0 +1,115 @@
+#+TITLE: openwrt client mode
+#+SETUPFILE: setupfile.org
+
+client mode is sort of like bridge mode, but it creates a little NAT.
+
+* whiterussian (0.9)
+it should be noted that this openwrt version has known
+vulnerabilities, and should not be used if you are able to use a newer
+version.
+
+instructions a mix of the stuff from [[https://ram.squat.net/tech/openwrt/whiterussian_client_setup.html][squat.net]] and [[https://oldwiki.archive.openwrt.org/oldwiki/wirelessbridgewithwpahowto][openwrt's oldwiki]],
+but modified to get it to work
+
+** ssh
+the crypto algorithms are so old, modern versions of openssh no longer
+accept them by default.
+
+use these options to allow them
+#+begin_example
+ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -oHostKeyAlgorithms=+ssh-rsa -c aes256-cbc root@openwrt
+#+end_example
+
+** setup
+
+*** installing necessary packages
+the package repository for whiterussian has moved to the [[https://archive.openwrt.org/whiterussian/0.9/packages/][openwrt's
+archive subdomain]].
+
+from the ~non-free~ subdirectory you will need:
+| package | reason                                        |
+|---------+-----------------------------------------------|
+| ~wl~    | tool for connecting to wifi on broadcom chips |
+| ~nas~   | support for WPA on broadcom chips             |
+
+and other packages you will also need:
+| package          | reason                                |
+|------------------+---------------------------------------|
+| ~ip~             | iproute2 stuff                        |
+| ~kmod-brcm-wl~   | stuff for ~wl~                        |
+| ~dhcp-forwarder~ | dhcp relaying                         |
+| ~wificonf~       | replacement for wlconf                |
+| ~libpthread~     | needed as a dependency for some stuff |
+
+if you are tempted by the ~asterisk~ package, just know that it seems
+to have compatibility issues with modern SIP phones.
+
+to send these package files to openwrt, you can use scp with these
+options:
+#+begin_example
+cp -O -oKexAlgorithms=+diffie-hellman-group1-sha1 -oHostKeyAlgorithms=+ssh-rsa -c aes256-cbc *.ipk root@openwrt
+#+end_example
+
+*** nvram
+wait a few seconds before booting, so that you can reset it if
+necessary
+#+begin_example
+nvram set boot_wait=on
+#+end_example
+
+enable routed client mode. the 'true' bridging modes do not seem to
+work on modern networks.
+#+begin_example
+nvram set wl0_mode=sta
+#+end_example
+
+set which ports go where
+#+begin_example
+nvram set lan_ifnames='vlan0 eth2 eth3'
+nvram set wan_ifname=eth1
+#+end_example
+
+various network details
+#+begin_example
+nvram set wl0_ssid='meow' # ssid to autoconnect to
+nvram set wl0_wpa_psk='hunter2'
+nvram set wl0_channel=1
+nvram set lan_ipaddr=192.168.3.1
+#+end_example
+
+*** add route
+#+begin_example
+echo 'route add default gw 192.168.1.1 eth1' > /etc/init.d/S98route
+chmod +x /etc/init.d/S98route
+#+end_example
+
+*** save your work
+#+begin_example
+nvram commit
+#+end_example
+
+*** scan alias
+#+begin_example
+echo 'alias scan="wl scan ; sleep 1 ; wl scanresults"' >> /etc/profile
+#+end_example
+
+** connecting to wifi
+
+*** iwconfig
+~iwconfig~ can be used to view your connection status
+
+*** scan
+use the [[*scan alias][previously defined]] ~scan~ alias to scan for wifi networks
+
+*** wl
+use ~wl join~ to connect to a network
+#+begin_example
+wl join meow key 'hunter2' amode wpapsk
+#+end_example
+
+or an open one
+#+begin_example
+wl join meow
+#+end_example
+
+
