@@ -31,6 +31,7 @@
 - [[./minetest-mods.org][minetest mods]]
 - [[./minetest-skins.org][minetest skins]]
 - [[./ngircd-cloakhostsalt.org][ngircd cloak host salt]]
+- [[./ngircd-s2s.org][ngircd s2s]]
 - [[./nxproxy.org][using nxproxy]]
 - [[./openbsd-vnc.org][setting up vnc with xenodm on openbsd]]
 - [[./openssl-customnameconstraints.org][openssl custom name constraints]]

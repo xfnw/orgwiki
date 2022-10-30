@@ -1,0 +1,11 @@
+#+TITLE: ngircd s2s
+#+SETUPFILE: setupfile.org
+
+* handshake
+courtesy of Noisytoot
+
+#+begin_example
+PASS hunter2 0210-IRC+ whatever|1.0:CHLMoSX
+SERVER name.example :description
+376 uplink.example :End
+#+end_example
