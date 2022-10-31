@@ -9,3 +9,15 @@ PASS hunter2 0210-IRC+ whatever|1.0:CHLMoSX
 SERVER name.example :description
 376 uplink.example :End
 #+end_example
+
+* SVSNICK and user modes
+ngircd allows any server to use SVSNICK. it even allows any server to
+set umodes on anyone for some reason.
+
+#+begin_example
+:server. SVSNICK Noisytoot pissnet
+#+end_example
+
+#+begin_example
+:server. MODE Noisytoot +w
+#+end_example
