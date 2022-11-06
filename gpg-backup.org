@@ -1,0 +1,56 @@
+#+TITLE: backing up and syncing gpg keys
+#+SETUPFILE: setupfile.org
+
+#+TOC: headlines 3
+
+* public keyring, and "non-exportable" stuff
+this includes local signatures
+
+** to a file
+#+begin_example
+gpg --export --export-options export-backup file
+...
+gpg --import --import-options import-restore file
+#+end_example
+
+** directly over ssh
+#+begin_example
+gpg --export --export-options export-backup | ssh user@host -- gpg --import --import-options import-restore
+#+end_example
+
+* trust values
+
+** to a file
+#+begin_example
+gpg --export-ownertrust file
+...
+gpg --import-ownertrust file
+#+end_example
+
+** directly over ssh
+
+#+begin_example
+gpg --export-ownertrust | ssh user@host -- gpg --import-ownertrust
+#+end_example
+
+* secret keys
+note that since importing a password-protected secret key asks for the
+password, it is difficult to do while piping over ssh.
+
+#+begin_example
+gpg --export-secret-keys file
+...
+gpg --import file
+#+end_example
+
+** just the subkeys
+you can instead share only the secret subkeys with a less-trustworthy
+computer (such as a laptop you take with you) so that you can revoke
+them and create new subkeys, without the hassle of your entire key
+needing to be revoked.
+
+#+begin_example
+gpg --export-secret-subkeys file
+...
+gpg --import file
+#+end_example

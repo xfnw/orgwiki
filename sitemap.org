@@ -18,6 +18,7 @@
 - [[./git-compression.org][compress a git repository]]
 - [[./github.org][github]]
 - [[./git-push-to-create.org][git push to create]]
+- [[./gpg-backup.org][backing up and syncing gpg keys]]
 - [[./gpg-generate.org][generating a gpg key]]
 - [[./hexchat.org][hexchat]]
 - [[./IHG.org][IHG]]
