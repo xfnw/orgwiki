@@ -82,7 +82,6 @@ Included via ~#+SETUPFILE:~ in wiki pages
 #+HTML_HEAD: pre {
 #+HTML_HEAD:   font-size:10.5pt;
 #+HTML_HEAD:   max-width:80ch;
-#+HTML_HEAD:   overflow:scroll;
 #+HTML_HEAD:   border: 1pt dotted #bfbfbf;
 #+HTML_HEAD:   padding:1ch;
 #+HTML_HEAD: }
