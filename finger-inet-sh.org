@@ -1,0 +1,23 @@
+#+TITLE: shell script finger daemon
+#+SETUPFILE: setupfile.org
+
+add this script to your inetd, and add text files or executables to
+~/home/finger/fingers~ for a simple finger daemon
+
+#+begin_src sh :tangle tangle/finger.sh
+cd /home/finger/fingers || exit
+
+user="$(head -n1 | sed 's/[^a-zA-Z0-9]//g')"
+
+if [[ -f "./$user" ]]
+then
+	if [[ -x "./$user" ]]
+	then
+		"./$user"
+	else
+		cat "./$user"
+	fi
+else
+	echo no such user.
+fi
+#+end_src
