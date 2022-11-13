@@ -1,0 +1,84 @@
+#+TITLE: icecast custom index page
+#+SETUPFILE: setupfile.org
+
+we can specify a custom ~xsl~ file for the index
+
+#+begin_src xml :tangle tangle/index.xsl
+<xsl:stylesheet xmlns:xsl = "http://www.w3.org/1999/XSL/Transform" version = "1.0">
+<xsl:output omit-xml-declaration="no" method="xml" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" indent="yes" encoding="UTF-8" />
+<xsl:template match = "/icestats">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>radio</title>
+	<link rel="stylesheet" type="text/css" href="index.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+</head>
+<body>
+	<!--end index header menu -->
+	<xsl:text disable-output-escaping="yes">
+	&lt;!-- WARNING:
+	 DO NOT ATTEMPT TO PARSE ICECAST HTML OUTPUT!
+	 The web interface may change completely between releases.
+	 If you have a need for automatic processing of server data,
+	 please read the appropriate documentation. Latest docs:
+	 https://icecast.org/docs/icecast-latest/icecast2_stats.html
+	-->
+	</xsl:text>
+	<!--mount point stats-->
+	<xsl:for-each select="source">
+		<xsl:choose>
+			<xsl:when test="listeners">
+			<div class="roundbox">
+				<div class="mounthead">
+					<h3 class="mount"><xsl:value-of select="@mount" /></h3>
+				</div>
+				<div class="mountcont">
+					<xsl:if test="server_type and ((server_type = 'application/ogg') or (server_type = 'audio/ogg'))">
+						<div class="audioplayer">
+							<audio controls="controls" preload="none">
+								<source src="{@mount}" type="{server_type}" />
+							</audio>
+						</div>
+					</xsl:if>
+					<table class="yellowkeys">
+						<tbody>
+							<tr>
+								<td>Currently playing:</td>
+								<td class="streamstats">
+								<xsl:if test="artist">
+									<xsl:value-of select="artist" /> - 
+								</xsl:if>
+									<xsl:value-of select="title" />
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			</xsl:when>
+			<xsl:otherwise>
+				<h3><xsl:value-of select="@mount" /> - Not Connected</h3>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:for-each>
+</body>
+</html>
+</xsl:template>
+</xsl:stylesheet>
+#+end_src
+
+and add some css
+
+#+begin_src css :tangle tangle/index.css
+html, body {
+    height: 100%;
+    margin:0;
+    padding:0;
+    display:flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background: #141415;
+    color: #cdcdcd;
+}
+#+end_src
