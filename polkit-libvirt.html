@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-12 Sat 15:46 -->
+<!-- 2022-11-12 Sat 22:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>polkit libvirt rules</title>
@@ -201,25 +201,25 @@ username plus a dash, and the allowed actions are fairly restricting</li>
 
 polkit.addRule(function(action, subject) {
     if (action.id.indexOf("org.libvirt.api.") == 0) {
-	var api = action.id.replace("org.libvirt.api.", "");
-	var domain = action.lookup("domain_name");
+        var api = action.id.replace("org.libvirt.api.", "");
+        var domain = action.lookup("domain_name");
 
-	if (subject.groups.indexOf("virtadmins") &gt;= 0)
-	    return polkit.Result.YES;
+        if (subject.groups.indexOf("virtadmins") &gt;= 0)
+            return polkit.Result.YES;
 
-	if (restrictedActions.indexOf(api) &gt;= 0 &amp;&amp; subject.groups.indexOf("virtusers")) {
+        if (restrictedActions.indexOf(api) &gt;= 0 &amp;&amp; subject.groups.indexOf("virtusers")) {
 		if (!domain || domain.match(new RegExp("^"+subject.user+"-")))
-		    return polkit.Result.YES;
-	}
+                    return polkit.Result.YES;
+        }
 
-	return polkit.Result.NO;
+        return polkit.Result.NO;
     }
 });
 
 polkit.addRule(function(action, subject) {
     if (action.id == "org.libvirt.unix.manage" &amp;&amp;
-	(subject.groups.indexOf("virtadmins") &gt;= 0 || subject.groups.indexOf("virtusers") &gt;= 0)) {
-	    return polkit.Result.YES;
+        (subject.groups.indexOf("virtadmins") &gt;= 0 || subject.groups.indexOf("virtusers") &gt;= 0)) {
+            return polkit.Result.YES;
     }
 });
 </pre>

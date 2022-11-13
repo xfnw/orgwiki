@@ -24,7 +24,7 @@ multi-user setting. ie user ~xfnw~ will be able to access a vm named
 
 ** rules
 
-#+begin_src javascript
+#+begin_src javascript :tangle tangle/libvirt-acl.rules
 restrictedActions = [
     "connect.getattr",
     "connect.search-domains",
