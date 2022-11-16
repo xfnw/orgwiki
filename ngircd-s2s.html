@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-12 Sat 15:46 -->
+<!-- 2022-11-15 Tue 22:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ngircd s2s</title>
@@ -154,6 +154,33 @@ set umodes on anyone for some reason.
 
 <pre class="example" id="org0000001">
 :server. MODE Noisytoot +w
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org0000002" class="outline-2">
+<h2 id="org0000002"><span class="section-number-2">3.</span> force join</h2>
+<div class="outline-text-2" id="text-3">
+<pre class="example" id="org0000002">
+:server. NJOIN #forcejoin Noisytoot
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org0000003" class="outline-2">
+<h2 id="org0000003"><span class="section-number-2">4.</span> introducing a server</h2>
+<div class="outline-text-2" id="text-4">
+<pre class="example" id="org0000003">
+:server. SERVER another.server 1 1 :description
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org0000004" class="outline-2">
+<h2 id="org0000004"><span class="section-number-2">5.</span> introducing a client</h2>
+<div class="outline-text-2" id="text-5">
+<pre class="example" id="org0000004">
+:server. NICK doot 1 username host 1 + :realname
 </pre>
 </div>
 </div>

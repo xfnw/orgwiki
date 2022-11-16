@@ -21,3 +21,18 @@ set umodes on anyone for some reason.
 #+begin_example
 :server. MODE Noisytoot +w
 #+end_example
+
+* force join
+#+begin_example
+:server. NJOIN #forcejoin Noisytoot
+#+end_example
+
+* introducing a server
+#+begin_example
+:server. SERVER another.server 1 1 :description
+#+end_example
+
+* introducing a client
+#+begin_example
+:server. NICK doot 1 username host 1 + :realname
+#+end_example
