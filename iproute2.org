@@ -1,0 +1,42 @@
+#+TITLE: iproute2
+#+SETUPFILE: setupfile.org
+
+iproute2, better known as the ~ip~ command, is a replacement for the
+old ~route~ and ~ipconfig~ utilities.
+
+it lets you abbreviate subcommands, ie ~ip route~ -> ~ip r~, ~ip
+address~ -> ~ip a~.
+
+* routes
+#+begin_example
+ip r
+#+end_example
+will list the current routes.
+
+** adding a route
+#+begin_example
+ip r add default via 192.168.1.1
+#+end_example
+adds a ~default~ route to a gateway at ~192.168.1.1~. a CIDR can be
+used instead of ~default~. ~default~ is
+roughly equivalent to a ~0.0.0.0/0~ plus a ~::/0~ route.
+
+~dev devicename~ can be added to restrict it to ~devicename~.
+
+** deleting a route
+#+begin_example
+ip r del default
+#+end_example
+will delete the default route.
+
+* addresses
+#+begin_example
+ip a
+#+end_example
+will list the addresses and status of your networking devices.
+
+** down/up
+#+begin_example
+ip link set wlan0 up
+#+end_example
+will set device ~wlan0~ up.
