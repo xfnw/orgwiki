@@ -1,0 +1,11 @@
+#+TITLE: managing weechat logs
+#+SETUPFILE: setupfile.org
+
+* removing joins/parts/quits/nicks/aways
+
+this can make logs considerably smaller. on even a very active
+channel, this was able to shrink my logs to 1/5 of the size.
+
+#+begin_example
+awk -F'\t' '$2 != "<--" && $2 != "-->" && $2 != "--" && $2 != "" {print}'
+#+end_example

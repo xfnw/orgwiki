@@ -45,6 +45,7 @@
 - [[./polkit-libvirt.org][polkit libvirt rules]]
 - [[./rc.d.org][rc.d]]
 - [[./tlstunnel.org][tlstunnel]]
+- [[./weechat-logs.org][managing weechat logs]]
 - [[./wireguard.org][wireguard]]
 - [[./xfburn-failurecbd.org][xfburn FailureCBD error]]
 - [[./znc-freeze.org][freeze a znc account]]
