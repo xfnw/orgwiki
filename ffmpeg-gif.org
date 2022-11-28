@@ -1,0 +1,30 @@
+#+TITLE: generating gif's with ffmpeg
+#+SETUPFILE: setupfile.org
+
+gif is really a horrible format, avoid it if you can. webp is a much
+nicer format if you insist on using an image, but dedicated video
+formats will always be better.
+
+* single pass
+this is the chonk maximum-quality method. it creates massive files
+because palettes are not compressed.
+
+#+begin_example
+ffmpeg -i input.mkv -vf "split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop 0 output.gif
+#+end_example
+
+* multi pass
+multiple passes allows calculating a single, global, palette. this
+allows the file size to be much smaller.
+
+snippet mostly borrowed from [[http://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html][pkh's blog]]
+
+#+begin_src sh :tangle tangle/ffmpeggif.sh
+#!/bin/sh
+
+palette="/tmp/palette.png"
+filters="fps=15,scale=320:-1:flags=lanczos"
+
+ffmpeg -i "$1" -vf "$filters,palettegen" -y "$palette"
+ffmpeg -i "$1" -i $palette -lavfi "$filters [x]; [x][1:v] paletteuse" -y "$2"
+#+end_src

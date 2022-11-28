@@ -1,0 +1,17 @@
+#+TITLE: generate webp's with ffmpeg
+#+SETUPFILE: setupfile.org
+
+* animated webp
+
+#+begin_example
+ffmpeg -i input.mkv -filter:v fps=fps=15 -vsync 0 -loop 0 output.webp
+#+end_example
+
+** make it lossless
+since webp supports both lossy and lossless compression, you can
+squeeze some extra quality in by making it lossless, however it will
+make the size a bit bigger
+
+#+begin_example
+-lossless 1 
+#+end_example
