@@ -1,0 +1,49 @@
+#+TITLE: delete keys from hockeypuck
+#+SETUPFILE: setupfile.org
+
+adapted from adulau's github gist
+
+#+TOC: headlines 3
+
+* deleting a key from the database
+
+** get hash
+
+on the web interface, search for the key. the ~Hash=~ value in the
+search result will be the md5 hash
+
+** connect to postgres
+
+connnect using the ~psql~ command. if using the nixos module, you will
+have to switch to the ~hockeypuck~ user.
+
+#+begin_example
+sudo -u hockeypuck psql
+#+end_example
+
+** get the ~rfingerprint~ value
+
+#+begin_example
+select rfingerprint from keys where md5 in ('YOURMD5');
+#+end_example
+
+replacing ~YOURMD5~ with the hash you found earlier.
+
+** delete subkeys
+
+#+begin_example
+delete from subkeys where rfingerprint in ('YOURRFINGERPRINT');
+#+end_example
+
+replacing ~YOURRFINGERPRINT~ with the rfingerprint gotten earlier.
+
+** delete main key
+
+#+begin_example
+delete from keys where rfingerprint in ('YOURRFINGERPRINT');
+#+end_example
+
+again, replacing ~YOURRFINGERPRINT~ with the rfingerprint gotten
+earlier.
+
+* TODO blacklisting a key
