@@ -1,4 +1,4 @@
-#+TITLE: ffmpag looping
+#+TITLE: ffmpeg looping
 #+SETUPFILE: setupfile.org
 
 * looping video until audio ends

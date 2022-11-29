@@ -15,7 +15,7 @@
 - [[./elevator-testscript.org][elevator emergency phone test script]]
 - [[./emacs-package.org][emacs packages]]
 - [[./ffmpeg-gif.org][generating gif's with ffmpeg]]
-- [[./ffmpeg-loop.org][ffmpag looping]]
+- [[./ffmpeg-loop.org][ffmpeg looping]]
 - [[./ffmpeg-webp.org][generate webp's with ffmpeg]]
 - [[./finger-inet-sh.org][shell script finger daemon]]
 - [[./git-compression.org][compress a git repository]]
