@@ -21,3 +21,39 @@ do put an email though, else some keyservers will not accept it
 "There are two major products that come out of Berkeley: LSD and UNIX.
    We don't believe this to be a coincidence." - Jeremy S. Anderson
 #+end_quote
+
+* opinionated recommendations
+
+** the main key should have minimal capabilities
+ideally only Certify. using subkeys for more stuff allows easier key
+rotation. also this allows you to store the main key securely, and
+only keep the easily-rotatable (and revocable) subkeys on your
+daily-driver computer.
+
+to add secret subkeys, run ~--edit-key~ on your key id, and then use
+the ~addkey~ command. ~save~ when done.
+
+** set short expiration periods
+the shorter the better. key expiration dates force people to seek
+updated copies of your key, making it more difficult for them to use,
+for example, a compromised subkey.
+
+note that, despite the name, there are no adverse effects to your key
+expiring. there is no need to make a whole new key, you can just
+extend the expiration date. it is just to make sure you are still in
+control of the key (or at least someone, hence revocation
+certificates) and that people have a reasonably recent version of it.
+
+to extend the expiration date, run ~--edit-key~ on your key id, and
+then use the ~expire~ command. ~save~ when done.
+
+** generate revocation certificates for common reasons just in case
+generate a few for reasons such as 'i died', 'i forgot the password',
+'my key got compromised', etc, and store them in a safe place. gpg
+automatically makes revocation certificates that have a blank reason
+and can be used in a pinch, however it is better to have ones that
+have reasons.
+
+#+begin_example
+gpg --output revoke.asc --gen-revoke E621E926AAA69420
+#+end_example

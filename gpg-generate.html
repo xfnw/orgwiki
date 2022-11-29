@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-12 Sat 15:46 -->
+<!-- 2022-11-28 Mon 22:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>generating a gpg key</title>
@@ -161,6 +161,69 @@ do put an email though, else some keyservers will not accept it
    We don't believe this to be a coincidence." - Jeremy S. Anderson
 </p>
 </blockquote>
+</div>
+</div>
+
+<div id="outline-container-org0000005" class="outline-2">
+<h2 id="org0000005"><span class="section-number-2">3.</span> opinionated recommendations</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org0000002" class="outline-3">
+<h3 id="org0000002"><span class="section-number-3">3.1.</span> the main key should have minimal capabilities</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+ideally only Certify. using subkeys for more stuff allows easier key
+rotation. also this allows you to store the main key securely, and
+only keep the easily-rotatable (and revocable) subkeys on your
+daily-driver computer.
+</p>
+
+<p>
+to add secret subkeys, run <code>--edit-key</code> on your key id, and then use
+the <code>addkey</code> command. <code>save</code> when done.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0000003" class="outline-3">
+<h3 id="org0000003"><span class="section-number-3">3.2.</span> set short expiration periods</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+the shorter the better. key expiration dates force people to seek
+updated copies of your key, making it more difficult for them to use,
+for example, a compromised subkey.
+</p>
+
+<p>
+note that, despite the name, there are no adverse effects to your key
+expiring. there is no need to make a whole new key, you can just
+extend the expiration date. it is just to make sure you are still in
+control of the key (or at least someone, hence revocation
+certificates) and that people have a reasonably recent version of it.
+</p>
+
+<p>
+to extend the expiration date, run <code>--edit-key</code> on your key id, and
+then use the <code>expire</code> command. <code>save</code> when done.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0000004" class="outline-3">
+<h3 id="org0000004"><span class="section-number-3">3.3.</span> generate revocation certificates for common reasons just in case</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+generate a few for reasons such as 'i died', 'i forgot the password',
+'my key got compromised', etc, and store them in a safe place. gpg
+automatically makes revocation certificates that have a blank reason
+and can be used in a pinch, however it is better to have ones that
+have reasons.
+</p>
+
+<pre class="example" id="org0000004">
+gpg --output revoke.asc --gen-revoke E621E926AAA69420
+</pre>
+</div>
 </div>
 </div>
 </div>
