@@ -1,0 +1,15 @@
+#+TITLE: logisim evolution
+#+SETUPFILE: setupfile.org
+
+* converting between logic and data values
+in logisim, inputs and outputs have a 'bitwidth', kind of like a
+'type' in a programming language. normal logic gates and stuff have a
+bitwidth of 1.
+
+a 'splitter' (in the wiring category) can be used to convert between
+different bitwidths. set the 'fan out' value to the number of
+connections you want on a side (the other side will always have one)
+and 'bit width in' to the bitwidth you want for the side with one
+connection. there is no 'reverse splitter'; despite the name and the
+'bit width in' option, the splitter can be used in reverse direction,
+combining stuff into one output if you want!

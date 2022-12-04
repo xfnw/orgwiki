@@ -34,6 +34,7 @@
 - [[./lavfi-scope.org][lavfi live oscilloscope]]
 - [[./libressl-ld.org][libressl ld.conf on arch]]
 - [[./libvirt-hidden.org][hide that a libvirt guest is in a vm]]
+- [[./logisim.org][logisim evolution]]
 - [[./mariadb-accounts.org][mariadb accounts]]
 - [[./minetest-mods.org][minetest mods]]
 - [[./minetest-skins.org][minetest skins]]
