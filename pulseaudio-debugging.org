@@ -1,0 +1,15 @@
+#+TITLE: debugging pulseaudio
+#+SETUPFILE: setupfile.org
+
+* only gives a dummy output
+
+if you only get a dummy output, it is possible something else is
+hogging the audio output. run
+#+begin_example
+fuser /dev/snd/*
+#+end_example
+to see which PID's are using audio devices, and
+#+begin_example
+fuser -k /dev/snd/*
+#+end_example
+as root to kill them.

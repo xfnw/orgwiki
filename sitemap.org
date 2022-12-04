@@ -46,6 +46,7 @@
 - [[./org-tangle.org][tangling with org]]
 - [[./pixelflut.org][pixelflut]]
 - [[./polkit-libvirt.org][polkit libvirt rules]]
+- [[./pulseaudio-debugging.org][debugging pulseaudio]]
 - [[./rc.d.org][rc.d]]
 - [[./tlstunnel.org][tlstunnel]]
 - [[./weechat-logs.org][managing weechat logs]]
