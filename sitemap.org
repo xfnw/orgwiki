@@ -1,5 +1,6 @@
 #+TITLE: sitemap
 #+SETUPFILE: setupfile.org
+- [[./16C-programs.org][HP-16C programs]]
 - [[./9front-cpusetup.org][setup a 9front cpu server]]
 - [[./9front-iso.org][building a 9front iso]]
 - [[./9front-multiplexing.org][multiplexing on 9front]]
@@ -19,8 +20,8 @@
 - [[./ffmpeg-webp.org][generate webp's with ffmpeg]]
 - [[./finger-inet-sh.org][shell script finger daemon]]
 - [[./git-compression.org][compress a git repository]]
-- [[./git-push-to-create.org][git push to create]]
 - [[./github.org][github]]
+- [[./git-push-to-create.org][git push to create]]
 - [[./gpg-backup.org][backing up and syncing gpg keys]]
 - [[./gpg-generate.org][generating a gpg key]]
 - [[./hexchat.org][hexchat]]

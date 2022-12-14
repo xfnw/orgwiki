@@ -1,0 +1,32 @@
+#+TITLE: HP-16C programs
+#+SETUPFILE: setupfile.org
+
+press ~g P/R~ to toggle programming mode, ~GTO . <nnn>~ to jump to a
+line, ~BSP~ to delete a line, and ~g RTN~ to end a program.
+
+#+TOC: headlines 3
+
+* exponent function
+
+(for positive integers only)
+
+borrowed from [[https://imapenguin.com/simple-exponents-on-an-hp-16c/][this blog]]
+
+| num | keys  | display  | description                            |
+|-----+-------+----------+----------------------------------------|
+| 001 | LBL E | 43,22, E | convenient entry point                 |
+| 002 | ENTER | 36       | push stack                             |
+| 003 | 1     | 1        |                                        |
+| 004 | -     | 30       | subtract one, count starts at 0        |
+| 005 | X<>I  | 42 22    | push to "increment/decrement" counter  |
+| 006 | X<->Y | 34       | swap                                   |
+| 007 | STO A | 44 A     | store                                  |
+| 008 | ENTER | 36       | push stack                             |
+| 009 | LBL 0 | 43,22, 0 | label for loop target                  |
+| 010 | X<->Y | 34       | swap                                   |
+| 011 | RCL A | 45 A     | push A to stack                        |
+| 012 | *     | 20       | multiply it                            |
+| 013 | ENTER | 36       | push stack up 1                        |
+| 014 | DSZ   | 43 23    | decrement and branch to LBL 0 unless 0 |
+| 015 | GTO 0 | 22 0     |                                        |
+| 016 | RTN   | 43 21    | return                                 |
