@@ -1,0 +1,52 @@
+#+TITLE: graphviz
+#+SETUPFILE: setupfile.org
+
+graphviz is a cool renderer thing for diagrams
+
+#+TOC: headlines 3
+
+* using it
+
+you can use it [[http://www.google.com/url?q=https://dreampuf.github.io/GraphvizOnline/&sa=U&ved=2ahUKEwiBhu2An4H8AhXTEFkFHREXByAQFnoECAoQAg&usg=AOvVaw3_6nvfLOYJh713VB5c7nfo][online]], or, if you install it to your computer, the
+command to run it will be the layout plugin you want to use, for
+example ~dot~
+
+* xfnw's opinionated recommendations
+
+** layout plugin
+
+for directed graphs (ie flowcharts), use ~dot~. for undirected graphs,
+use ~fdp~. all the other ones i have either not been able to output
+anything meaningful, or layout the data worse than ~dot~ and ~fdp~ 
+
+* examples
+
+** irc LINKS graph
+
+this awk script will take output of irc's ~LINKS~ command, and convert
+it to an undirected graphviz graph. change ~$5~ and ~$6~ to where the
+two server names are in your log format.
+
+#+begin_fixme
+this assumes the letters of servernames are unique! it will break, for
+example, if you have both ~me.ow.cat~ and ~meow.cat~
+#+end_fixme
+
+#+begin_src awk :tangle tangle/linkstographviz.awk
+BEGIN {
+	print "graph l {"
+}
+{
+	from=$5;
+	to=$6;
+	gsub("[\\.-]","",from);
+	gsub("[\\.-]","",to);
+	print from " [label=\"" $5 "\"]; ";
+	if (from != to) {
+		print to " -- " from ";"
+	}
+}
+END {
+	print "}"
+}
+#+end_src
