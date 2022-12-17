@@ -1,5 +1,5 @@
-#+TITLE: a memoir on capital letters
+#+TITLE: capital letters considered harmful
 #+SETUPFILE: setupfile.org
 
 you may have noticed i do not use many capital letters on this
-site. the reason is simple; i am not a capitalist.
+site. they are rarely useful, make your typing slower, and look ugly.

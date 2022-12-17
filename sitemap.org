@@ -8,7 +8,7 @@
 - [[./alpine.org][alpine linux]]
 - [[./ansi-escapes.org][ansi escape sequences]]
 - [[./ape-wine.org][ape wine]]
-- [[./capital.org][a memoir on capital letters]]
+- [[./capital.org][capital letters considered harmful]]
 - [[./chromeos-blahaj.org][type blåhaj on chrome os]]
 - [[./disambiguation.org][disambiguation]]
 - [[./docker-x11.org][docker X11]]
