@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-12-17 Sat 13:24 -->
+<!-- 2022-12-17 Sat 13:35 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>graphviz</title>
@@ -143,6 +143,11 @@ graphviz is a cool renderer thing for diagrams
 <li><a href="#org0000004">3.1. irc LINKS graph</a></li>
 </ul>
 </li>
+<li><a href="#org0000005">4. reference</a>
+<ul>
+<li><a href="#org0000006">4.1. digraph/graph</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -187,7 +192,7 @@ it to an undirected graphviz graph. change <code>$5</code> and <code>$6</code> t
 two server names are in your log format.
 </p>
 
-<div class="fixme" id="org0000005">
+<div class="fixme" id="org0000007">
 <p>
 this assumes the letters of servernames are unique! it will break, for
 example, if you have both <code>me.ow.cat</code> and <code>meow.cat</code>
@@ -214,6 +219,43 @@ END {
 }
 </pre>
 </div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0000005" class="outline-2">
+<h2 id="org0000005"><span class="section-number-2">4.</span> reference</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org0000006" class="outline-3">
+<h3 id="org0000006"><span class="section-number-3">4.1.</span> digraph/graph</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+<code>graph</code> is for showing relations. it uses <code>--</code> to connect items.
+</p>
+<pre class="example" id="org0000007">
+graph MyNiceGraph {
+	kitty -- cat;
+}
+</pre>
+
+<p>
+<code>digraph</code> is for showing directed stuff, like flowcharts. it uses <code>-&gt;</code>
+to connect items.
+</p>
+<pre class="example" id="org0000007">
+digraph MyNiceDigraph {
+	cat -&gt; meow;
+	cat -&gt; hiss;
+}
+</pre>
+
+<p>
+the word after them is the id, which can be pretty much anything you
+want. it is for differentiating which graph you want to render if you
+have multiple in a file. you'll have to quote it if you want to use
+weird characters.
+</p>
 </div>
 </div>
 </div>

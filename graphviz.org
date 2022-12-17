@@ -14,7 +14,6 @@ example ~dot~
 * xfnw's opinionated recommendations
 
 ** layout plugin
-
 for directed graphs (ie flowcharts), use ~dot~. for undirected graphs,
 use ~fdp~. all the other ones i have either not been able to output
 anything meaningful, or layout the data worse than ~dot~ and ~fdp~ 
@@ -22,7 +21,6 @@ anything meaningful, or layout the data worse than ~dot~ and ~fdp~
 * examples
 
 ** irc LINKS graph
-
 this awk script will take output of irc's ~LINKS~ command, and convert
 it to an undirected graphviz graph. change ~$5~ and ~$6~ to where the
 two server names are in your log format.
@@ -50,3 +48,27 @@ END {
 	print "}"
 }
 #+end_src
+
+* reference
+
+** digraph/graph
+~graph~ is for showing relations. it uses ~--~ to connect items.
+#+begin_example
+graph MyNiceGraph {
+	kitty -- cat;
+}
+#+end_example
+
+~digraph~ is for showing directed stuff, like flowcharts. it uses ~->~
+to connect items.
+#+begin_example
+digraph MyNiceDigraph {
+	cat -> meow;
+	cat -> hiss;
+}
+#+end_example
+
+the word after them is the id, which can be pretty much anything you
+want. it is for differentiating which graph you want to render if you
+have multiple in a file. you'll have to quote it if you want to use
+weird characters.
