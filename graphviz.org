@@ -25,6 +25,9 @@ this awk script will take output of irc's ~LINKS~ command, and convert
 it to an undirected graphviz graph. change ~$5~ and ~$6~ to where the
 two server names are in your log format.
 
+reversing the ~LINKS~ output with ~tac(1)~ before feeding it into awk
+seems to make graphviz have a better layout.
+
 #+begin_fixme
 this assumes the letters of servernames are unique! it will break, for
 example, if you have both ~me.ow.cat~ and ~meow.cat~
