@@ -1,0 +1,21 @@
+#+TITLE: feh
+#+SETUPFILE: setupfile.org
+
+feh is a somewhat minimal image viewer
+
+* keybinds
+
+some of the keybinds arent very well documented
+
+| key | use                                                       |
+|-----+-----------------------------------------------------------|
+| ~/~ | zoom (out) so that the whole thing fits on your screen    |
+| ~r~ | go back to the center and reset zoom                      |
+| ~f~ | toggle fullscreen                                         |
+| ~Z~ | seems to do the same thing as ~/~, but only in fullscreen |
+
+* set wallpaper
+you can use feh for setting your wallpaper with ~--bg-fill~. you can
+have a random wallpaper by pointing it at a directory and using
+~--randomize~
+

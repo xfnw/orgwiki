@@ -15,6 +15,7 @@
 - [[./elevator-fireoperation.org][fire operation phase 2]]
 - [[./elevator-testscript.org][elevator emergency phone test script]]
 - [[./emacs-package.org][emacs packages]]
+- [[./feh.org][feh]]
 - [[./ffmpeg-gif.org][generating gif's with ffmpeg]]
 - [[./ffmpeg-loop.org][ffmpeg looping]]
 - [[./ffmpeg-webp.org][generate webp's with ffmpeg]]
