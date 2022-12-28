@@ -1,0 +1,39 @@
+#+TITLE: imagemagick
+#+SETUPFILE: setupfile.org
+
+imagemagick is a command-line image manipulation tool.
+
+#+TOC: headlines 3
+
+* precedence
+
+options are done in order, so an option needs to be before other
+options to effect them. for example to turn off dithering with
+~+dither~, you have to put that before other things that would use
+dithering.
+
+* colors
+
+** invert colors
+use the ~-negate~ option
+
+** convert colors to monochrome
+use the ~-monochrome~ option
+
+** convert to grayscale
+use ~-colorspace gray~.
+
+you can limit the number of colors with ~-colors~ and turn off
+dithering with ~+dither~, though this seems to really highlight
+artifacts if using jpeg.
+
+occationally, especially if you only have a few colors, this can
+actually produce larger file sizes than just normal indexed colors. if
+using PNG, you can prefix the filename with ~PNG8:~ to force a normal
+colorspace which can then be indexed using something like [[./pngo.org][pngo]]. do
+check the size though, this can also make the size much larger.
+
+** remove alpha
+use the ~-flatten~ option for this. you can also set the ~-background
+color~ to a color beforehand if you want to replace the alpha with a
+specific color.

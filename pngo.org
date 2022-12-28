@@ -1,0 +1,15 @@
+#+TITLE: pngo
+#+SETUPFILE: setupfile.org
+
+pngo is [[https://causal.agency/][june]]'s [[https://causal.agency/bin/pngo.html][png optimisation tool]].
+
+seeing as there is no helptext and i have not bothered to install the
+manpage, here are some common options:
+
+* setting output location
+by default, it will overwrite the file in place. the ~-o filename~
+lets you specify the output location. alternatively ~-c~ sends to
+stdout.
+
+* force bit depth
+the ~-b~ option can reduce the number of bits used for each color.
