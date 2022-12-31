@@ -53,6 +53,7 @@
 - [[./pngo.org][pngo]]
 - [[./polkit-libvirt.org][polkit libvirt rules]]
 - [[./pulseaudio-debugging.org][debugging pulseaudio]]
+- [[./raspistill.org][raspistill]]
 - [[./rc.d.org][rc.d]]
 - [[./tlstunnel.org][tlstunnel]]
 - [[./weechat-logs.org][managing weechat logs]]

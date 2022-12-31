@@ -1,0 +1,25 @@
+#+TITLE: raspistill
+#+SETUPFILE: setupfile.org
+
+* cgi
+you can expose a pi cam to remote viewing with a cgi script
+
+#+begin_src sh :tangle tangle/full.cgi
+#!/bin/sh
+echo "Content-Type: image/jpeg"
+echo
+raspistill -o - -t 1 -n
+#+end_src
+
+** make it smol
+qvga is smol and bandwidth friendly
+
+#+begin_src sh :tangle tangle/qvga.cgi
+#!/bin/sh
+echo "Content-Type: image/jpeg"
+echo
+raspistill -o - -t 1 -n -w 320 -h 240
+#+end_src
+
+i also have additional sizes setup, so they can be sent without extra
+scaling to my local [[./pixelflut.org][pixelflut]] server.
