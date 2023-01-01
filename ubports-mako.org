@@ -1,0 +1,44 @@
+#+TITLE: installing ubports on mako
+#+SETUPFILE: setupfile.org
+
+ubuntu touch is a failed and abandoned attempt by canonical to make a
+phone linux distro. ubports is an attempt to continue it.
+
+this guide explains how to install it without the stupid electron
+autoinstaller thing that i could not get to work.
+
+#+TOC: headlines 3
+
+* requirements
+you will need ~ubuntu-device-flash~. it is on the aur if using [[./pacman.org][arch]]
+
+* choose a channel
+[[https://system-image.ubports.com/ubports-touch/16.04/]] has a list of
+channels.
+
+at the time of writing, ~devel~ ~edge~ ~rc~ (release candidate) and
+~stable~ are the options to choose from.
+
+[2023-01-01 Sun]: happy new years! yes, it is twenty twenty three, and
+the version (which ubuntu bases on year dot month) is still
+"16.04"... i do hope the ubports people updated the kernel at least.
+
+* time to flash
+boot into your bootloader, then you can run
+
+#+begin_example
+ubuntu-device-flash touch --server https://system-image.ubports.com --channel ubports-touch/16.04/<your channel> --bootstrap 
+#+end_example
+
+replacing ~<your channel~ with the channel you chose, for example ~rc~
+
+* wait a bit
+you should see an animation with orange dots
+
+now it hopefully is installed! if not...
+
+* troubleshooting
+
+** getting sent back to recovery
+if it boots you back to recovery when trying to flash, you may need to
+increase your cache partition size

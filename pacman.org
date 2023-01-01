@@ -1,0 +1,39 @@
+#+TITLE: keeping your storage tidy with pacman
+#+SETUPFILE: setupfile.org
+
+pacman is a lovely--and decently fast--package manager, used by arch
+linux. nothing beats [[./alpine.org][apk]] in speed though :P
+
+#+TOC: headlines 3
+
+* clean stale cache
+after verifying all your stuff is in working order, this is safe to
+run
+#+begin_example
+pacman -Sc
+#+end_example
+
+** cleaning ALL cache
+this one will leave you regretting you did this if a package breaks in
+the future, though in my experience and despite arch's reputation,
+that will happen quite rarely.
+#+begin_example
+pacman -Scc
+#+end_example
+
+* removing no longer required dependencies
+this is somewhat akin to ~apt autoremove~
+#+begin_example
+pacman -Rns $(pacman -Qttqd)
+#+end_example
+
+* somewhat hacky
+these might break and are of questionable quality.
+
+** list largest non-dependencies
+#+begin_fixme
+breaks if you have a package or a field with a capital letter ~N~.
+#+end_fixme
+#+begin_example
+pacman -Qtti | grep 'Name\|Installed Size' | tr "\n" " " | tr "N" "\n" | awk '{print $3 " " $7 $8}' | sort -k2 -h
+#+end_example

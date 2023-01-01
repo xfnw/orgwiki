@@ -1,0 +1,19 @@
+#+TITLE: create custom compose keybinds with XCompose
+#+SETUPFILE: setupfile.org
+
+if you arent on [[./chromeos-blahaj.org][a system without compose]], compose is quite useful for
+typing those special characters. however you will quickly be tempted
+to add your own compose keybinds!
+
+adding your own compose keybinds is as simple as putting them in a
+file called ~.XCompose~ in your home directory
+#+begin_example
+<Multi_key> <o> <9>	: "⑨"	U2468 # CIRCLED DIGIT NINE
+#+end_example
+
+you should include your existing compose combinations if you still
+want to be able to use them, ie
+#+begin_example
+include "/usr/share/X11/locale/en_US.UTF-8/Compose"
+#+end_example
+replacing ~en_US.UTF-8~ with your locale.
