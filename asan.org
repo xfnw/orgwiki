@@ -1,0 +1,11 @@
+#+TITLE: address sanitizer
+#+SETUPFILE: setupfile.org
+
+address sanitizer is google's cool memory checker thingy
+
+sadly, it [[https://github.com/google/sanitizers/issues/1080][does not support musl libc]]
+
+* using it
+if your compiler has address sanitizer support, add
+~-fsanitize=address~ to your ~CFLAGS~. you probably also want ~-g~
+debug symbols, to make address sanitizer output more useful.
