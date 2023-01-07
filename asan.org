@@ -3,7 +3,7 @@
 
 address sanitizer is google's cool memory checker thingy
 
-sadly, it [[https://github.com/google/sanitizers/issues/1080][does not support musl libc]]
+sadly, you may have trouble [[https://github.com/google/sanitizers/issues/1080][when using musl libc]]
 
 * using it
 if your compiler has address sanitizer support, add
