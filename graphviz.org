@@ -75,3 +75,59 @@ the word after them is the id, which can be pretty much anything you
 want. it is for differentiating which graph you want to render if you
 have multiple in a file. you'll have to quote it if you want to use
 weird characters.
+
+** setting default node shape
+there is a special name called ~node~ that applies to all nodes by
+default.
+
+#+begin_example
+digraph Rectangles {
+	node [shape="box"];
+
+	ovals [shape="ellipse"];
+	rectangles -> ovals [label="are much nicer than"];
+}
+#+end_example
+
+** make lines less bendy
+by default, relations are shown with a spline, which makes a smooth
+curve when possible. you can set the ~splines~ option to change
+this. the value ~ortho~ will force 90\deg lines, but this often gives
+horrible results with large gaps and overlaps for non-trivial
+graphs. ~polyline~ uses a sequence of straight lines.
+
+#+begin_example
+digraph ItsPolyTime {
+	splines=polyline;
+
+	h:w -> fox:e;
+	fox:n -> h:s;
+}
+#+end_example
+
+graphviz sadly does not have a "squared" lines option[fn:1:why not?
+seems like it would be easy to implement, just "ortho without the gaps
+in the lines" would probably be fine, perhaps with some extra
+padding]. however, this can be emulated by creating invisible nodes to
+route lines where you want.
+
+in this example, we also use ~dir=back~ backwards line and ~rank=same~
+trickery to make graphviz' ranking algorithm put nodes in the right
+places.
+
+#+begin_example
+digraph TheLetterH {
+	splines=polyline;
+
+	hidden [label=""; color=white];
+	hidden2 [label=""; color=white];
+
+	{rank=same; h; fox}
+	{rank=same; hidden; hidden2}
+
+	fox -> h;
+	h -> hidden2:n [arrowhead=none];
+	hidden:n -> hidden2:n [arrowhead=none];
+	fox -> hidden:n [dir=back];
+}
+#+end_example
