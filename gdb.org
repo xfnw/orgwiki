@@ -9,19 +9,21 @@ for c segmentation faults, you may also want [[./asan.org][address sanitizer]]
 
 gdb has tons of commands. these are the ones i use most often.
 
-| abbrev | command  | description                                  |
-|--------+----------+----------------------------------------------|
-| ~r~    | ~run~    | start execution, from the beginning          |
-| ~d~    | ~delete~ | delete a breakpoint or clear all breakpoints |
-| ~s~    | ~step~   | do one instruction                           |
-| ~n~    | ~next~   | step until the next line                     |
-| ~f~    | ~frame~  | show where you are in execution again        |
-| ~fin~  | ~finish~ | step until the current funtion returns       |
-| ~l~    | ~list~   | show the source code                         |
-| ~p~    | ~print~  | get the value of variable                    |
+| abbrev | command     | description                                  |
+|--------+-------------+----------------------------------------------|
+| ~r~    | ~run~       | start execution, from the beginning          |
+| ~b~    | ~break~     | create a breakpoint                          |
+| ~d~    | ~delete~    | delete a breakpoint or clear all breakpoints |
+| ~s~    | ~step~      | do one instruction                           |
+| ~n~    | ~next~      | step until the next line                     |
+| ~f~    | ~frame~     | show where you are in execution again        |
+| ~fin~  | ~finish~    | step until the current funtion returns       |
+| ~l~    | ~list~      | show the source code                         |
+| ~p~    | ~print~     | get the value of variable                    |
+| ~bt~   | ~backtrace~ | show the backtrace                           |
 
 * debuginfod
 gdb supports an automatic debug symbol downloading service called
 debuginfod. this means you will usually not have to go search for a
-package providing debug symbols for some package and restart your
+package providing debug symbols for some library and restart your
 debugging.

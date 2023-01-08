@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-01-07 Sat 00:20 -->
+<!-- 2023-01-08 Sun 17:10 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>gnu debugger</title>
@@ -164,6 +164,12 @@ gdb has tons of commands. these are the ones i use most often.
 </tr>
 
 <tr>
+<td class="org-left"><code>b</code></td>
+<td class="org-left"><code>break</code></td>
+<td class="org-left">create a breakpoint</td>
+</tr>
+
+<tr>
 <td class="org-left"><code>d</code></td>
 <td class="org-left"><code>delete</code></td>
 <td class="org-left">delete a breakpoint or clear all breakpoints</td>
@@ -204,6 +210,12 @@ gdb has tons of commands. these are the ones i use most often.
 <td class="org-left"><code>print</code></td>
 <td class="org-left">get the value of variable</td>
 </tr>
+
+<tr>
+<td class="org-left"><code>bt</code></td>
+<td class="org-left"><code>backtrace</code></td>
+<td class="org-left">show the backtrace</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -215,7 +227,7 @@ gdb has tons of commands. these are the ones i use most often.
 <p>
 gdb supports an automatic debug symbol downloading service called
 debuginfod. this means you will usually not have to go search for a
-package providing debug symbols for some package and restart your
+package providing debug symbols for some library and restart your
 debugging.
 </p>
 </div>
