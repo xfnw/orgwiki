@@ -56,6 +56,7 @@
 - [[./pixelflut.org][pixelflut]]
 - [[./pngo.org][pngo]]
 - [[./polkit-libvirt.org][polkit libvirt rules]]
+- [[./powdertoy.org][powdertoy]]
 - [[./pulseaudio-debugging.org][debugging pulseaudio]]
 - [[./raspistill.org][raspistill]]
 - [[./rc.d.org][rc.d]]
