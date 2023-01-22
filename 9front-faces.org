@@ -1,0 +1,60 @@
+#+TITLE: faces
+#+SETUPFILE: setupfile.org
+
+a face is kind of like a profile picture
+
+#+TOC: headlines 3
+
+* format/tree
+faces are in the plan9 image format and live in ~/lib/face~ or
+~$home/lib/face~. in this, we'll refer to either of them as
+~lib/face~.
+
+** machinelist
+the ~lib/face/.machinelist~ file contains aliases of hostnames in a
+space-delineated format.
+
+#+begin_example
+meow.example.com meow
+#+end_example
+
+would make face lookups for ~meow.example.com~ go to ~meow~
+
+** 48x48x<B>
+in ~lib/face/48x48x<B>~, with ~<B>~ replaced with the number of
+bits-per-pixel, is where actual face files live.
+
+there is a convention of putting faces in directories based on the
+first letter (ie ~g/glenda.1~ or ~x/xenia.1~), however as far as i
+know, this is not actually required by anything.
+
+*** dict
+serving as a machine-readable index for the faces, the
+~lib/face/48x48x<B>/.dict~ file contains domains names and relative
+paths for faces.
+
+for example, if ~lib/face/48x48x8/.dict~ contained 
+#+begin_example
+meow/xenia x/xenia.1
+#+end_example
+then looking up the face for ~xenia@meow~ (or ~xenia@meow.example.com~
+if you had the aforementioned machinelist entry), it would look for a
+face at ~lib/face/48x48x8/x/xenia.1~.
+
+* creating a face
+largely based on [[https://9p.io/wiki/plan9/adding_your_face/index.html][9p wiki's create a face page]].
+
+** mug(1)
+mug is a tool for cropping pictures into grayscale face files
+
+** iconv + resample
+#+begin_example
+png -c my-cool-icon.png |
+iconv -c m8 |
+resample -x 48 -y 48 > cool.1
+#+end_example
+
+the ~m8~ is the channel format. ~m~ means color-mapped, and ~8~ is the
+number of bits-per-pixel. instead of ~m~, you can use ~k~ for
+grayscale, ~r~ ~g~ ~b~ for red green or blue, and ~x~ for it to pick
+for you.  
