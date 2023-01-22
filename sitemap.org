@@ -1,7 +1,7 @@
 #+TITLE: sitemap
 #+SETUPFILE: setupfile.org
 - [[./16C-programs.org][HP-16C programs]]
-- [[./.#9front-accounts.org][]]
+- [[./9front-accounts.org][managing accounts on 9front]]
 - [[./9front-cpusetup.org][setup a 9front cpu server]]
 - [[./9front-faces.org][faces]]
 - [[./9front-iso.org][building a 9front iso]]

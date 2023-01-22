@@ -1,0 +1,57 @@
+#+TITLE: managing accounts on 9front
+#+SETUPFILE: setupfile.org
+
+this assumes you are using hjfs in a [[./9front-cpusetup.org][cpu setup]] (ie with a fileserver
+and auth). if you are using cwfs, you should be able to just replace
+~/srv/hjfs.cmd~ with ~/srv/cwfs.cmd~ for most of it.
+
+#+TOC: headlines 3
+
+* creating accounts
+#+begin_example
+echo newuser bob >> /srv/hjfs.cmd
+#+end_example
+will create a user named ~bob~
+
+use ~auth/changeuser~ to give them a password
+
+#+begin_example
+auth/changeuser bob
+#+end_example
+
+** adding a user to a group
+#+begin_example
+echo newuser upas +bob >> /srv/hjfs.cmd
+#+end_example
+will add ~bob~ to the ~upas~ group, which allows mail. 
+
+* renaming users
+#+begin_example
+echo newuser bob jane >> /srv/hjfs.cmd
+#+end_example
+
+to rename ~bob~ to ~jane~. you will also need to set a new password
+for them in the auth server.
+
+#+begin_example
+auth/changeuser jane
+#+end_example
+
+* setup defaults
+
+run ~/sys/lib/newuser~ as the new user to get the default profile and
+stuff in your home directory
+
+* troubleshooting
+if you get an error similar to
+
+#+begin_example
+changeuser: can't create user doot: '/mnt/keys/doot' create prohibited
+#+end_example
+
+ensure that you are running it directly (eg in a serial console or
+whatever, /not/ via drawterm) and you are the hostowner (glenda by
+default).
+
+you may also need to run ~auth/keyfs~ before managing users, and
+enable an account with ~auth/enable jane~
