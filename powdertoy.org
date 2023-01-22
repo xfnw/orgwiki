@@ -19,3 +19,13 @@ to no longer be the case], the value is ~530884300967510015~
 this melts it but will get quickly conducted away
 
 ~1700~ with the property editing tool, presumably in celsius
+
+* commands
+the console may be entered by pressing the ~`~ (backtick) key.
+
+** pressure
+#+begin_example
+tpt.set_pressure(nil,nil,nil,nil,200)
+#+end_example
+
+will set the pressure to 200, everywhere
