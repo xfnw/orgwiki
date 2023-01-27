@@ -29,3 +29,13 @@ tpt.set_pressure(nil,nil,nil,nil,200)
 #+end_example
 
 will set the pressure to 200, everywhere
+
+** loadfile
+the loadfile command will load a lua file, relative to your data
+directory, and creates an anonymous function.
+
+#+begin_example
+loadfile("cat.lua")()
+#+end_example
+
+adding a ~()~, optionally putting in arguments, will call the function
