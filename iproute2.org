@@ -13,6 +13,11 @@ ip r
 #+end_example
 will list the current routes.
 
+add ~-6~ to show for ipv6
+#+begin_example
+ip -6 r
+#+end_example
+
 ** adding a route
 #+begin_example
 ip r add default via 192.168.1.1
