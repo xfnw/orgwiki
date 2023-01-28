@@ -1,0 +1,10 @@
+#TITLE: aircrack-ng
+#+SETUPFILE: setupfile.org
+
+* debugging
+if you cannot enter monitor/promiscuous mode, killing everything using the
+interface may help
+
+#+begin_example
+airmon-ng check kill
+#+end_example
