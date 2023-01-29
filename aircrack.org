@@ -8,3 +8,26 @@ interface may help
 #+begin_example
 airmon-ng check kill
 #+end_example
+
+* monitor mode
+many guides use deprecated ~iwconfig~ for this, however ~iw~ should be
+used instead
+
+#+begin_example
+iw <interface> set monitor <mode>
+#+end_example
+where ~<interface>~ is your device name (ie ~wlan0~), and ~<mode>~ is
+what you want to monitor (probably ~control~ or ~none~)
+
+alternatively, starting many aircrack utilities including ~airmon-ng~
+or ~besside-ng~ will put it into monitor mode for you
+
+* return to normal networking
+you will need to exit monitor mode, set the interface to up, and
+restart all the things killed. an easy way to do this is with your
+init system's networking (or similar) service.
+
+#+begin_example
+service networking restart
+#+end_example
+will do so on alpine (openrc)
