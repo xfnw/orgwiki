@@ -22,6 +22,10 @@ this melts it but will get quickly conducted away
 
 ~1700~ with the property editing tool, presumably in celsius
 
+** filt reasonable heat sensitivity
+a ctime of ~1073741792~ (2^{30} - 32) when AND'ing filt will activate
+at around 50 \deg{}C.
+
 * commands
 the console may be entered by pressing the ~`~ (backtick) key.
 
