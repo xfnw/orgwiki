@@ -16,7 +16,7 @@ incorrect calculations on [2021-03-12 Fri] found it was
 ~530584300921369395~ (which seems to be nonsense), and on
 [2023-01-15 Sun] found it was ~530884300967510015~ (off by a factor of
 247212267, but correctly gives the maximum value after overflowing)].
- 
+
 ** welding temp for iron
 this melts it but will get quickly conducted away
 
@@ -30,11 +30,12 @@ the console may be entered by pressing the ~`~ (backtick) key.
 tpt.set_pressure(nil,nil,nil,nil,200)
 #+end_example
 
-will set the pressure to 200, everywhere
+will set the pressure to 200 everywhere
 
 ** loadfile
-the loadfile command will load a lua file, relative to your data
-directory, and creates an anonymous function.
+the loadfile command will load a lua file relative to your data
+directory (or working directory if using old structure), and create an
+anonymous function.
 
 #+begin_example
 loadfile("cat.lua")()
