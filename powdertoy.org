@@ -7,14 +7,16 @@
 * magic values
 
 ** deut life max amount
-deut life is a weird signed number, theoretically this is the max
-amount before it overflows to negative. oddly this does not line up
-with either a power of two or half a power of two.
-
-calculated on [2023-01-15 Sun][fn:1: a previous calculation on
-[2021-03-12 Fri] thought it was ~530584300921369395~, but this seems
-to no longer be the case], the value is ~530884300967510015~
-
+despite many places saying the max amount is ~65535~ (16bit unsigned),
+life is stored as a 32bit signed integer as of [2023-02-04 Sat].
+meaning the maximum value is ~2147483647~ (2^{31} - 1). larger values
+will become negative and eventually overflow, which lead to spurious
+previous calculations that resulted in identical life[fn:1: previous
+incorrect calculations on [2021-03-12 Fri] found it was
+~530584300921369395~ (which seems to be nonsense), and on
+[2023-01-15 Sun] found it was ~530884300967510015~ (off by a factor of
+247212267, but correctly gives the maximum value after overflowing)].
+ 
 ** welding temp for iron
 this melts it but will get quickly conducted away
 
