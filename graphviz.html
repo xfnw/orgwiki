@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-01-06 Fri 16:44 -->
+<!-- 2023-02-05 Sun 15:47 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>graphviz</title>
@@ -195,8 +195,9 @@ two server names are in your log format.
 </p>
 
 <p>
-reversing the <code>LINKS</code> output with <code>tac(1)</code> before feeding it into awk
-seems to make graphviz have a better layout.
+sometimes reversing the <code>LINKS</code> output with <code>tac(1)</code> or sorting with
+<code>sort(1)</code> before feeding it into awk seems to make graphviz have a
+better layout.
 </p>
 
 <div class="fixme" id="org0000009">
@@ -212,8 +213,8 @@ example, if you have both <code>me.ow.cat</code> and <code>meow.cat</code>
 	print "graph l {"
 }
 {
-	from=$5;
-	to=$6;
+	from="x" $5;
+	to="x" $6;
 	gsub("[\\.-]","",from);
 	gsub("[\\.-]","",to);
 	print from " [label=\"" $5 "\"]; ";
