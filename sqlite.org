@@ -1,0 +1,36 @@
+#+TITLE: sqlite
+#+SETUPFILE: setupfile.org
+
+#+TOC: headlines 3
+
+* looking at tables
+~.schema~ and then optionally the table name will show the command to
+create a table with the same schema. some people seem to say it will
+be incorrect if the schema has been modified after the original table
+creation, but this looks to not be true
+
+~.tables~ lists tables
+
+* output formatting
+sqlite's default ~|~-delimited output is mildly unreadable
+
+~.headers on~ will display headers
+
+~.mode column~ will display output in nice columns, you can also use
+~box~ to output in fancy unicode boxes
+
+* json
+
+** output
+#+begin_example
+.mode json
+#+end_example
+will make sqlite output in json format
+
+** input
+#+begin_example
+INSERT INTO table (beep, boop) SELECT json_extract(value, '$.foo'),
+json_extract(value, '$.bar') FROM json_each(readfile('/dev/stdin'));
+#+end_example
+will take a list of json objects from stdin and put the values from
+the 'foo' and 'bar' keys into the 'beep' and 'boop' columns.
