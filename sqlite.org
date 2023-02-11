@@ -34,3 +34,38 @@ json_extract(value, '$.bar') FROM json_each(readfile('/dev/stdin'));
 #+end_example
 will take a list of json objects from stdin and put the values from
 the 'foo' and 'bar' keys into the 'beep' and 'boop' columns.
+
+** generated columns
+sqlite can have special columns with calculated values, called
+[[https://www.sqlite.org/gencol.html][generated columns]]. we can use them to derive column values from json.
+
+#+begin_example
+CREATE TABLE noises
+( raw TEXT
+, species AS (json_extract(raw, '$.species')) STORED
+, noise AS (json_extract(raw, '$.noise')) STORED
+);
+INSERT INTO noises (raw) SELECT value FROM
+json_each('[{"species":"wah","noise":"wah"},{"species":"fox","noise":"aaa"}]');
+SELECT species,noise FROM noises;
++---------+-------+
+| species | noise |
++---------+-------+
+| wah     | wah   |
+| fox     | aaa   |
++---------+-------+
+#+end_example
+
+~STORED~ means the data will be stored in the table rather than
+calculated on the fly every time it is viewed, though sadly it still
+cannot be a ~PRIMARY KEY~.
+
+to automatically create a simple table with generated columns for the
+top level of a json object (it will not recurse), we can use jq and
+awk:
+#+begin_example
+jq 'keys_unsorted[]' -r |
+awk 'BEGIN {print "CREATE TABLE hmm";print "( raw TEXT"}
+{print ",",$1,"TEXT AS (json_extract(raw, '"'"'$." $1 "'"'"'))"}
+END {print ");"}'
+#+end_example

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-02-09 Thu 22:35 -->
+<!-- 2023-02-10 Fri 21:32 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>sqlite</title>
@@ -134,6 +134,7 @@ nav { display: none; }
 <ul>
 <li><a href="#org0000003">3.1. output</a></li>
 <li><a href="#org0000004">3.2. input</a></li>
+<li><a href="#org0000005">3.3. generated columns</a></li>
 </ul>
 </li>
 </ul>
@@ -181,7 +182,7 @@ sqlite's default <code>|</code>-delimited output is mildly unreadable
 <div id="outline-container-org0000003" class="outline-3">
 <h3 id="org0000003"><span class="section-number-3">3.1.</span> output</h3>
 <div class="outline-text-3" id="text-3-1">
-<pre class="example" id="org0000005">
+<pre class="example" id="org0000006">
 .mode json
 </pre>
 <p>
@@ -193,7 +194,7 @@ will make sqlite output in json format
 <div id="outline-container-org0000004" class="outline-3">
 <h3 id="org0000004"><span class="section-number-3">3.2.</span> input</h3>
 <div class="outline-text-3" id="text-3-2">
-<pre class="example" id="org0000005">
+<pre class="example" id="org0000006">
 INSERT INTO table (beep, boop) SELECT json_extract(value, '$.foo'),
 json_extract(value, '$.bar') FROM json_each(readfile('/dev/stdin'));
 </pre>
@@ -201,6 +202,51 @@ json_extract(value, '$.bar') FROM json_each(readfile('/dev/stdin'));
 will take a list of json objects from stdin and put the values from
 the 'foo' and 'bar' keys into the 'beep' and 'boop' columns.
 </p>
+</div>
+</div>
+
+<div id="outline-container-org0000005" class="outline-3">
+<h3 id="org0000005"><span class="section-number-3">3.3.</span> generated columns</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+sqlite can have special columns with calculated values, called
+<a href="https://www.sqlite.org/gencol.html">generated columns</a>. we can use them to derive column values from json.
+</p>
+
+<pre class="example" id="org0000006">
+CREATE TABLE noises
+( raw TEXT
+, species AS (json_extract(raw, '$.species')) STORED
+, noise AS (json_extract(raw, '$.noise')) STORED
+);
+INSERT INTO noises (raw) SELECT value FROM
+json_each('[{"species":"wah","noise":"wah"},{"species":"fox","noise":"aaa"}]');
+SELECT species,noise FROM noises;
++---------+-------+
+| species | noise |
++---------+-------+
+| wah     | wah   |
+| fox     | aaa   |
++---------+-------+
+</pre>
+
+<p>
+<code>STORED</code> means the data will be stored in the table rather than
+calculated on the fly every time it is viewed, though sadly it still
+cannot be a <code>PRIMARY KEY</code>.
+</p>
+
+<p>
+to automatically create a simple table with generated columns for the
+top level of a json object (it will not recurse), we can use jq and
+awk:
+</p>
+<pre class="example" id="org0000006">
+jq 'keys_unsorted[]' -r |
+awk 'BEGIN {print "CREATE TABLE hmm";print "( raw TEXT"}
+{print ",",$1,"TEXT AS (json_extract(raw, '"'"'$." $1 "'"'"'))"}
+END {print ");"}'
+</pre>
 </div>
 </div>
 </div>
