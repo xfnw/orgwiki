@@ -19,6 +19,16 @@ sqlite's default ~|~-delimited output is mildly unreadable
 ~.mode column~ will display output in nice columns, you can also use
 ~box~ to output in fancy unicode boxes
 
+* foreign keys
+to enfore a dependency on another table, foreign keys can be used.
+
+#+begin_example
+CREATE TABLE example
+( ...
+, FOREIGN KEY (columnname) REFERENCES othertable(othercolumn)
+);
+#+end_example
+
 * json
 
 ** output

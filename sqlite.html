@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-02-10 Fri 21:32 -->
+<!-- 2023-02-10 Fri 21:47 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>sqlite</title>
@@ -130,11 +130,12 @@ nav { display: none; }
 <ul>
 <li><a href="#org0000000">1. looking at tables</a></li>
 <li><a href="#org0000001">2. output formatting</a></li>
-<li><a href="#org0000002">3. json</a>
+<li><a href="#org0000002">3. foreign keys</a></li>
+<li><a href="#org0000003">4. json</a>
 <ul>
-<li><a href="#org0000003">3.1. output</a></li>
-<li><a href="#org0000004">3.2. input</a></li>
-<li><a href="#org0000005">3.3. generated columns</a></li>
+<li><a href="#org0000004">4.1. output</a></li>
+<li><a href="#org0000005">4.2. input</a></li>
+<li><a href="#org0000006">4.3. generated columns</a></li>
 </ul>
 </li>
 </ul>
@@ -176,13 +177,29 @@ sqlite's default <code>|</code>-delimited output is mildly unreadable
 </div>
 
 <div id="outline-container-org0000002" class="outline-2">
-<h2 id="org0000002"><span class="section-number-2">3.</span> json</h2>
+<h2 id="org0000002"><span class="section-number-2">3.</span> foreign keys</h2>
 <div class="outline-text-2" id="text-3">
+<p>
+to enfore a dependency on another table, foreign keys can be used.
+</p>
+
+<pre class="example" id="org0000007">
+CREATE TABLE example
+( ...
+, FOREIGN KEY (columnname) REFERENCES othertable(othercolumn)
+);
+</pre>
 </div>
-<div id="outline-container-org0000003" class="outline-3">
-<h3 id="org0000003"><span class="section-number-3">3.1.</span> output</h3>
-<div class="outline-text-3" id="text-3-1">
-<pre class="example" id="org0000006">
+</div>
+
+<div id="outline-container-org0000003" class="outline-2">
+<h2 id="org0000003"><span class="section-number-2">4.</span> json</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org0000004" class="outline-3">
+<h3 id="org0000004"><span class="section-number-3">4.1.</span> output</h3>
+<div class="outline-text-3" id="text-4-1">
+<pre class="example" id="org0000007">
 .mode json
 </pre>
 <p>
@@ -191,10 +208,10 @@ will make sqlite output in json format
 </div>
 </div>
 
-<div id="outline-container-org0000004" class="outline-3">
-<h3 id="org0000004"><span class="section-number-3">3.2.</span> input</h3>
-<div class="outline-text-3" id="text-3-2">
-<pre class="example" id="org0000006">
+<div id="outline-container-org0000005" class="outline-3">
+<h3 id="org0000005"><span class="section-number-3">4.2.</span> input</h3>
+<div class="outline-text-3" id="text-4-2">
+<pre class="example" id="org0000007">
 INSERT INTO table (beep, boop) SELECT json_extract(value, '$.foo'),
 json_extract(value, '$.bar') FROM json_each(readfile('/dev/stdin'));
 </pre>
@@ -205,15 +222,15 @@ the 'foo' and 'bar' keys into the 'beep' and 'boop' columns.
 </div>
 </div>
 
-<div id="outline-container-org0000005" class="outline-3">
-<h3 id="org0000005"><span class="section-number-3">3.3.</span> generated columns</h3>
-<div class="outline-text-3" id="text-3-3">
+<div id="outline-container-org0000006" class="outline-3">
+<h3 id="org0000006"><span class="section-number-3">4.3.</span> generated columns</h3>
+<div class="outline-text-3" id="text-4-3">
 <p>
 sqlite can have special columns with calculated values, called
 <a href="https://www.sqlite.org/gencol.html">generated columns</a>. we can use them to derive column values from json.
 </p>
 
-<pre class="example" id="org0000006">
+<pre class="example" id="org0000007">
 CREATE TABLE noises
 ( raw TEXT
 , species AS (json_extract(raw, '$.species')) STORED
@@ -241,7 +258,7 @@ to automatically create a simple table with generated columns for the
 top level of a json object (it will not recurse), we can use jq and
 awk:
 </p>
-<pre class="example" id="org0000006">
+<pre class="example" id="org0000007">
 jq 'keys_unsorted[]' -r |
 awk 'BEGIN {print "CREATE TABLE hmm";print "( raw TEXT"}
 {print ",",$1,"TEXT AS (json_extract(raw, '"'"'$." $1 "'"'"'))"}
