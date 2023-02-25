@@ -19,7 +19,7 @@ do put an email though, else some keyservers will not accept it
 
 #+begin_quote
 "There are two major products that come out of Berkeley: LSD and UNIX.
-   We don't believe this to be a coincidence." - Jeremy S. Anderson
+   We don't believe this to be a coincidence." -- Jeremy S. Anderson
 #+end_quote
 
 * opinionated recommendations
