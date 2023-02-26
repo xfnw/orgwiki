@@ -64,6 +64,7 @@
 - [[./raspistill.org][raspistill]]
 - [[./rc.d.org][rc.d]]
 - [[./sqlite.org][sqlite]]
+- [[./testout.org][testout labsim]]
 - [[./tlstunnel.org][tlstunnel]]
 - [[./ubports-mako.org][installing ubports on mako]]
 - [[./weechat-logs.org][managing weechat logs]]
