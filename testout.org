@@ -79,3 +79,22 @@ specifically 5000.
 
 i could not find a single corroboration of this 5000 number, even when
 specifically including 5000 in searches.
+
+** VPNs (5.5)
+no wireguard? :(
+
+*** tls port
+#+begin_quote
+Transport Layer Security:
+- Uses port 443 or port 30
+#+end_quote
+
+port 30 neither listed in linux nor openbsd's ~services(5)~
+file[fn:4:which may be found at ~/etc/services~], and is unassigned by
+the [[https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml][IANA]]. it is also not a common unofficial port, as it is not
+present in [[https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers][wikipedia's list of common tcp/udp ports]].
+
+why would anyone ever choose any <1024 port other than 443 for
+tls? the whole point of tunneling stuff over tls rather than a /real/
+vpn protocol is for placating networks that are afraid of non-80/443
+traffic (ie hotel wifi). tls server name indication exists.
