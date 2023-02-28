@@ -1,9 +1,13 @@
 #+TITLE: tlstunnel
 #+SETUPFILE: setupfile.org
+
+[[https://git.sr.ht/~emersion/tlstunnel][tlstunnel]] is a lovely tls reverse-proxy with automagic acme
+certificate renewal.
+
 * openbsd
 listening on ipv6 when using openbsd seems to be broken, and breaks
-acme cert generation. this can be temporarily fixed by patching
-tlstunnel to hardcode listening on your ipv6 interface
+acme cert generation. +this can be temporarily fixed by patching
+tlstunnel to hardcode listening on your ipv6 interface+
 
 [2023-02-25 Sat]: you do not need to patch it manually anymore!
 tlstunnel now supports a [[https://git.sr.ht/~emersion/tlstunnel/commit/d1812162a86193ff4a50e812c70da63e53b8434f][listen directive]], however it seems you will

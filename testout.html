@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-02-28 Tue 12:34 -->
+<!-- 2023-02-28 Tue 18:31 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>testout labsim considered harmful</title>
@@ -304,7 +304,8 @@ present in <a href="https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbe
 why would anyone ever choose any &lt;1024 port other than 443 for
 tls? the whole point of tunneling stuff over tls rather than a <i>real</i>
 vpn protocol is for placating networks that are afraid of non-80/443
-traffic (ie hotel wifi). tls server name indication exists.
+traffic (ie hotel wifi). tls server name indication exists, just use a
+reverse-proxy like <a href="./tlstunnel.html">tlstunnel</a> if you already have something on 443.
 </p>
 </div>
 </div>

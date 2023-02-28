@@ -97,7 +97,8 @@ present in [[https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers][wik
 why would anyone ever choose any <1024 port other than 443 for
 tls? the whole point of tunneling stuff over tls rather than a /real/
 vpn protocol is for placating networks that are afraid of non-80/443
-traffic (ie hotel wifi). tls server name indication exists.
+traffic (ie hotel wifi). tls server name indication exists, just use a
+reverse-proxy like [[./tlstunnel.org][tlstunnel]] if you already have something on 443.
 
 ** device vulnerabilities (5.9)
 
