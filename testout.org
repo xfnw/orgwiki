@@ -98,3 +98,13 @@ why would anyone ever choose any <1024 port other than 443 for
 tls? the whole point of tunneling stuff over tls rather than a /real/
 vpn protocol is for placating networks that are afraid of non-80/443
 traffic (ie hotel wifi). tls server name indication exists.
+
+** device vulnerabilities (5.9)
+
+*** 3DES
+#+begin_quote
+So every effort to utilize updated and secure protocols
+such as 3DES, SHA-256, and AES should be made.
+#+end_quote
+
+3DES? what year is this?

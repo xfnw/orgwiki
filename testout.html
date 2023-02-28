@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-02-27 Mon 17:15 -->
+<!-- 2023-02-28 Tue 12:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>testout labsim considered harmful</title>
@@ -140,6 +140,7 @@ nav { display: none; }
 <li><a href="#org0000001">1.1. linux (4.4)</a></li>
 <li><a href="#org0000002">1.2. NATs (5.4)</a></li>
 <li><a href="#org0000003">1.3. VPNs (5.5)</a></li>
+<li><a href="#org0000004">1.4. device vulnerabilities (5.9)</a></li>
 </ul>
 </li>
 </ul>
@@ -159,8 +160,8 @@ of 80.7% of servers<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-bac
 </p>
 </div>
 
-<div id="outline-container-org0000004" class="outline-4">
-<h4 id="org0000004"><span class="section-number-4">1.1.1.</span> listing sockets</h4>
+<div id="outline-container-org0000005" class="outline-4">
+<h4 id="org0000005"><span class="section-number-4">1.1.1.</span> listing sockets</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <blockquote>
 <p>
@@ -182,8 +183,8 @@ should be used instead.
 </div>
 </div>
 
-<div id="outline-container-org0000005" class="outline-4">
-<h4 id="org0000005"><span class="section-number-4">1.1.2.</span> nmap tcp</h4>
+<div id="outline-container-org0000006" class="outline-4">
+<h4 id="org0000006"><span class="section-number-4">1.1.2.</span> nmap tcp</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <blockquote>
 <p>
@@ -208,8 +209,8 @@ to scanning TCP, even without <code>-sT</code>.
 <h3 id="org0000002"><span class="section-number-3">1.2.</span> NATs (5.4)</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-org0000006" class="outline-4">
-<h4 id="org0000006"><span class="section-number-4">1.2.1.</span> site-local ipv6 addresses</h4>
+<div id="outline-container-org0000007" class="outline-4">
+<h4 id="org0000007"><span class="section-number-4">1.2.1.</span> site-local ipv6 addresses</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <blockquote>
 <p>
@@ -225,7 +226,7 @@ ipv6 site-local addresses are deprecated<sup><a id="fnr.2" class="footref" href=
 count how many numbers are in <code>1111 1110 11</code>, it is definitely not 48)
 </p>
 
-<pre class="example" id="org0000006">
+<pre class="example" id="org0000007">
 fec0::/10 starts at fec0:: and ends at feff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
 fec0::/48 starts at fec0:: and ends at fec0::ffff:ffff:ffff:ffff:ffff
 </pre>
@@ -236,8 +237,8 @@ that's off by a factor of 274,877,906,943!<sup><a id="fnr.4" class="footref" hre
 </div>
 </div>
 
-<div id="outline-container-org0000007" class="outline-4">
-<h4 id="org0000007"><span class="section-number-4">1.2.2.</span> concurrent connections</h4>
+<div id="outline-container-org0000008" class="outline-4">
+<h4 id="org0000008"><span class="section-number-4">1.2.2.</span> concurrent connections</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <blockquote>
 <p>
@@ -280,8 +281,8 @@ no wireguard? :(
 </p>
 </div>
 
-<div id="outline-container-org0000008" class="outline-4">
-<h4 id="org0000008"><span class="section-number-4">1.3.1.</span> tls port</h4>
+<div id="outline-container-org0000009" class="outline-4">
+<h4 id="org0000009"><span class="section-number-4">1.3.1.</span> tls port</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <blockquote>
 <p>
@@ -304,6 +305,27 @@ why would anyone ever choose any &lt;1024 port other than 443 for
 tls? the whole point of tunneling stuff over tls rather than a <i>real</i>
 vpn protocol is for placating networks that are afraid of non-80/443
 traffic (ie hotel wifi). tls server name indication exists.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0000004" class="outline-3">
+<h3 id="org0000004"><span class="section-number-3">1.4.</span> device vulnerabilities (5.9)</h3>
+<div class="outline-text-3" id="text-1-4">
+</div>
+<div id="outline-container-org000000a" class="outline-4">
+<h4 id="org000000a"><span class="section-number-4">1.4.1.</span> 3DES</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<blockquote>
+<p>
+So every effort to utilize updated and secure protocols
+such as 3DES, SHA-256, and AES should be made.
+</p>
+</blockquote>
+
+<p>
+3DES? what year is this?
 </p>
 </div>
 </div>
