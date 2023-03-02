@@ -1,6 +1,9 @@
 #+TITLE: docker X11
 #+SETUPFILE: setupfile.org
 
+*warning*: this is unsuitable for sandboxing, assume giving X11 socket
+access is equivalent to shell access
+
 * forwarding the X11 socket
 
 to allow docker to access your X11 session and start graphical applications
