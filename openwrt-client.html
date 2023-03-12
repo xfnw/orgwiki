@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-12 Sat 15:46 -->
+<!-- 2023-03-12 Sun 00:13 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>openwrt client mode</title>
@@ -152,7 +152,7 @@ accept them by default.
 </p>
 
 <p>
-use these options to allow them
+use these options to allow these insecure algorithms them
 </p>
 <pre class="example" id="org0000000">
 ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -oHostKeyAlgorithms=+ssh-rsa -c aes256-cbc root@openwrt
@@ -257,7 +257,7 @@ to send these package files to openwrt, you can use scp with these
 options:
 </p>
 <pre class="example" id="org0000001">
-cp -O -oKexAlgorithms=+diffie-hellman-group1-sha1 -oHostKeyAlgorithms=+ssh-rsa -c aes256-cbc *.ipk root@openwrt
+scp -O -oKexAlgorithms=+diffie-hellman-group1-sha1 -oHostKeyAlgorithms=+ssh-rsa -c aes256-cbc *.ipk root@openwrt
 </pre>
 </div>
 </div>

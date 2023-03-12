@@ -15,7 +15,7 @@ but modified to get it to work
 the crypto algorithms are so old, modern versions of openssh no longer
 accept them by default.
 
-use these options to allow them
+use these options to allow these insecure algorithms them
 #+begin_example
 ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -oHostKeyAlgorithms=+ssh-rsa -c aes256-cbc root@openwrt
 #+end_example
@@ -47,7 +47,7 @@ to have compatibility issues with modern SIP phones.
 to send these package files to openwrt, you can use scp with these
 options:
 #+begin_example
-cp -O -oKexAlgorithms=+diffie-hellman-group1-sha1 -oHostKeyAlgorithms=+ssh-rsa -c aes256-cbc *.ipk root@openwrt
+scp -O -oKexAlgorithms=+diffie-hellman-group1-sha1 -oHostKeyAlgorithms=+ssh-rsa -c aes256-cbc *.ipk root@openwrt
 #+end_example
 
 *** nvram
