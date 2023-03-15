@@ -109,3 +109,19 @@ such as 3DES, SHA-256, and AES should be made.
 #+end_quote
 
 3DES? what year is this?
+
+** router security (5.13)
+
+*** "reasonably strong"
+#+begin_quote
+You access the router configuration interface from your notebook
+computer using an SSH client with the username admin01 and the
+password P@ssW0rd. You have used the MD5 hashing algorithm to protect
+the password.
+...
+The username and password used to access the router configuration are
+reasonably strong.
+#+end_quote
+
+i am afraid of what testout thinks is an insecure password and hashing
+algorithm...
