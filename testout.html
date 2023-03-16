@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-03-14 Tue 21:25 -->
+<!-- 2023-03-15 Wed 20:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>testout labsim considered harmful</title>
@@ -270,6 +270,12 @@ specifically 5000.
 i could not find a single corroboration of this 5000 number, even when
 specifically including 5000 in searches.
 </p>
+
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2023-03-15 Wed]</span></span>: fun fact! even my cheapie soho router <i>from 2002</i>
+supports more concurrent connections, apparently limiting it at
+5953.<sup><a id="fnr.5" class="footref" href="#fn.5" role="doc-backlink">5</a></sup>
+</p>
 </div>
 </div>
 </div>
@@ -296,7 +302,7 @@ Transport Layer Security:
 
 <p>
 port 30 neither listed in linux nor openbsd's <code>services(5)</code>
-file<sup><a id="fnr.5" class="footref" href="#fn.5" role="doc-backlink">5</a></sup>, and is unassigned by
+file<sup><a id="fnr.6" class="footref" href="#fn.6" role="doc-backlink">6</a></sup>, and is unassigned by
 the <a href="https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml">IANA</a>. it is also not a common unofficial port, as it is not
 present in <a href="https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers">wikipedia's list of common tcp/udp ports</a>.
 </p>
@@ -374,7 +380,10 @@ on known webservers</p></div></div>
 <div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4" role="doc-backlink">4</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">0xff ffff ffff
 minus 0xc0 0000 0000 is 0x3f ffff ffff</p></div></div>
 
-<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5" role="doc-backlink">5</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">which may be found at <code>/etc/services</code></p></div></div>
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5" role="doc-backlink">5</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">no, i have not tried connecting that many. and yes, it has
+greater than zero unpatched rce vulnerabilities, lol</p></div></div>
+
+<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6" role="doc-backlink">6</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">which may be found at <code>/etc/services</code></p></div></div>
 
 
 </div>

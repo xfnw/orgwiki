@@ -80,6 +80,11 @@ specifically 5000.
 i could not find a single corroboration of this 5000 number, even when
 specifically including 5000 in searches.
 
+[2023-03-15 Wed]: fun fact! even my cheapie soho router /from 2002/
+supports more concurrent connections, apparently limiting it at
+5953.[fn:6:no, i have not tried connecting that many. and yes, it has
+greater than zero unpatched rce vulnerabilities, lol]
+
 ** VPNs (5.5)
 no wireguard? :(
 
