@@ -1,0 +1,18 @@
+#+TITLE: registry
+#+SETUPFILE: setupfile.org
+
+#+begin_quote
+"PROPEIETARY MALWARE!" -- richard stallman, probably
+#+end_quote
+
+* wallpaper
+~HKEY_CURRENT_USER\Softuware\Microsoft\Windows\CurrentVersion\Policies\System~
+with ~Wallpaper~ string containing the path and ~WallpaperStyle~ string
+containing style number (~4~ for fill)
+
+* no more 3d objects
+delete ~{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}~ from
+~HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\Namespace~
+and
+~HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace~
+if it exists
