@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-12 Sat 15:46 -->
+<!-- 2023-03-19 Sun 15:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>wireguard</title>
@@ -173,12 +173,12 @@ pubkey</code>, then the optional <code>2&gt;&amp;1</code> puts it back into stdo
 wg-quick needs some extra PostUp options for masquerade to work
 </p>
 <pre class="example" id="org0000004">
-[Interface]
-PostUp = ip6tables -A FORWARD -i %i -j ACCEPT; ip6tables -t nat -A POSTROUTING -o eth0 -j MASQUERADE; iptables -A FORWARD -i %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-PostUp = sysctl -w net.ipv6.conf.all.forwarding=1
-PostUp = sysctl -w net.ipv4.ip_forward=1
-PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE; ip6tables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
-ListenPort = 51820
+  [Interface]
+  PostUp = ip6tables -A FORWARD -i %i -j ACCEPT; ip6tables -t nat -A POSTROUTING -o eth0 -j MASQUERADE; iptables -A FORWARD -i %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+  PostUp = sysctl -w net.ipv6.conf.all.forwarding=1
+  PostUp = sysctl -w net.ipv4.ip_forward=1
+  PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE; ip6tables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
+  ListenPort = 51820
 </pre>
 </div>
 </div>
@@ -197,9 +197,9 @@ for you.
 <span class="timestamp-wrapper"><span class="timestamp">[2022-10-02 Sun]</span></span>: tailscale uses usermode wireguard, which is slower
 than the kernelmode implementation that wg-quick etc use. although it
 arguably is a tiny bit more secure, since if there is a rce
-vulnerability in wireguard, it will not in ring 0 (though since
+vulnerability in wireguard, it will not be in ring 0 (though since
 openbsd, <i>the</i> secure operating system, has a kernelmode wireguard
-implementation, i assume that reasoning to be nonsense)
+implementation, i assume that reasoning to not hold much water)
 </p>
 </div>
 </div>

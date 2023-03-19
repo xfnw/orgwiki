@@ -38,6 +38,6 @@ for you.
 [2022-10-02 Sun]: tailscale uses usermode wireguard, which is slower
 than the kernelmode implementation that wg-quick etc use. although it
 arguably is a tiny bit more secure, since if there is a rce
-vulnerability in wireguard, it will not in ring 0 (though since
+vulnerability in wireguard, it will not be in ring 0 (though since
 openbsd, /the/ secure operating system, has a kernelmode wireguard
-implementation, i assume that reasoning to be nonsense)
+implementation, i assume that reasoning to not hold much water)
