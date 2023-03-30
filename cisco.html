@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-03-29 Wed 21:57 -->
+<!-- 2023-03-30 Thu 18:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>cisco</title>
@@ -156,6 +156,7 @@ nav { display: none; }
 <li><a href="#org000000c">2.1. acquiring</a></li>
 <li><a href="#org000000d">2.2. fonts</a></li>
 <li><a href="#org000000e">2.3. port labels</a></li>
+<li><a href="#org000000f">2.4. batch editing</a></li>
 </ul>
 </li>
 </ul>
@@ -178,7 +179,7 @@ while when typo'ing a command.
 <p>
 to cancel it, press <code>C-S-6</code>, and to disable it entirely, use
 </p>
-<pre class="example" id="org000000f">
+<pre class="example" id="org0000010">
 no ip domain-lookup
 </pre>
 </div>
@@ -203,7 +204,7 @@ relevant section.
 <p>
 ipv6 is disabled by default, to enable it:
 </p>
-<pre class="example" id="org000000f">
+<pre class="example" id="org0000010">
 ipv6 unicast-routing
 </pre>
 </div>
@@ -216,7 +217,7 @@ ipv6 unicast-routing
 <div id="outline-container-org0000004" class="outline-4">
 <h4 id="org0000004"><span class="section-number-4">1.3.1.</span> ipv6</h4>
 <div class="outline-text-4" id="text-1-3-1">
-<pre class="example" id="org000000f">
+<pre class="example" id="org0000010">
 ipv6 router rip myrip
 exit
 int g0/0
@@ -229,7 +230,7 @@ end
 <div id="outline-container-org0000005" class="outline-4">
 <h4 id="org0000005"><span class="section-number-4">1.3.2.</span> ipv4</h4>
 <div class="outline-text-4" id="text-1-3-2">
-<pre class="example" id="org000000f">
+<pre class="example" id="org0000010">
 router rip
 ver 2
 network 192.168.100.0
@@ -246,7 +247,7 @@ end
 <div id="outline-container-org0000007" class="outline-4">
 <h4 id="org0000007"><span class="section-number-4">1.4.1.</span> ipv6</h4>
 <div class="outline-text-4" id="text-1-4-1">
-<pre class="example" id="org000000f">
+<pre class="example" id="org0000010">
 ipv6 access-list mylist
 deny tcp fd::/8 host fd40::100:2 eq 22
 permit tcp any host fd40::100:3 eq 443
@@ -263,7 +264,7 @@ end
 <div id="outline-container-org0000008" class="outline-4">
 <h4 id="org0000008"><span class="section-number-4">1.4.2.</span> ipv4</h4>
 <div class="outline-text-4" id="text-1-4-2">
-<pre class="example" id="org000000f">
+<pre class="example" id="org0000010">
 access-list 101 deny tcp 192.168.0.0 0.0.255.255 host 192.168.100.2
 access-list 101 permit tcp any host 192.168.100.3 eq 443
 access-list 101 deny tcp any host 192.168.100.3
@@ -279,7 +280,7 @@ end
 <p>
 lists can also be named making it closer to ipv6's syntax:
 </p>
-<pre class="example" id="org000000f">
+<pre class="example" id="org0000010">
 ip access-list extended mylist
 deny...
 permit...
@@ -308,7 +309,7 @@ management and just use the serial console.
 <p>
 ssh requires a hostname and a domain to use for the host key:
 </p>
-<pre class="example" id="org000000f">
+<pre class="example" id="org0000010">
 hostname beans
 ip domain-name example.org
 </pre>
@@ -317,7 +318,7 @@ ip domain-name example.org
 generate an rsa host key, as it does not support elliptic curve
 cryptography:
 </p>
-<pre class="example" id="org000000f">
+<pre class="example" id="org0000010">
 crypto key generate rsa
 </pre>
 <p>
@@ -332,14 +333,14 @@ ssh should automatically start now.
 <p>
 create a user:
 </p>
-<pre class="example" id="org000000f">
+<pre class="example" id="org0000010">
 username vulpine password aPbqCNpRT9W5ec6CphW6rJy4Dw
 </pre>
 
 <p>
 time to set the vtys to use it:
 </p>
-<pre class="example" id="org000000f">
+<pre class="example" id="org0000010">
 line vty 0 15
 trans in ssh
 login local
@@ -394,6 +395,17 @@ alias in fontconfig, however i was unable to get this to work.
 <p>
 in <code>Options -&gt; Preferences</code>, turn on <code>Always Show Port Labels in
 Logical Workspace</code>. no clue why this is not just on by default.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org000000f" class="outline-3">
+<h3 id="org000000f"><span class="section-number-3">2.4.</span> batch editing</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+holding control while selecting a device to add or connection type
+will make it go into a batch mode, allowing you to add multiple
+without having to select it again
 </p>
 </div>
 </div>

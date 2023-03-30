@@ -149,3 +149,8 @@ alias in fontconfig, however i was unable to get this to work.
 ** port labels
 in ~Options -> Preferences~, turn on ~Always Show Port Labels in
 Logical Workspace~. no clue why this is not just on by default.
+
+** batch editing
+holding control while selecting a device to add or connection type
+will make it go into a batch mode, allowing you to add multiple
+without having to select it again
