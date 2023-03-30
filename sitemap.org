@@ -14,6 +14,7 @@
 - [[./asan.org][address sanitizer]]
 - [[./capital.org][capital letters considered harmful]]
 - [[./chromeos-blahaj.org][type blåhaj on chrome os]]
+- [[./cisco.org][cisco]]
 - [[./disambiguation.org][disambiguation]]
 - [[./docker-x11.org][docker X11]]
 - [[./elevator-fireoperation.org][fire operation phase 2]]

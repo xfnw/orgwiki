@@ -1,0 +1,151 @@
+#+TITLE: cisco
+#+SETUPFILE: setupfile.org
+
+#+TOC: headlines 3
+
+* IOS
+
+** domain-lookup
+by default when not in config mode, unknown commands will be
+interpreted as domains to look up. this causes it to freeze for a
+while when typo'ing a command.
+
+to cancel it, press ~C-S-6~, and to disable it entirely, use
+#+begin_example
+no ip domain-lookup
+#+end_example
+
+** ipv6
+its as if they realized how ridiculous some of the syntax was, decided
+to fix it when implementing ipv6, and then were too afraid of breaking
+backwards compatibility to fix the ipv4 syntax as well. now there are
+two, completely different, methods of doing everything, and you need
+to remember both if you want dual stack ipv6/ipv4.
+
+with that said, there will be separate ipv6 and ipv4 parts for each
+relevant section.
+
+ipv6 is disabled by default, to enable it:
+#+begin_example
+ipv6 unicast-routing
+#+end_example
+
+** RIP routing
+
+*** ipv6
+#+begin_example
+ipv6 router rip myrip
+exit
+int g0/0
+ipv6 rip myrip enable
+end
+#+end_example
+
+*** ipv4
+#+begin_example
+router rip
+ver 2
+network 192.168.100.0
+end
+#+end_example
+
+** access list (firewall)
+
+*** ipv6
+#+begin_example
+ipv6 access-list mylist
+deny tcp fd::/8 host fd40::100:2 eq 22
+permit tcp any host fd40::100:3 eq 443
+deny tcp any host fd40::100:3
+permit any any ! allow everything else, negating the implicit-deny rule
+exit
+int g0/0
+ipv6 traffic-filter mylist in
+end
+#+end_example
+
+*** ipv4
+#+begin_example
+access-list 101 deny tcp 192.168.0.0 0.0.255.255 host 192.168.100.2
+access-list 101 permit tcp any host 192.168.100.3 eq 443
+access-list 101 deny tcp any host 192.168.100.3
+access-list 101 permit tcp any any
+access-list 101 permit udp any any
+access-list 101 permit icmp any any
+exit
+int g0/0
+ip access-group 101 in
+end
+#+end_example
+
+lists can also be named making it closer to ipv6's syntax:
+#+begin_example
+ip access-list extended mylist
+deny...
+permit...
+exit
+int g0/0
+ip access-group mylist in
+end
+#+end_example
+
+** security
+given that the strongest cryptography it supports can be described as
+obsolete at best, it is probably a good idea to disable all remote
+management and just use the serial console.
+
+*** ssh
+ssh requires a hostname and a domain to use for the host key:
+#+begin_example
+hostname beans
+ip domain-name example.org
+#+end_example
+
+generate an rsa host key, as it does not support elliptic curve
+cryptography:
+#+begin_example
+crypto key generate rsa
+#+end_example
+use the maximum number of bits allowed (2048), anything less is
+insecure.
+
+ssh should automatically start now.
+
+create a user:
+#+begin_example
+username vulpine password aPbqCNpRT9W5ec6CphW6rJy4Dw
+#+end_example
+
+time to set the vtys to use it:
+#+begin_example
+line vty 0 15
+trans in ssh
+login local
+#+end_example
+
+* packettracer
+
+** acquiring
+pt officially "only supports ubuntu" when it comes to linux,
+distributing it as a ~.deb~ file. however, after extracting the files
+inside, it seems to be relatively self-contained and portable. the
+~packettracer~ AUR package can automate this process, just stick the
+~.deb~ in with the ~PKGBUILD~ and ~makepkg -si~ (it cannot download pt
+itself, as cisco does not provide direct download links).
+
+** fonts
+pt's font handling is absolutely insane.  it lets you choose from only
+4 different fonts, all of which are proprietary microsoft ones, and if
+those are not present, it does not even have the decency to fallback
+to your system's monospace font. that's right, it uses a /variable
+width/ font for the console, which /literally uses spaces for
+alignment/.
+
+to resolve this, you can install microsoft's fonts with the
+~ttf-ms-fonts~ AUR package, or an equivalent for your distribution. it
+is probably also possible to trick it into using another font with an
+alias in fontconfig, however i was unable to get this to work.
+
+** port labels
+in ~Options -> Preferences~, turn on ~Always Show Port Labels in
+Logical Workspace~. no clue why this is not just on by default.
