@@ -1,0 +1,43 @@
+#+TITLE: magic sysrq
+#+SETUPFILE: setupfile.org
+
+sysrq is a special key combination that allows sending commands
+directly to the linux kernel, even if userspace is broken/frozen.
+
+* enabling it
+the ~/proc/sys/kernel/sysrq~ file accepts a bitmask written to it, to
+control which sysrq features are enabled. a ~0~ disables all sysrq
+features, while ~1~ enables all of them. see [[https://docs.kernel.org/admin-guide/sysrq.html][the kernel documentation]]
+for more granular control of sysrq features
+
+since procfs options are not persistant over reboots, it can be
+enabled persistantly with the sysctl option ~kernel.sysrq=1~ in
+~/etc/sysctl.d/~ or by setting the ~sysrq_always_enabled=1~ kernel
+parameter if you need it before the filesystem mounts
+
+* key combinations
+sysrq can be used by holding alt, then hitting sysrq (print screen,
+you may have to press fn too), then releasing all keys except for alt,
+the letter(s) you want can be pressed. you can do multiple sysrq
+commands without needing to press sysrq again by continuing to hold
+alt.
+
+| key | behavior                                                                 |
+|-----+--------------------------------------------------------------------------|
+| f   | force an [[https://en.wikipedia.org/wiki/Out_of_memory#Out_of_memory_management][OOM kill]] now, even if not out of memory. mey help with a freeze |
+| n   | nice real-time tasks, may also help with a freeze                        |
+| k   | kill current console, can be used as a "[[https://en.wikipedia.org/wiki/Secure_attention_key][secure attention key]]"            |
+| 0-9 | set kernel verbosity                                                     |
+| v   | force viewing framebuffer (show console)                                 |
+| h   | print sysrq helptext to the kernel log, to see more keys not listed here |
+| r   | unraw the keyboard, to take back control from something like X11         |
+| e   | sigterm (gracefull kill) all tasks                                       |
+| i   | sigkill all tasks                                                        |
+| s   | sync disks                                                               |
+| u   | unmount disks (sync first to avoid a dirty unmount)                      |
+| b   | force a reboot                                                           |
+
+the ~reisub~ mnemonic (with a few seconds between each key) may be
+used to gracefully reboot. however, realistically with modern CoW and
+journaling filesystems, there is not much reason to use it over just
+holding down the power button

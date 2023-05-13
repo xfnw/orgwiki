@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-05-13 Sat 12:25 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>magic sysrq</title>
+<meta name="generator" content="Org Mode" />
+<meta charset="UTF-8">
+<style>
+body {
+font-family:monospace; font-size:12pt;
+max-width: 700px; margin: 10px 20px;
+}
+@media only print {
+body {
+color:#000000; background-color:#ffffff;
+}
+}
+@media only screen {
+body {
+color:#bfbfbf; background-color:#000000;
+}
+}
+h1 { font-size:144%; }
+h2,h3,h4,h5,h6 { font-size:120%; }
+a {
+text-decoration-style:solid;
+}
+@media only print {
+a {
+background-color:#ffffff;
+color:#000000;
+}
+}
+@media only screen {
+a {
+background-color:#112222;
+color:#bfbfbf;
+}
+}
+pre {
+font-size:10.5pt;
+max-width:80ch;
+border: 1pt dotted #bfbfbf;
+padding:1ch;
+}
+code {
+border: 1pt dotted #bfbfbf;
+padding: 0 0.15em;
+}
+@media only screen {
+code {
+background-color:#222211;
+}
+}
+.example { white-space:pre-wrap; }
+.src { white-space:pre-wrap; }
+@media only screen {
+.example { background-color:#222211; }
+.src { background-color:#222211; }
+}
+blockquote {
+border: 1pt solid #bfbfbf;
+padding: 0 1ch;
+}
+@media only screen {
+blockquote {
+background-color: #111100;
+}
+}
+.tag { float:right; }
+.tag:before { content: "["; }
+.tag:after { content: "]"; }
+@media only screen {
+.tag { background-color:#111100; }
+.tag:before { background-color:#111100; }
+.tag:after { background-color:#111100; }
+}
+.done { }
+.done:before { content: "["; }
+.done:after { content: "]"; }
+@media only screen {
+.done { background-color: #117711; }
+}
+.todo { }
+.todo:before { content: "["; }
+.todo:after { content: "]"; }
+@media only screen {
+.todo { background-color: #bb1111; }
+}
+@media only screen {
+.DELAYED { background-color: #220077; }
+.RERUN { background-color: #775511; }
+}
+.FIXME:before,.fixme:before { content: "[FIXME] "; float:left; }
+@media only screen {
+.FIXME,.fixme { background-color: #bb1111; }
+}
+.org-center { text-align:center; }
+table { width:100%; border-collapse:collapse; }
+table, th, td { vertical-align:top; }
+img { max-width:100%;display:block;margin:auto;height:auto; }
+.timestamp { }
+@media only screen {
+.timestamp { background-color: #221122; }
+}
+@media only screen {
+:target { background-color: #222211; }
+}
+@media only print {
+nav { display: none; }
+}
+.footpara { display: inline; }
+</style>
+<nav>
+<a href="index.html">home</a> /
+<a href="about.html">about</a> /
+<a href="sitemap.html">sitemap</a> /
+</nav>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">magic sysrq</h1>
+<p>
+sysrq is a special key combination that allows sending commands
+directly to the linux kernel, even if userspace is broken/frozen.
+</p>
+
+<div id="outline-container-org0000000" class="outline-2">
+<h2 id="org0000000"><span class="section-number-2">1.</span> enabling it</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+the <code>/proc/sys/kernel/sysrq</code> file accepts a bitmask written to it, to
+control which sysrq features are enabled. a <code>0</code> disables all sysrq
+features, while <code>1</code> enables all of them. see <a href="https://docs.kernel.org/admin-guide/sysrq.html">the kernel documentation</a>
+for more granular control of sysrq features
+</p>
+
+<p>
+since procfs options are not persistant over reboots, it can be
+enabled persistantly with the sysctl option <code>kernel.sysrq=1</code> in
+<code>/etc/sysctl.d/</code> or by setting the <code>sysrq_always_enabled=1</code> kernel
+parameter if you need it before the filesystem mounts
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0000001" class="outline-2">
+<h2 id="org0000001"><span class="section-number-2">2.</span> key combinations</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+sysrq can be used by holding alt, then hitting sysrq (print screen,
+you may have to press fn too), then releasing all keys except for alt,
+the letter(s) you want can be pressed. you can do multiple sysrq
+commands without needing to press sysrq again by continuing to hold
+alt.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">key</th>
+<th scope="col" class="org-left">behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">f</td>
+<td class="org-left">force an <a href="https://en.wikipedia.org/wiki/Out_of_memory#Out_of_memory_management">OOM kill</a> now, even if not out of memory. mey help with a freeze</td>
+</tr>
+
+<tr>
+<td class="org-left">n</td>
+<td class="org-left">nice real-time tasks, may also help with a freeze</td>
+</tr>
+
+<tr>
+<td class="org-left">k</td>
+<td class="org-left">kill current console, can be used as a "<a href="https://en.wikipedia.org/wiki/Secure_attention_key">secure attention key</a>"</td>
+</tr>
+
+<tr>
+<td class="org-left">0-9</td>
+<td class="org-left">set kernel verbosity</td>
+</tr>
+
+<tr>
+<td class="org-left">v</td>
+<td class="org-left">force viewing framebuffer (show console)</td>
+</tr>
+
+<tr>
+<td class="org-left">h</td>
+<td class="org-left">print sysrq helptext to the kernel log, to see more keys not listed here</td>
+</tr>
+
+<tr>
+<td class="org-left">r</td>
+<td class="org-left">unraw the keyboard, to take back control from something like X11</td>
+</tr>
+
+<tr>
+<td class="org-left">e</td>
+<td class="org-left">sigterm (gracefull kill) all tasks</td>
+</tr>
+
+<tr>
+<td class="org-left">i</td>
+<td class="org-left">sigkill all tasks</td>
+</tr>
+
+<tr>
+<td class="org-left">s</td>
+<td class="org-left">sync disks</td>
+</tr>
+
+<tr>
+<td class="org-left">u</td>
+<td class="org-left">unmount disks (sync first to avoid a dirty unmount)</td>
+</tr>
+
+<tr>
+<td class="org-left">b</td>
+<td class="org-left">force a reboot</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+the <code>reisub</code> mnemonic (with a few seconds between each key) may be
+used to gracefully reboot. however, realistically with modern CoW and
+journaling filesystems, there is not much reason to use it over just
+holding down the power button
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>
