@@ -27,6 +27,14 @@ this is somewhat akin to ~apt autoremove~
 pacman -Rns $(pacman -Qttqd)
 #+end_example
 
+* keeping kernel modules
+when the kernel gets updated without rebooting, it will no longer be
+easy to load new kernel modules, as the directory of old modules gets
+automatically deleted.
+
+the Extra [[https://archlinux.org/packages/extra/any/kernel-modules-hook/][kernel-modules-hook]] ([[https://github.com/saber-nyan/kernel-modules-hook][github]]) package resolves this by
+creating a hook that keeps old kernel modules.
+
 * somewhat hacky
 these might break and are of questionable quality.
 

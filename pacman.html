@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-12-31 Sat 21:47 -->
+<!-- 2023-05-21 Sun 16:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>keeping your storage tidy with pacman</title>
@@ -139,9 +139,10 @@ linux. nothing beats <a href="./alpine.html">apk</a> in speed though :P
 </ul>
 </li>
 <li><a href="#org0000002">2. removing no longer required dependencies</a></li>
-<li><a href="#org0000003">3. somewhat hacky</a>
+<li><a href="#org0000003">3. keeping kernel modules</a></li>
+<li><a href="#org0000004">4. somewhat hacky</a>
 <ul>
-<li><a href="#org0000004">3.1. list largest non-dependencies</a></li>
+<li><a href="#org0000005">4.1. list largest non-dependencies</a></li>
 </ul>
 </li>
 </ul>
@@ -155,7 +156,7 @@ linux. nothing beats <a href="./alpine.html">apk</a> in speed though :P
 after verifying all your stuff is in working order, this is safe to
 run
 </p>
-<pre class="example" id="org0000005">
+<pre class="example" id="org0000006">
 pacman -Sc
 </pre>
 </div>
@@ -168,7 +169,7 @@ this one will leave you regretting you did this if a package breaks in
 the future, though in my experience and despite arch's reputation,
 that will happen quite rarely.
 </p>
-<pre class="example" id="org0000005">
+<pre class="example" id="org0000006">
 pacman -Scc
 </pre>
 </div>
@@ -181,30 +182,46 @@ pacman -Scc
 <p>
 this is somewhat akin to <code>apt autoremove</code>
 </p>
-<pre class="example" id="org0000005">
+<pre class="example" id="org0000006">
 pacman -Rns $(pacman -Qttqd)
 </pre>
 </div>
 </div>
 
 <div id="outline-container-org0000003" class="outline-2">
-<h2 id="org0000003"><span class="section-number-2">3.</span> somewhat hacky</h2>
+<h2 id="org0000003"><span class="section-number-2">3.</span> keeping kernel modules</h2>
 <div class="outline-text-2" id="text-3">
+<p>
+when the kernel gets updated without rebooting, it will no longer be
+easy to load new kernel modules, as the directory of old modules gets
+automatically deleted.
+</p>
+
+<p>
+the Extra <a href="https://archlinux.org/packages/extra/any/kernel-modules-hook/">kernel-modules-hook</a> (<a href="https://github.com/saber-nyan/kernel-modules-hook">github</a>) package resolves this by
+creating a hook that keeps old kernel modules.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0000004" class="outline-2">
+<h2 id="org0000004"><span class="section-number-2">4.</span> somewhat hacky</h2>
+<div class="outline-text-2" id="text-4">
 <p>
 these might break and are of questionable quality.
 </p>
 </div>
 
-<div id="outline-container-org0000004" class="outline-3">
-<h3 id="org0000004"><span class="section-number-3">3.1.</span> list largest non-dependencies</h3>
-<div class="outline-text-3" id="text-3-1">
-<div class="fixme" id="org0000005">
+<div id="outline-container-org0000005" class="outline-3">
+<h3 id="org0000005"><span class="section-number-3">4.1.</span> list largest non-dependencies</h3>
+<div class="outline-text-3" id="text-4-1">
+<div class="fixme" id="org0000006">
 <p>
 breaks if you have a package or a field with a capital letter <code>N</code>.
 </p>
 
 </div>
-<pre class="example" id="org0000005">
+<pre class="example" id="org0000006">
 pacman -Qtti | grep 'Name\|Installed Size' | tr "\n" " " | tr "N" "\n" | awk '{print $3 " " $7 $8}' | sort -k2 -h
 </pre>
 </div>
