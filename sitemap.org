@@ -53,6 +53,7 @@
 - [[./ms-reg.org][registry]]
 - [[./ngircd-cloakhostsalt.org][ngircd cloak host salt]]
 - [[./ngircd-s2s.org][ngircd s2s]]
+- [[./nix-build.org][nix-build]]
 - [[./nxproxy.org][using nxproxy]]
 - [[./openbsd-vnc.org][setting up vnc with xenodm on openbsd]]
 - [[./openssl-customnameconstraints.org][openssl custom name constraints]]

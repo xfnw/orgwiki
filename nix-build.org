@@ -1,0 +1,32 @@
+#+TITLE: nix-build
+#+SETUPFILE: setupfile.org
+
+building a nix package is pretty simple, however the process seems
+under-documented
+
+#+TOC: headlines 3
+
+* building a package in the nixpkgs tree
+assuming you are at the root of the nixpkgs tree, you can use the ~-A~
+option to choose a package to build
+#+begin_example
+nix-build . -A xcd
+#+end_example
+
+* building a maintainer's packages
+nixpkgs also includes a fancy convenience script for building all of a
+maintainer's packages at once
+#+begin_example
+nix-build maintainers/scripts/build.nix --argstr maintainer xfnw
+#+end_example
+
+* building a nix file with a channel
+#+begin_example
+nix-build -E "with import <nixpkgs> {}; callPackage ./default.nix {}"
+#+end_example
+
+though with special types of packages, such as python ones, additional
+stuff needs to be pulled into scope
+#+begin_example
+nix-build -E "with import <nixpkgs> {}; with python3Packages; callPackage ./default.nix {}"
+#+end_example
