@@ -54,3 +54,8 @@ this page is mostly borrowed from [[https://githhub.com/dylanaraps][dylanaraps]]
 | ~\033[1J~       | erase from the current line to the top of the screen.    |
 | ~\033[2J~       | clear the screen.                                        |
 | ~\033[2J\033[H~ | clear the screen and move cursor to ~0,0~.               |
+
+* misc
+| sequence             | what it does                    | value    |
+|----------------------+---------------------------------+----------|
+| ~\033]2;<TITLE>\007~ | set the terminal title to TITLE | a string |

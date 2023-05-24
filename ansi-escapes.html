@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-12 Sat 15:46 -->
+<!-- 2023-05-24 Wed 08:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ansi escape sequences</title>
@@ -136,6 +136,7 @@ this page is mostly borrowed from <a href="https://githhub.com/dylanaraps">dylan
 <li><a href="#org0000001">2. text formatting</a></li>
 <li><a href="#org0000002">3. cursor movement</a></li>
 <li><a href="#org0000003">4. erasing text</a></li>
+<li><a href="#org0000004">5. misc</a></li>
 </ul>
 </div>
 </div>
@@ -392,6 +393,37 @@ this page is mostly borrowed from <a href="https://githhub.com/dylanaraps">dylan
 <tr>
 <td class="org-left"><code>\033[2J\033[H</code></td>
 <td class="org-left">clear the screen and move cursor to <code>0,0</code>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org0000004" class="outline-2">
+<h2 id="org0000004"><span class="section-number-2">5.</span> misc</h2>
+<div class="outline-text-2" id="text-5">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">sequence</th>
+<th scope="col" class="org-left">what it does</th>
+<th scope="col" class="org-left">value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>\033]2;&lt;TITLE&gt;\007</code></td>
+<td class="org-left">set the terminal title to TITLE</td>
+<td class="org-left">a string</td>
 </tr>
 </tbody>
 </table>
