@@ -36,6 +36,7 @@ example, if you have both ~me.ow.cat~ and ~meow.cat~
 
 #+begin_src awk :tangle tangle/linkstographviz.awk
 BEGIN {
+	"date -u '+%Y-%m-%d %H:%M:%SZ'" | getline time;
 	print "graph l {"
 }
 {
@@ -49,6 +50,7 @@ BEGIN {
 	}
 }
 END {
+	print "curtime [label=\"generated " time "\"; shape=\"box\"];";
 	print "}"
 }
 #+end_src
