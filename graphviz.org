@@ -134,3 +134,18 @@ digraph TheLetterH {
 	fox -> hidden:n [dir=back];
 }
 #+end_example
+
+** direction
+~rankdir~ sets the rank direction, which affects the direction of the
+graph when using the ~dot~ layout
+
+the argument is a combination of ~T~ (top), ~b~ (bottom), ~L~ (left), and
+~R~ (right). for example ~LR~ goes left-to-right
+
+#+begin_example
+digraph Sideways {
+	rankdir=LR;
+
+	left -> right;
+}
+#+end_example

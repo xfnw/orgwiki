@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-02-05 Sun 15:47 -->
+<!-- 2023-06-04 Sun 16:24 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>graphviz</title>
@@ -148,6 +148,7 @@ graphviz is a cool renderer thing for diagrams
 <li><a href="#org0000006">4.1. digraph/graph</a></li>
 <li><a href="#org0000007">4.2. setting default node shape</a></li>
 <li><a href="#org0000008">4.3. make lines less bendy</a></li>
+<li><a href="#org0000009">4.4. direction</a></li>
 </ul>
 </li>
 </ul>
@@ -200,7 +201,7 @@ sometimes reversing the <code>LINKS</code> output with <code>tac(1)</code> or so
 better layout.
 </p>
 
-<div class="fixme" id="org0000009">
+<div class="fixme" id="org000000a">
 <p>
 this assumes the letters of servernames are unique! it will break, for
 example, if you have both <code>me.ow.cat</code> and <code>meow.cat</code>
@@ -210,6 +211,7 @@ example, if you have both <code>me.ow.cat</code> and <code>meow.cat</code>
 
 <div class="org-src-container">
 <pre class="src src-awk">BEGIN {
+	"date -u '+%Y-%m-%d %H:%M:%SZ'" | getline time;
 	print "graph l {"
 }
 {
@@ -223,6 +225,7 @@ example, if you have both <code>me.ow.cat</code> and <code>meow.cat</code>
 	}
 }
 END {
+	print "curtime [label=\"generated " time "\"; shape=\"box\"];";
 	print "}"
 }
 </pre>
@@ -241,7 +244,7 @@ END {
 <p>
 <code>graph</code> is for showing relations. it uses <code>--</code> to connect items.
 </p>
-<pre class="example" id="org0000009">
+<pre class="example" id="org000000a">
 graph MyNiceGraph {
 	kitty -- cat;
 }
@@ -251,7 +254,7 @@ graph MyNiceGraph {
 <code>digraph</code> is for showing directed stuff, like flowcharts. it uses <code>-&gt;</code>
 to connect items.
 </p>
-<pre class="example" id="org0000009">
+<pre class="example" id="org000000a">
 digraph MyNiceDigraph {
 	cat -&gt; meow;
 	cat -&gt; hiss;
@@ -275,7 +278,7 @@ there is a special name called <code>node</code> that applies to all nodes by
 default.
 </p>
 
-<pre class="example" id="org0000009">
+<pre class="example" id="org000000a">
 digraph Rectangles {
 	node [shape="box"];
 
@@ -297,7 +300,7 @@ horrible results with large gaps and overlaps for non-trivial
 graphs. <code>polyline</code> uses a sequence of straight lines.
 </p>
 
-<pre class="example" id="org0000009">
+<pre class="example" id="org000000a">
 digraph ItsPolyTime {
 	splines=polyline;
 
@@ -317,7 +320,7 @@ trickery to make graphviz' ranking algorithm put nodes in the right
 places.
 </p>
 
-<pre class="example" id="org0000009">
+<pre class="example" id="org000000a">
 digraph TheLetterH {
 	splines=polyline;
 
@@ -331,6 +334,29 @@ digraph TheLetterH {
 	h -&gt; hidden2:n [arrowhead=none];
 	hidden:n -&gt; hidden2:n [arrowhead=none];
 	fox -&gt; hidden:n [dir=back];
+}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org0000009" class="outline-3">
+<h3 id="org0000009"><span class="section-number-3">4.4.</span> direction</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+<code>rankdir</code> sets the rank direction, which affects the direction of the
+graph when using the <code>dot</code> layout
+</p>
+
+<p>
+the argument is a combination of <code>T</code> (top), <code>b</code> (bottom), <code>L</code> (left), and
+<code>R</code> (right). for example <code>LR</code> goes left-to-right
+</p>
+
+<pre class="example" id="org000000a">
+digraph Sideways {
+	rankdir=LR;
+
+	left -&gt; right;
 }
 </pre>
 </div>
