@@ -16,7 +16,8 @@ example ~dot~
 ** layout plugin
 for directed graphs (ie flowcharts), use ~dot~. for undirected graphs,
 use ~fdp~. all the other ones i have either not been able to output
-anything meaningful, or layout the data worse than ~dot~ and ~fdp~ 
+anything meaningful, or layout the data worse than ~dot~ and ~fdp~
+(resulting in overlaps if you look at it wrong)
 
 * examples
 
@@ -79,13 +80,14 @@ want. it is for differentiating which graph you want to render if you
 have multiple in a file. you'll have to quote it if you want to use
 weird characters.
 
-** setting default node shape
-there is a special name called ~node~ that applies to all nodes by
-default.
+** setting defaults for nodes and edges
+there are special names called ~node~ and ~edge~ that apply to all
+nodes and all edges respectively by default.
 
 #+begin_example
 digraph Rectangles {
 	node [shape="box"];
+	edge [arrowsize=0.5];
 
 	ovals [shape="ellipse"];
 	rectangles -> ovals [label="are much nicer than"];
