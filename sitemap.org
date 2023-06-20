@@ -40,6 +40,7 @@
 - [[./index.org][xfnw's org wiki thing]]
 - [[./iproute2.org][iproute2]]
 - [[./iptables-forward.org][forwarding ports with iptables]]
+- [[./irccloud.org][irccloud]]
 - [[./latex-cite.org][making citations with LaTeX]]
 - [[./latex-pdfa.org][creating accessable PDF/A files with LaTeX]]
 - [[./lavfi-scope.org][lavfi live oscilloscope]]
