@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-06-25 Sun 22:01 -->
+<!-- 2023-06-25 Sun 22:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>forwarding ports with iptables</title>
@@ -144,6 +144,12 @@ iptables -t nat -I PREROUTING -p tcp -d 192.168.1.25 --dport 2269 -j DNAT --to-d
 
 iptables -t nat -A POSTROUTING -p tcp -s 192.168.122.0/24 -j MASQUERADE
 </pre>
+
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2023-06-25 Sun]</span></span>: if you have a small number of hosts to forward,
+using <code>SNAT</code> instead of <code>MASQUERADE</code> and explicitly setting
+<code>--to-source</code> may be faster
+</p>
 </div>
 </div>
 
