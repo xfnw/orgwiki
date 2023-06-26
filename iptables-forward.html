@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-01-14 Sat 23:11 -->
+<!-- 2023-06-25 Sun 22:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>forwarding ports with iptables</title>
@@ -142,7 +142,7 @@ for example to forward <code>192.168.1.25:2269</code> to <code>192.168.122.23:22
 <pre class="example" id="org0000000">
 iptables -t nat -I PREROUTING -p tcp -d 192.168.1.25 --dport 2269 -j DNAT --to-destination 192.168.122.23:22
 
-iptables -A POSTROUTING -t nat -p tcp -s 192.168.122.0/24 -j MASQUERADE
+iptables -t nat -A POSTROUTING -p tcp -s 192.168.122.0/24 -j MASQUERADE
 </pre>
 </div>
 </div>

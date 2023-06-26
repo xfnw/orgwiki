@@ -11,7 +11,7 @@ for example to forward ~192.168.1.25:2269~ to ~192.168.122.23:22~
 #+begin_example
 iptables -t nat -I PREROUTING -p tcp -d 192.168.1.25 --dport 2269 -j DNAT --to-destination 192.168.122.23:22
 
-iptables -A POSTROUTING -t nat -p tcp -s 192.168.122.0/24 -j MASQUERADE
+iptables -t nat -A POSTROUTING -p tcp -s 192.168.122.0/24 -j MASQUERADE
 #+end_example
 
 * accepting
