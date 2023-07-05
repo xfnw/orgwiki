@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-12 Sat 15:46 -->
+<!-- 2023-07-05 Wed 14:31 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>alpine linux</title>
@@ -136,6 +136,7 @@ manager (apk)
 <li><a href="#org0000000">1. manpages and other documentation</a></li>
 <li><a href="#org0000001">2. mouse cursor not changing</a></li>
 <li><a href="#org0000002">3. udhcpcd address family not supported</a></li>
+<li><a href="#org0000003">4. terminal bell (pulseaudio)</a></li>
 </ul>
 </div>
 </div>
@@ -195,6 +196,30 @@ udhcpc: socket(AF_PACKET,2,8): Address family not supported by protocol
 <p>
 this can be fixed by chrooting in and reinstalling the kernel, if
 using a vm, it is <code>linux-virt</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0000003" class="outline-2">
+<h2 id="org0000003"><span class="section-number-2">4.</span> terminal bell (pulseaudio)</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+pulseaudio will eat the bell by default on alpine, causing the bell to
+be silent on terminals like <code>xfce4-terminal</code> that use it for beeping.
+</p>
+
+<p>
+we can get a sound to play by with the <code>module-x11-bell</code> module and a
+sample by adding
+</p>
+<pre class="example" id="org0000004">
+### audible bell
+load-sample-lazy x11-bell /usr/share/sounds/freedesktop/stereo/bell.oga
+load-module module-x11-bell sample=x11-bell
+</pre>
+<p>
+to the relevant config file (ie <code>/etc/pulse/default.pa</code>) and
+restarting pulseaudio
 </p>
 </div>
 </div>

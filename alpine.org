@@ -39,3 +39,17 @@ udhcpc: socket(AF_PACKET,2,8): Address family not supported by protocol
 
 this can be fixed by chrooting in and reinstalling the kernel, if
 using a vm, it is ~linux-virt~
+
+* terminal bell (pulseaudio)
+pulseaudio will eat the bell by default on alpine, causing the bell to
+be silent on terminals like ~xfce4-terminal~ that use it for beeping.
+
+we can get a sound to play by with the ~module-x11-bell~ module and a
+sample by adding
+#+begin_example
+### audible bell
+load-sample-lazy x11-bell /usr/share/sounds/freedesktop/stereo/bell.oga
+load-module module-x11-bell sample=x11-bell
+#+end_example
+to the relevant config file (ie ~/etc/pulse/default.pa~) and
+restarting pulseaudio
