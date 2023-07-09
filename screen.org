@@ -1,0 +1,19 @@
+#+TITLE: screen
+#+SETUPFILE: setupfile.org
+
+* using as a serial console
+when invoked with the path to a device and a baud rate, screen can act
+like a simple serial console
+#+begin_example
+screen /dev/ttyACM0 38400
+#+end_example
+
+[2023-07-09 Sun]: make sure you can access the device first, for
+example by adding yourself to the ~uucp~ group
+
+* ~^H~ for backspace
+the screen command
+#+begin_example
+bindkey "\177" stuff ^H
+#+end_example
+rebinds the delete key to ~^H~

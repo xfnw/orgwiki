@@ -68,6 +68,7 @@
 - [[./pulseaudio-debugging.org][debugging pulseaudio]]
 - [[./raspistill.org][raspistill]]
 - [[./rc.d.org][rc.d]]
+- [[./screen.org][screen]]
 - [[./sqlite.org][sqlite]]
 - [[./testout.org][testout labsim considered harmful]]
 - [[./tlstunnel.org][tlstunnel]]
