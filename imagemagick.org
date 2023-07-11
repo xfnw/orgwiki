@@ -29,9 +29,9 @@ artifacts if using jpeg.
 
 occationally, especially if you only have a few colors, this can
 actually produce larger file sizes than just normal indexed colors. if
-using PNG, you can prefix the filename with ~PNG8:~ to force a normal
-colorspace which can then be indexed using something like [[./pngo.org][pngo]]. do
-check the size though, this can also make the size much larger.
+using PNG, you can prefix the filename with ~PNG8:~ to force normal
+colors which can then be indexed using something like [[./pngo.org][pngo]]. do check
+the size though, this can also make the size much larger.
 
 ** remove alpha
 use the ~-flatten~ option for this. you can also set the ~-background
