@@ -1,0 +1,28 @@
+#+TITLE: tmux
+#+SETUPFILE: setupfile.org
+
+* the interface
+
+** hiding the status bar
+the ~status~ option controls whether the status bar is shown:
+#+begin_example
+set status off
+#+end_example
+
+** muting the bell
+the ~visual-bell~ option has the side-effect of turning off the bell:
+#+begin_example
+set visual-bell on
+#+end_example
+
+* scripting
+
+** reading the scrollback buffer
+you can nab a copy of the scrollback buffer with ~capture-pane~:
+#+begin_example
+tmux capture-pane -pS -10000 | lolcat
+#+end_example
+~-p~ sends to stdout, while ~-S~ sets the line to start reading
+from. giving a negative number to ~-S~ makes it start that number of
+lines from the end, ie ~-10~ makes it output the last 10 lines plus
+the size of the pane
