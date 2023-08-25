@@ -66,6 +66,7 @@
 - [[./polkit-libvirt.org][polkit libvirt rules]]
 - [[./powdertoy.org][powdertoy]]
 - [[./pulseaudio-debugging.org][debugging pulseaudio]]
+- [[./python-pillow.org][python PIL/Pillow]]
 - [[./raspistill.org][raspistill]]
 - [[./rc.d.org][rc.d]]
 - [[./screen.org][screen]]

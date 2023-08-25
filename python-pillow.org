@@ -1,0 +1,6 @@
+#+TITLE: python PIL/Pillow
+#+SETUPFILE: setupfile.org
+
+* handling truncated images
+setting the ~PIL.ImageFile.LOAD_TRUNCATED_IMAGES~ "constant" tells
+pillow whether to allow loading truncated images.
