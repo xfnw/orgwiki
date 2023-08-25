@@ -23,7 +23,9 @@ auth/changeuser bob
 #+begin_example
 echo newuser upas +bob >> /srv/hjfs.cmd
 #+end_example
-will add ~bob~ to the ~upas~ group, which allows mail. 
+will add ~bob~ to the ~upas~ group, which allows mail. the ~adm~ and
+~sys~ groups allow adding users and accessing system files
+respectively.
 
 * renaming users
 #+begin_example

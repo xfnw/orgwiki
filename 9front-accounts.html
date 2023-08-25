@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-01-22 Sun 16:11 -->
+<!-- 2023-08-25 Fri 14:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>managing accounts on 9front</title>
@@ -172,7 +172,9 @@ auth/changeuser bob
 echo newuser upas +bob &gt;&gt; /srv/hjfs.cmd
 </pre>
 <p>
-will add <code>bob</code> to the <code>upas</code> group, which allows mail. 
+will add <code>bob</code> to the <code>upas</code> group, which allows mail. the <code>adm</code> and
+<code>sys</code> groups allow adding users and accessing system files
+respectively.
 </p>
 </div>
 </div>
