@@ -13,11 +13,17 @@ echo newuser bob >> /srv/hjfs.cmd
 #+end_example
 will create a user named ~bob~
 
-use ~auth/changeuser~ to give them a password
+use ~auth/keyfs~ to mount the authentication database, then set a
+password and enable the account
 
 #+begin_example
+auth/keyfs
 auth/changeuser bob
+auth/enable bob
 #+end_example
+
+[2023-08-27 Sun]: mkf recommends filling in the email-related fields,
+as some programs use them
 
 ** adding a user to a group
 #+begin_example
@@ -25,7 +31,7 @@ echo newuser upas +bob >> /srv/hjfs.cmd
 #+end_example
 will add ~bob~ to the ~upas~ group, which allows mail. the ~adm~ and
 ~sys~ groups allow adding users and accessing system files
-respectively.
+respectively. there is also ~cron~ for allowing recurring tasks.
 
 * renaming users
 #+begin_example
@@ -44,16 +50,3 @@ auth/changeuser jane
 run ~/sys/lib/newuser~ as the new user to get the default profile and
 stuff in your home directory
 
-* troubleshooting
-if you get an error similar to
-
-#+begin_example
-changeuser: can't create user doot: '/mnt/keys/doot' create prohibited
-#+end_example
-
-ensure that you are running it directly (eg in a serial console or
-whatever, /not/ via drawterm) and you are the hostowner (glenda by
-default).
-
-you may also need to run ~auth/keyfs~ before managing users, and
-enable an account with ~auth/enable jane~
