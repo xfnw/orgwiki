@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-12 Sat 15:46 -->
+<!-- 2023-08-31 Thu 19:57 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>setup a 9front cpu server</title>
@@ -200,7 +200,10 @@ password.
 
 <p>
 if using cwfs, reboot and stick a <code>-c</code> on the bootargs. then type
-<code>noauth</code> twice and then <code>end</code>.
+<code>noauth</code> twice to enable requiring authentication. if you do not wish
+random people on the internet to be able to access your world-readable
+files, also type <code>nonone</code> to disable the none account. finally, type
+<code>end</code> to exit and resume booting.
 </p>
 
 <p>

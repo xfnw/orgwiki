@@ -36,7 +36,10 @@ if unsure. leave ~secstore~ empty. ~password~ must be the hostowner's
 password.
 
 if using cwfs, reboot and stick a ~-c~ on the bootargs. then type
-~noauth~ twice and then ~end~.
+~noauth~ twice to enable requiring authentication. if you do not wish
+random people on the internet to be able to access your world-readable
+files, also type ~nonone~ to disable the none account. finally, type
+~end~ to exit and resume booting.
 
 edit your ~/n/9fat/plan9.ini~ again, this time adding ~-a tcp!*!564~
 if using cwfs or ~-A -a tcp!*!564~ if using hjfs to the end of the
