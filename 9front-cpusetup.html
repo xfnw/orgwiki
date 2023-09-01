@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-08-31 Thu 19:57 -->
+<!-- 2023-08-31 Thu 20:18 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>setup a 9front cpu server</title>
@@ -180,7 +180,6 @@ requirements. if you need to <a href="http://fqa.9front.org/fqa7.html#7.3.2">cha
 </blockquote>
 </div>
 
-
 <div id="outline-container-org0000003" class="outline-3">
 <h3 id="org0000003"><span class="section-number-3">3.1.</span> setup fileserver listening</h3>
 <div class="outline-text-3" id="text-3-1">
@@ -202,8 +201,8 @@ password.
 if using cwfs, reboot and stick a <code>-c</code> on the bootargs. then type
 <code>noauth</code> twice to enable requiring authentication. if you do not wish
 random people on the internet to be able to access your world-readable
-files, also type <code>nonone</code> to disable the none account. finally, type
-<code>end</code> to exit and resume booting.
+files, also type <code>nonone</code> to disable the <i>none</i> account. finally, type
+<code>end</code> to exit and resume booting. on hjfs, these have sane defaults.
 </p>
 
 <p>
