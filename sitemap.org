@@ -79,4 +79,5 @@
 - [[./wireguard.org][wireguard]]
 - [[./xcompose.org][create custom compose keybinds with XCompose]]
 - [[./xfburn-failurecbd.org][xfburn FailureCBD error]]
+- [[./xinput.org][xinput]]
 - [[./znc-freeze.org][freeze a znc account]]

@@ -1,0 +1,9 @@
+#+TITLE: xinput
+#+SETUPFILE: setupfile.org
+
+* disabling a keyboard
+list input devices with ~xinput list~ and find the id number of the
+misbehaving device
+
+then you can use ~xinput float <id>~ to disable it. if you change your
+mind, ~xinput reattach <id>~ to get it back.
