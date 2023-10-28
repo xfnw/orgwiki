@@ -58,6 +58,7 @@
 - [[./nxproxy.org][using nxproxy]]
 - [[./openbsd-vnc.org][setting up vnc with xenodm on openbsd]]
 - [[./openssl-customnameconstraints.org][openssl custom name constraints]]
+- [[./openssl-fingerprints.org][calculating cert fingerprints with openssl]]
 - [[./openwrt-client.org][openwrt client mode]]
 - [[./org-tangle.org][tangling with org]]
 - [[./pacman.org][keeping your storage tidy with pacman]]
