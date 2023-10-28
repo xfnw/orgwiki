@@ -1,0 +1,36 @@
+#+TITLE: calculating cert fingerprints with openssl
+#+SETUPFILE: setupfile.org
+
+some of the x509 certificate fingerprint algorithms used for certfp
+authentication on irc are weirdly hard to find documentation
+for. solanum's ~solanum-mkfingerprint~ utility can easily calculate
+these, but it can be rather annoying to compile without using the rest
+of solanum too. it is a bit more finicky but we can just use the
+~openssl~ utility to calculate them instead.
+
+* normal fingerprints
+sha1, sha256, and sha512 fingerprints are just hashes for the cert in
+der form using that hash algorithm. for example to get the sha512
+fingerprint (which is what libera.chat uses):
+
+#+begin_example
+openssl x509 -outform der <mycert.pem | openssl dgst -sha512
+#+end_example
+
+there is also a built-in ~-fingerprint~ option, if you are using sha1
+and do not mind manually removing the colons.
+
+* spki fingerprints
+spki_sha256, spki_sha512 fingerprints are hashes of the subject and
+public key part of a cert, so that when expiring they can be renewed
+without changing the fingerprint. for example to get the spki_sha256
+fingerprint (this is what replirc uses):
+
+#+begin_example
+openssl x509 -noout -pubkey <mycert.pem | openssl pkey -pubin -outform der | openssl dgst -sha256  
+#+end_example
+
+note that this outputs the fingerprint as /hex/, since this is what
+irc stuff does. spki fingerprints when used /outside of irc/ are
+usually base64 encoded, ie adding ~-binary~ to the ~openssl dgst~ and
+piping that into ~base64~
