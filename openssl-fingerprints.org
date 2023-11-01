@@ -17,8 +17,8 @@ fingerprint (which is what libera.chat uses):
 openssl x509 -outform der <mycert.pem | openssl dgst -sha512
 #+end_example
 
-there is also a built-in ~-fingerprint~ option, if you are using sha1
-and do not mind manually removing the colons.
+there is also a built-in ~-fingerprint~ option (use with ~-sha512~ etc),
+if you do not mind manually removing the colons.
 
 * spki fingerprints
 spki_sha256, spki_sha512 fingerprints are hashes of the subject and
