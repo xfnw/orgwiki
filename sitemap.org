@@ -76,6 +76,7 @@
 - [[./testout.org][testout labsim considered harmful]]
 - [[./tlstunnel.org][tlstunnel]]
 - [[./tmux.org][tmux]]
+- [[./uart.org][uart serial]]
 - [[./ubports-mako.org][installing ubports on mako]]
 - [[./weechat-logs.org][managing weechat logs]]
 - [[./wireguard.org][wireguard]]

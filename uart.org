@@ -1,0 +1,14 @@
+#+TITLE: uart serial
+#+SETUPFILE: setupfile.org
+
+* repurposing a microcontroller as a serial adapter
+don't want to buy a dedicated usb-to-serial converter? many
+microcontrollers already have one built in! connecting the certain
+pins allow disabling the processor, and then you can attach the RX/TX
+lines to anything else as you please.
+
+** arduino uno (5v)
+connect the ~RESET~ pin to ~GND~ (ground)
+
+** nodemcu esp8266 (3.3v)
+connect the ~EN~ (enable) pin to ~GND~
