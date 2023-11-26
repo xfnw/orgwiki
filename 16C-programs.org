@@ -18,7 +18,7 @@ borrowed from [[https://imapenguin.com/simple-exponents-on-an-hp-16c/][this blog
 | 002 | ENTER | 36       | push stack                             |
 | 003 | 1     | 1        |                                        |
 | 004 | -     | 30       | subtract one, count starts at 0        |
-| 005 | X<>I  | 42 22    | push to "increment/decrement" counter  |
+| 005 | X<->I | 42 22    | push to "increment/decrement" counter  |
 | 006 | X<->Y | 34       | swap                                   |
 | 007 | STO A | 44 A     | store                                  |
 | 008 | ENTER | 36       | push stack                             |
