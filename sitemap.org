@@ -17,6 +17,7 @@
 - [[./chromeos-blahaj.org][type blåhaj on chrome os]]
 - [[./cisco.org][cisco]]
 - [[./disambiguation.org][disambiguation]]
+- [[./docker-tor.org][send traffic from docker containers through tor]]
 - [[./docker-x11.org][docker X11]]
 - [[./elevator-fireoperation.org][fire operation phase 2]]
 - [[./elevator-testscript.org][elevator emergency phone test script]]

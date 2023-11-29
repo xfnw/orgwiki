@@ -1,0 +1,40 @@
+#+TITLE: send traffic from docker containers through tor
+#+SETUPFILE: setupfile.org
+
+this can offer a bit of extra protection against your tor hidden
+service being accidentally deanonymized by unsafe server software.
+however, keep in mind that docker is not a security device and can
+likely be escaped from, and by default allows accessing the host via
+the gateway, so you may want to firewall that as well.
+
+* make a docker network
+#+begin_example
+docker network create tor --subnet 10.42.0.0/24
+#+end_example
+
+* have tor listen for connections
+#+begin_example
+TransPort 10.42.0.1:9040
+DNSPort 10.42.0.1:5353
+#+end_example
+should be added to your torrc, then restart it
+
+* add iptables rules
+#+begin_example
+iptables -t nat -I PREROUTING -s 10.42.0.0/24 -p tcp --syn -j REDIRECT --to-ports 9040
+iptables -t nat -I PREROUTING -s 10.42.0.0/24 -p udp -j REDIRECT --to-ports 5353
+iptables -I DOCKER-USER -s 10.42.0.0/24 -p icmp -j DROP
+#+end_example
+this sends all tcp traffic over tor, and since tor does not support
+udp, it sends all udp traffic to tor's dns resolver (which amusingly
+means that /any/ routable ip can resolve dns). icmp also cannot be
+sent over tor, so just drop it.
+
+* connect a container to the network
+use the ~--network~ flag during docker run, or you can add an existing
+container with ~docker network connect~
+#+begin_example
+docker network connect tor yourcontainerid
+#+end_example
+(replacing ~yourcontainerid~ with the container id that you want to
+send through tor)
