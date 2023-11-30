@@ -7,6 +7,12 @@ however, keep in mind that docker is not a security device and can
 likely be escaped from, and by default allows accessing the host via
 the gateway, so you may want to firewall that as well.
 
+#+begin_fixme
+lacks ipv6 support. as of [2023-11-29 Wed] docker hides ipv6 behind an
+"experimental" config parameter. ipv6 also depends on icmp so it
+cannot just be dropped
+#+end_fixme
+
 * make a docker network
 #+begin_example
 docker network create tor --subnet 10.42.0.0/24
