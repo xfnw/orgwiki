@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-11-29 Wed 20:57 -->
+<!-- 2023-12-09 Sat 09:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>send traffic from docker containers through tor</title>
@@ -128,8 +128,7 @@ nav { display: none; }
 this can offer a bit of extra protection against your tor hidden
 service being accidentally deanonymized by unsafe server software.
 however, keep in mind that docker is not a security device and can
-likely be escaped from, and by default allows accessing the host via
-the gateway, so you may want to firewall that as well.
+likely be escaped from.
 </p>
 
 <div class="fixme" id="org0000000">
@@ -169,6 +168,7 @@ should be added to your torrc, then restart it
 <pre class="example" id="org0000002">
 iptables -t nat -I PREROUTING -s 10.42.0.0/24 -p tcp --syn -j REDIRECT --to-ports 9040
 iptables -t nat -I PREROUTING -s 10.42.0.0/24 -p udp -j REDIRECT --to-ports 5353
+iptables -I DOCKER-USER -s 10.42.0.0/24 -p tcp --syn --dst 10.42.0.1 -j DROP
 iptables -I DOCKER-USER -s 10.42.0.0/24 -p icmp -j DROP
 </pre>
 <p>
