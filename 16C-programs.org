@@ -10,23 +10,18 @@ line, ~BSP~ to delete a line, and ~g RTN~ to end a program.
 
 (for positive integers only)
 
-borrowed from [[https://imapenguin.com/simple-exponents-on-an-hp-16c/][this blog]]
+borrowed from [[https://imapenguin.com/simple-exponents-on-an-hp-16c/][this blog]] and modified avoid messing up stack
 
-| num | keys  | display  | description                            |
-|-----+-------+----------+----------------------------------------|
-| 001 | LBL E | 43,22, E | convenient entry point                 |
-| 002 | ENTER | 36       | push stack                             |
-| 003 | 1     | 1        |                                        |
-| 004 | -     | 30       | subtract one, count starts at 0        |
-| 005 | X<->I | 42 22    | push to "increment/decrement" counter  |
-| 006 | X<->Y | 34       | swap                                   |
-| 007 | STO A | 44 A     | store                                  |
-| 008 | ENTER | 36       | push stack                             |
-| 009 | LBL 0 | 43,22, 0 | label for loop target                  |
-| 010 | X<->Y | 34       | swap                                   |
-| 011 | RCL A | 45 A     | push A to stack                        |
-| 012 | *     | 20       | multiply it                            |
-| 013 | ENTER | 36       | push stack up 1                        |
-| 014 | DSZ   | 43 23    | decrement and branch to LBL 0 unless 0 |
-| 015 | GTO 0 | 22 0     |                                        |
-| 016 | RTN   | 43 21    | return                                 |
+| num | keys  | display  | description                   |
+|-----+-------+----------+-------------------------------|
+| 001 | LBL E | 43,22, E | convenient entry point        |
+| 002 | X<->I | 42 22    | push to I counter             |
+| 003 | R↓    | 33       | pop old I value               |
+| 004 | STO A | 44 A     | store                         |
+| 005 | DSZ   | 43 23    | decrement I and nop branch    |
+| 006 | LBL 0 | 43,22, 0 | label for loop target         |
+| 007 | RCL A | 45 A     | push A to stack               |
+| 008 | *     | 20       | multiply it                   |
+| 009 | DSZ   | 43 23    | decrement and branch unless 0 |
+| 010 | GTO 0 | 22 0     | I is not 0, loop again        |
+| 011 | RTN   | 43 21    | return                        |

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-11-26 Sun 14:24 -->
+<!-- 2023-12-09 Sat 13:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>HP-16C programs</title>
@@ -146,7 +146,7 @@ line, <code>BSP</code> to delete a line, and <code>g RTN</code> to end a program
 </p>
 
 <p>
-borrowed from <a href="https://imapenguin.com/simple-exponents-on-an-hp-16c/">this blog</a>
+borrowed from <a href="https://imapenguin.com/simple-exponents-on-an-hp-16c/">this blog</a> and modified avoid messing up stack
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -179,104 +179,69 @@ borrowed from <a href="https://imapenguin.com/simple-exponents-on-an-hp-16c/">th
 
 <tr>
 <td class="org-right">002</td>
-<td class="org-left">ENTER</td>
-<td class="org-left">36</td>
-<td class="org-left">push stack</td>
+<td class="org-left">X&lt;-&gt;I</td>
+<td class="org-left">42 22</td>
+<td class="org-left">push to I counter</td>
 </tr>
 
 <tr>
 <td class="org-right">003</td>
-<td class="org-left">1</td>
-<td class="org-left">1</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">R↓</td>
+<td class="org-left">33</td>
+<td class="org-left">pop old I value</td>
 </tr>
 
 <tr>
 <td class="org-right">004</td>
-<td class="org-left">-</td>
-<td class="org-left">30</td>
-<td class="org-left">subtract one, count starts at 0</td>
-</tr>
-
-<tr>
-<td class="org-right">005</td>
-<td class="org-left">X&lt;-&gt;I</td>
-<td class="org-left">42 22</td>
-<td class="org-left">push to "increment/decrement" counter</td>
-</tr>
-
-<tr>
-<td class="org-right">006</td>
-<td class="org-left">X&lt;-&gt;Y</td>
-<td class="org-left">34</td>
-<td class="org-left">swap</td>
-</tr>
-
-<tr>
-<td class="org-right">007</td>
 <td class="org-left">STO A</td>
 <td class="org-left">44 A</td>
 <td class="org-left">store</td>
 </tr>
 
 <tr>
-<td class="org-right">008</td>
-<td class="org-left">ENTER</td>
-<td class="org-left">36</td>
-<td class="org-left">push stack</td>
+<td class="org-right">005</td>
+<td class="org-left">DSZ</td>
+<td class="org-left">43 23</td>
+<td class="org-left">decrement I and nop branch</td>
 </tr>
 
 <tr>
-<td class="org-right">009</td>
+<td class="org-right">006</td>
 <td class="org-left">LBL 0</td>
 <td class="org-left">43,22, 0</td>
 <td class="org-left">label for loop target</td>
 </tr>
 
 <tr>
-<td class="org-right">010</td>
-<td class="org-left">X&lt;-&gt;Y</td>
-<td class="org-left">34</td>
-<td class="org-left">swap</td>
-</tr>
-
-<tr>
-<td class="org-right">011</td>
+<td class="org-right">007</td>
 <td class="org-left">RCL A</td>
 <td class="org-left">45 A</td>
 <td class="org-left">push A to stack</td>
 </tr>
 
 <tr>
-<td class="org-right">012</td>
+<td class="org-right">008</td>
 <td class="org-left">*</td>
 <td class="org-left">20</td>
 <td class="org-left">multiply it</td>
 </tr>
 
 <tr>
-<td class="org-right">013</td>
-<td class="org-left">ENTER</td>
-<td class="org-left">36</td>
-<td class="org-left">push stack up 1</td>
-</tr>
-
-<tr>
-<td class="org-right">014</td>
+<td class="org-right">009</td>
 <td class="org-left">DSZ</td>
 <td class="org-left">43 23</td>
-<td class="org-left">decrement and branch to LBL 0 unless 0</td>
+<td class="org-left">decrement and branch unless 0</td>
 </tr>
 
 <tr>
-<td class="org-right">015</td>
+<td class="org-right">010</td>
 <td class="org-left">GTO 0</td>
 <td class="org-left">22 0</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">I is not 0, loop again</td>
 </tr>
 
 <tr>
-<td class="org-right">016</td>
+<td class="org-right">011</td>
 <td class="org-left">RTN</td>
 <td class="org-left">43 21</td>
 <td class="org-left">return</td>
