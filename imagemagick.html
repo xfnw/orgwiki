@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-07-11 Tue 10:11 -->
+<!-- 2024-01-14 Sun 00:00 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>imagemagick</title>
@@ -139,6 +139,7 @@ imagemagick is a command-line image manipulation tool.
 <li><a href="#org0000003">2.2. convert colors to monochrome</a></li>
 <li><a href="#org0000004">2.3. convert to grayscale</a></li>
 <li><a href="#org0000005">2.4. remove alpha</a></li>
+<li><a href="#org0000006">2.5. local automatic threshold</a></li>
 </ul>
 </li>
 </ul>
@@ -209,6 +210,23 @@ the size though, this can also make the size much larger.
 use the <code>-flatten</code> option for this. you can also set the <code>-background
 color</code> to a color beforehand if you want to replace the alpha with a
 specific color.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0000006" class="outline-3">
+<h3 id="org0000006"><span class="section-number-3">2.5.</span> local automatic threshold</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+the <code>-lat</code> option takes window dimentions and an offset as an
+argument, and then does a local Otsu threshold to get 1-bit color
+that still preserves detail even with darker/lighter areas.
+</p>
+
+<p>
+may benefit from <code>-flatten</code> and <code>-colorspace gray</code> beforehand. oddly
+this sometimes makes it output fully transparent images, not sure why
+but an offset of -1 (ie <code>30x30-1</code>) seems to fix this&#x2026;
 </p>
 </div>
 </div>

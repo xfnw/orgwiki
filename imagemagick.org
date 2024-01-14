@@ -37,3 +37,12 @@ the size though, this can also make the size much larger.
 use the ~-flatten~ option for this. you can also set the ~-background
 color~ to a color beforehand if you want to replace the alpha with a
 specific color.
+
+** local automatic threshold
+the ~-lat~ option takes window dimentions and an offset as an
+argument, and then does a local Otsu threshold to get 1-bit color
+that still preserves detail even with darker/lighter areas.
+
+may benefit from ~-flatten~ and ~-colorspace gray~ beforehand. oddly
+this sometimes makes it output fully transparent images, not sure why
+but an offset of -1 (ie ~30x30-1~) seems to fix this...
