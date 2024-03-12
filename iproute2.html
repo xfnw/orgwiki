@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-01-28 Sat 13:54 -->
+<!-- 2024-03-12 Tue 10:58 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>iproute2</title>
@@ -160,8 +160,8 @@ ip r add default via 192.168.1.1
 </pre>
 <p>
 adds a <code>default</code> route to a gateway at <code>192.168.1.1</code>. a CIDR can be
-used instead of <code>default</code>. <code>default</code> is
-roughly equivalent to a <code>0.0.0.0/0</code> plus a <code>::/0</code> route.
+used instead of <code>default</code>. <code>default</code> is roughly equivalent to a
+<code>0.0.0.0/0</code> or a <code>::/0</code> route.
 </p>
 
 <p>
@@ -183,8 +183,8 @@ will delete the default route.
 </div>
 </div>
 
-<div id="outline-container-org0000004" class="outline-2">
-<h2 id="org0000004"><span class="section-number-2">2.</span> addresses</h2>
+<div id="outline-container-org0000005" class="outline-2">
+<h2 id="org0000005"><span class="section-number-2">2.</span> addresses</h2>
 <div class="outline-text-2" id="text-2">
 <pre class="example" id="org0000003">
 ip a
@@ -195,9 +195,23 @@ will list the addresses and status of your networking devices.
 </div>
 
 <div id="outline-container-org0000003" class="outline-3">
-<h3 id="org0000003"><span class="section-number-3">2.1.</span> down/up</h3>
+<h3 id="org0000003"><span class="section-number-3">2.1.</span> adding an address</h3>
 <div class="outline-text-3" id="text-2-1">
 <pre class="example" id="org0000003">
+ip a a 127.6.2.1/32 dev lo
+</pre>
+<p>
+adding more specific loopback addresses is useful for making programs
+that do not allow configuring this bind to a different ip, for example
+changing the source for clients using a tor hidden service on irc
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0000004" class="outline-3">
+<h3 id="org0000004"><span class="section-number-3">2.2.</span> down/up</h3>
+<div class="outline-text-3" id="text-2-2">
+<pre class="example" id="org0000004">
 ip link set wlan0 up
 </pre>
 <p>

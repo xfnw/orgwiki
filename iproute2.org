@@ -23,8 +23,8 @@ ip -6 r
 ip r add default via 192.168.1.1
 #+end_example
 adds a ~default~ route to a gateway at ~192.168.1.1~. a CIDR can be
-used instead of ~default~. ~default~ is
-roughly equivalent to a ~0.0.0.0/0~ plus a ~::/0~ route.
+used instead of ~default~. ~default~ is roughly equivalent to a
+~0.0.0.0/0~ or a ~::/0~ route.
 
 ~dev devicename~ can be added to restrict it to ~devicename~.
 
@@ -39,6 +39,14 @@ will delete the default route.
 ip a
 #+end_example
 will list the addresses and status of your networking devices.
+
+** adding an address
+#+begin_example
+ip a a 127.6.2.1/32 dev lo
+#+end_example
+adding more specific loopback addresses is useful for making programs
+that do not allow configuring this bind to a different ip, for example
+changing the source for clients using a tor hidden service on irc
 
 ** down/up
 #+begin_example
