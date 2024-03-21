@@ -25,7 +25,7 @@ to enfore a dependency on another table, foreign keys can be used.
 #+begin_example
 CREATE TABLE example
 ( ...
-, FOREIGN KEY (columnname) REFERENCES othertable(othercolumn)
+, FOREIGN KEY(columnname) REFERENCES othertable(othercolumn)
 );
 #+end_example
 
