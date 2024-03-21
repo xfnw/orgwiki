@@ -1,7 +1,9 @@
 ORG := $(filter-out sitemap.org, $(wildcard *.org))
 OUT := $(ORG:org=html)
 
-all: sitemap.html $(OUT)
+all: html sitemap.html
+
+html: $(OUT)
 
 %.html: %.org
 	emacs --no-site-file -batch -l .deterministic-ids -eval '(progn (dolist (file command-line-args-left) (with-current-buffer (find-file-noselect file) (org-html-export-to-html) ) ) )' $<
