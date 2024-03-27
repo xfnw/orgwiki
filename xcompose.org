@@ -14,6 +14,9 @@ file called ~.XCompose~ in your home directory
 you should include your existing compose combinations if you still
 want to be able to use them, ie
 #+begin_example
-include "/usr/share/X11/locale/en_US.UTF-8/Compose"
+include "%L"
 #+end_example
-replacing ~en_US.UTF-8~ with your locale.
+to use the predefined compose combinations for your locale. you can
+also just hard-code the path directly ignoring your locale, for
+example to force US english unicode compose keys, you can put
+~/usr/share/X11/locale/en_US.UTF-8/Compose~ instead of ~%L~

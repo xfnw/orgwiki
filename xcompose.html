@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-12-31 Sat 22:45 -->
+<!-- 2024-03-27 Wed 10:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>create custom compose keybinds with XCompose</title>
@@ -143,10 +143,13 @@ you should include your existing compose combinations if you still
 want to be able to use them, ie
 </p>
 <pre class="example" id="org0000000">
-include "/usr/share/X11/locale/en_US.UTF-8/Compose"
+include "%L"
 </pre>
 <p>
-replacing <code>en_US.UTF-8</code> with your locale.
+to use the predefined compose combinations for your locale. you can
+also just hard-code the path directly ignoring your locale, for
+example to force US english unicode compose keys, you can put
+<code>/usr/share/X11/locale/en_US.UTF-8/Compose</code> instead of <code>%L</code>
 </p>
 </div>
 </body>
