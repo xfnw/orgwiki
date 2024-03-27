@@ -8,9 +8,9 @@ manually create a repo
 
 * git forges
 
-** gitea
+** forgejo
 
-gitea supports push to create
+forgejo supports push to create
 
 with app.ini
 
@@ -25,7 +25,7 @@ DEFAULT_PUSH_CREATE_PRIVATE = false
 or with nixos
 
 #+begin_example
-services.gitea = {
+services.forgejo = {
   settings.repository.DEFAULT_BRANCH = "main";
   settings.repository.ENABLE_PUSH_CREATE_USER = "true";
   settings.repository.ENABLE_PUSH_CREATE_ORG = "true";

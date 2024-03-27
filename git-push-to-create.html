@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-12 Sat 15:46 -->
+<!-- 2024-03-26 Tue 22:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>git push to create</title>
@@ -135,7 +135,7 @@ manually create a repo
 <ul>
 <li><a href="#org0000000">1. git forges</a>
 <ul>
-<li><a href="#org0000001">1.1. gitea</a></li>
+<li><a href="#org0000001">1.1. forgejo</a></li>
 <li><a href="#org0000002">1.2. git.sr.ht</a></li>
 </ul>
 </li>
@@ -149,10 +149,10 @@ manually create a repo
 <div class="outline-text-2" id="text-1">
 </div>
 <div id="outline-container-org0000001" class="outline-3">
-<h3 id="org0000001"><span class="section-number-3">1.1.</span> gitea</h3>
+<h3 id="org0000001"><span class="section-number-3">1.1.</span> forgejo</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
-gitea supports push to create
+forgejo supports push to create
 </p>
 
 <p>
@@ -172,7 +172,7 @@ or with nixos
 </p>
 
 <pre class="example" id="org0000004">
-services.gitea = {
+services.forgejo = {
   settings.repository.DEFAULT_BRANCH = "main";
   settings.repository.ENABLE_PUSH_CREATE_USER = "true";
   settings.repository.ENABLE_PUSH_CREATE_ORG = "true";
