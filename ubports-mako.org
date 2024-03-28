@@ -4,8 +4,8 @@
 ubuntu touch is a failed and abandoned attempt by canonical to make a
 phone linux distro. ubports is an attempt to continue it.
 
-this guide explains how to install it without the stupid electron
-autoinstaller thing that i could not get to work.
+this guide explains how to install it without the annoying electron
+autoinstaller i was unable to get working.
 
 #+TOC: headlines 3
 
@@ -30,7 +30,7 @@ boot into your bootloader, then you can run
 ubuntu-device-flash touch --server https://system-image.ubports.com --channel ubports-touch/16.04/<your channel> --bootstrap 
 #+end_example
 
-replacing ~<your channel~ with the channel you chose, for example ~rc~
+replacing ~<your channel>~ with the channel you chose, for example ~rc~
 
 * wait a bit
 you should see an animation with orange dots
