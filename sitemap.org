@@ -28,6 +28,7 @@
 - [[./ffmpeg-webp.org][generate webp's with ffmpeg]]
 - [[./finger-inet-sh.org][shell script finger daemon]]
 - [[./gdb.org][gnu debugger]]
+- [[./git-archive.org][reproducing git archives]]
 - [[./git-compression.org][compress a git repository]]
 - [[./git-push-to-create.org][git push to create]]
 - [[./github.org][github]]

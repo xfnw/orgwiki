@@ -1,0 +1,6 @@
+#+TITLE: reproducing git archives
+
+* github
+github seems to use the ~America/Los_Angeles~ timezone when making
+their archives, you'll need to use it for reproducing zip archives,
+since zip includes the current timezone for some reason.
