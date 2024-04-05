@@ -1,0 +1,10 @@
+#+TITLE: minecraft
+#+SETUPFILE: setupfile.org
+
+* place
+
+** cat
+you can place a cat statue with
+#+begin_example
+/place template minecraft:woodland_mansion/1x2_d4
+#+end_example

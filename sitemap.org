@@ -52,6 +52,7 @@
 - [[./linux-sysrq.org][magic sysrq]]
 - [[./logisim.org][logisim evolution]]
 - [[./mariadb-accounts.org][mariadb accounts]]
+- [[./minecraft.org][minecraft]]
 - [[./minetest-mods.org][minetest mods]]
 - [[./minetest-skins.org][minetest skins]]
 - [[./ms-reg.org][registry]]
