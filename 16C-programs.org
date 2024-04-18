@@ -28,7 +28,7 @@ borrowed from [[https://imapenguin.com/simple-exponents-on-an-hp-16c/][this blog
 
 * natural log
 
-based on part of an algorithm from [[https://albillo.hpcalc.org][Valentín Albillo]]'s [[https://albillo.hpcalc.org/articles/HP%20Article%20VA049%20-%20Boldly%20Going%20-%20HP-16C%20Scientific%20Functions%20Part%202.pdf][Boldly Going
+based on part of an algorithm from [[https://albillo.hpcalc.org/][Valentín Albillo]]'s [[https://albillo.hpcalc.org/articles/HP%20Article%20VA049%20-%20Boldly%20Going%20-%20HP-16C%20Scientific%20Functions%20Part%202.pdf][Boldly Going
 article]] but reworked to not mess up the stack
 
 | num | keys  | display  | description    |

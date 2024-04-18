@@ -19,7 +19,7 @@ bit overbearing about how it manages files.
 
 * setupfile
 
-the [[./setupfile.org][setupfile]] is largely based on [[https://yeti.tilde.institure/brain/][yeti's brain's setupfile]]. i know you
+the [[./setupfile.org][setupfile]] is largely based on [[https://yeti.tilde.institute/brain/][yeti's brain's setupfile]]. i know you
 will probably never read this, but thank you for letting me use it :3
 
 * contributing
