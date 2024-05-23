@@ -74,11 +74,11 @@ article]] but reworked to not mess up the stack
 | 050 | LBL 8 | 43,22, 8 |                |
 | 051 | ENTER | 36       |                |
 | 052 | +     | 40       | double         |
-| 053 | DSZ   | 42 23    | decrement I    |
+| 053 | DSZ   | 43 23    | decrement I    |
 | 054 | GTO 8 | 22 8     | I not 0, loop  |
 | 055 | F? 0  | 43, 6, 0 | recall input<1 |
 | 056 | CHS   | 49       | yes, negate    |
-| 057 | RTN   | 43 25    | return         |
+| 057 | RTN   | 43 21    | return         |
 
 * factorial
 
