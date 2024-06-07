@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-02-25 Sat 16:38 -->
+<!-- 2024-06-06 Thu 21:20 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>generating a gpg key</title>
@@ -124,6 +124,10 @@ nav { display: none; }
 <body>
 <div id="content" class="content">
 <h1 class="title">generating a gpg key</h1>
+<p>
+avoid pgp if you can, but if you have to use it, these are some useful
+options to use.
+</p>
 
 <div id="outline-container-org0000000" class="outline-2">
 <h2 id="org0000000"><span class="section-number-2">1.</span> Curve25519 keys</h2>
@@ -137,8 +141,7 @@ ECC options, including Curve25519
 <span class="timestamp-wrapper"><span class="timestamp">[2022-08-05 Fri]</span></span>: a word of warning: at the time of writing,
 Curve25519 seems to be the only curve-based algorithm that gpg
 supports while also being deemed safe by <a href="https://safecurves.cr.yp.to/">cr.yp.to's safecurves
-guidelines</a>. DO NOT USE THE OTHER ONES, <i>ESPECIALLY</i> THE NIST AND *DSA
-ONES THAT THE NSA BACKDOORED!!!
+guidelines</a>.
 </p>
 </div>
 </div>

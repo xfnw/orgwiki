@@ -1,6 +1,9 @@
 #+TITLE: generating a gpg key
 #+SETUPFILE: setupfile.org
 
+avoid pgp if you can, but if you have to use it, these are some useful
+options to use.
+
 * Curve25519 keys
 using ~--full-generate-key --expert~ allows you to use all the hidden
 ECC options, including Curve25519
@@ -8,8 +11,7 @@ ECC options, including Curve25519
 [2022-08-05 Fri]: a word of warning: at the time of writing,
 Curve25519 seems to be the only curve-based algorithm that gpg
 supports while also being deemed safe by [[https://safecurves.cr.yp.to/][cr.yp.to's safecurves
-guidelines]]. DO NOT USE THE OTHER ONES, /ESPECIALLY/ THE NIST AND *DSA
-ONES THAT THE NSA BACKDOORED!!!
+guidelines]].
 
 * remove limitations on uid
 annoyingly, gpg enforces a 5 character minimum length for uid's by
