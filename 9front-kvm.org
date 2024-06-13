@@ -1,0 +1,22 @@
+#+TITLE: running 9front inside kvm
+#+SETUPFILE: setupfile.org
+
+* lapic timer period dmesg errors
+9front likes to request a smaller apic timer period than the default
+minimum, resulting in dmesg spam like
+#+begin_example
+[762368.098513] kvm: vcpu 0: requested 115984 ns lapic timer period limited to 200000 ns
+#+end_example
+
+the minimum can be temporarily lowered to (for example 100 us or
+100000 ns) by poking sysfs
+
+#+begin_example
+echo 100 >/sys/module/kvm/parameters/min_timer_period_us
+#+end_example
+
+and can be set persistently [[https://inbox.vuxu.org/9front/CAH_zEu5n1mNXiz=ymKU-_zPwM67qgZXb=ow8Ujm8D+x0igzHAQ@mail.gmail.com/][by poking modprobe.d]]
+
+#+begin_example
+echo "options kvm min_timer_period_us=100" >> /etc/modprobe.d/kvm.conf
+#+end_example

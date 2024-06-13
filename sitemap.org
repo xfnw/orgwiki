@@ -5,6 +5,7 @@
 - [[./9front-cpusetup.org][setup a 9front cpu server]]
 - [[./9front-faces.org][faces]]
 - [[./9front-iso.org][building a 9front iso]]
+- [[./9front-kvm.org][running 9front inside kvm]]
 - [[./9front-multiplexing.org][multiplexing on 9front]]
 - [[./about.org][about]]
 - [[./aircrack.org][aircrack-ng]]
