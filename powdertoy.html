@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-02-05 Sun 00:41 -->
+<!-- 2024-06-18 Tue 16:40 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>powdertoy</title>
@@ -137,10 +137,9 @@ nav { display: none; }
 <div class="outline-text-3" id="text-1-1">
 <p>
 despite many places saying the max amount is <code>65535</code> (16bit unsigned),
-life is stored as a 32bit signed integer as of <span class="timestamp-wrapper"><span class="timestamp">[2023-02-04 Sat]</span></span>.
-meaning the maximum value is <code>2147483647</code> (2<sup>31</sup> - 1). larger values
-will become negative and eventually overflow, which lead to spurious
-previous calculations that resulted in identical life<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>.
+this is only for saves and stamps, the real limit is much higher.
+life is stored as a 32bit signed integer as of <span class="timestamp-wrapper"><span class="timestamp">[2023-02-04 Sat]</span></span>,
+meaning the maximum value is <code>2147483647</code> (2<sup>31</sup> - 1).
 </p>
 </div>
 </div>
@@ -209,18 +208,6 @@ adding a <code>()</code>, optionally putting in arguments, will call the functio
 </div>
 </div>
 </div>
-<div id="footnotes">
-<h2 class="footnotes">Footnotes: </h2>
-<div id="text-footnotes">
-
-<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">previous
-incorrect calculations on <span class="timestamp-wrapper"><span class="timestamp">[2021-03-12 Fri] </span></span> found it was
-<code>530584300921369395</code> (which seems to be nonsense), and on
-<span class="timestamp-wrapper"><span class="timestamp">[2023-01-15 Sun] </span></span> found it was <code>530884300967510015</code> (off by a factor of
-247212267, but correctly gives the maximum value after overflowing)</p></div></div>
-
-
 </div>
-</div></div>
 </body>
 </html>
