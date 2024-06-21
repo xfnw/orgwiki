@@ -6,7 +6,7 @@ ffmpeg, lavfi, and mpv
 
 #+begin_example
 ffmpeg -f pulse -i 0 -acodec copy -flags low_delay -fflags nobuffer -f wav - |
-mpv - --config=no --alpha=no --mute -untimed --profile=low-latency \
+mpv - --config=no --background=color --mute -untimed --profile=low-latency \
 --lavfi-complex='[aid1]asplit[ao][a1];[a1]avectorscope=r=25:m=lissajous_xy:bc=100:gc=100:rc=75:bf=255:gf=80:rf=255:mirror=y:zoom=1[vo]' \
 #+end_example
 
