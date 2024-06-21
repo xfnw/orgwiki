@@ -11,7 +11,7 @@ machine, consider aan(8) instead.
 
 ** pin (mq)
 
-[[https://git.sr.ht/~kvik/mq][mq]]'s included [[http://a-b.xyz/9b/2151][pin(1)]] wrapper lets you easily re-attach to commands
+[[https://git.sr.ht/~kvik/mq][mq]]'s included pin(1) wrapper lets you easily re-attach to commands
 
 ** hubfs
 
