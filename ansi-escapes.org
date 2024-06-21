@@ -1,7 +1,7 @@
 #+TITLE: ansi escape sequences
 #+SETUPFILE: setupfile.org
 
-this page is mostly borrowed from [[https://githhub.com/dylanaraps][dylanaraps]]' [[https://github.com/dylanaraps/pure-sh-bible][pure-sh-bible]].
+this page is mostly borrowed from [[https://github.com/dylanaraps][dylanaraps]]' [[https://github.com/dylanaraps/pure-sh-bible][pure-sh-bible]].
 
 #+TOC: headlines 3
 
