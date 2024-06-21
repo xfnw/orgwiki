@@ -1,0 +1,15 @@
+#+TITLE: characters
+#+SETUPFILE: ../setupfile.org
+
+* vulpine
+#+begin_chat vulpine
+am fox. drawn by xfnw using krita on [2022-04-18 Mon], who forgot to color my ears >:(
+#+end_chat
+#+begin_chat vulpine/eepy
+i can be eepy too. drawn by xfnw using krita on [2022-03-12 Sat]
+#+end_chat
+
+* hi
+#+begin_chat hi
+shork. drawn by xfnw using krita on [2024-04-11 Thu]
+#+end_chat

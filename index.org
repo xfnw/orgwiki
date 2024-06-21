@@ -1,6 +1,7 @@
 #+TITLE: xfnw's org wiki thing
 #+SETUPFILE: setupfile.org
 * top level directories
+- [[./faces/][faces/]]
 * top level pages
 - [[./16C-programs.org][HP-16C programs]]
 - [[./9front-accounts.org][managing accounts on 9front]]
