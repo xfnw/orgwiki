@@ -42,7 +42,7 @@ if you had the aforementioned machinelist entry), it would look for a
 face at ~lib/face/48x48x8/x/xenia.1~.
 
 * creating a face
-largely based on [[https://9p.io/wiki/plan9/adding_your_face/index.html][9p wiki's create a face page]].
+largely based on [[http://9p.io/wiki/plan9/adding_your_face/index.html][9p wiki's create a face page]].
 
 ** mug(1)
 mug is a tool for cropping pictures into grayscale face files
