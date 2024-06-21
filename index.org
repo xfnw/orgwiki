@@ -32,6 +32,7 @@
 - [[./gdb.org][gnu debugger]]
 - [[./git-archive.org][reproducing git archives]]
 - [[./git-compression.org][compress a git repository]]
+- [[./git-notes.org][git notes]]
 - [[./git-push-to-create.org][git push to create]]
 - [[./github.org][github]]
 - [[./gpg-backup.org][backing up and syncing gpg keys]]

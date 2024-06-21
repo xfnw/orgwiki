@@ -1,0 +1,19 @@
+#+TITLE: git notes
+#+SETUPFILE: setupfile.org
+
+git notes are a somewhat obscure feature to allow the addition of
+commentary to existing commits without breaking history. you can read
+more about them on [[https://tylercipriani.com/blog/2022/11/19/git-notes-gits-coolest-most-unloved-feature/][this cool blog]]
+
+* support on forges
+| name        | support                            |
+|-------------+------------------------------------|
+| forgejo     | yes!                               |
+| cgit        | yes!                               |
+| stagit      | no (unless you use xfnw's fork)    |
+| github      | no (used to, but got removed >:c ) |
+| srht        | no                                 |
+| gitweb      | no                                 |
+| gotweb      | TODO                               |
+| gitlab      | TODO                               |
+| phabricator | TODO                               |
