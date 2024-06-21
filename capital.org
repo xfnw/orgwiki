@@ -1,5 +1,0 @@
-#+TITLE: capital letters considered harmful
-#+SETUPFILE: setupfile.org
-
-you may have noticed i do not use many capital letters on this
-site. they are rarely useful, make your typing slower, and look ugly.
