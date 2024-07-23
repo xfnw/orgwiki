@@ -27,19 +27,6 @@ if its stuck with the default pointer and never changes (ie when
 hovering over text), you are probably missing a video driver. if using
 intel graphics, the package is ~xf86-video-intel~
 
-* udhcpcd address family not supported
-
-whatever you do, do not roll back your boot partition to a previous
-kernel version, it breaks networking and all the kernel modules
-
-resulting in errors such as this on boot
-#+begin_quote
-udhcpc: socket(AF_PACKET,2,8): Address family not supported by protocol
-#+end_quote
-
-this can be fixed by chrooting in and reinstalling the kernel, if
-using a vm, it is ~linux-virt~
-
 * terminal bell (pulseaudio)
 pulseaudio will eat the bell by default on alpine, causing the bell to
 be silent on terminals like ~xfce4-terminal~ that use it for beeping.
@@ -53,3 +40,10 @@ load-module module-x11-bell sample=x11-bell
 #+end_example
 to the relevant config file (ie ~/etc/pulse/default.pa~) and
 restarting pulseaudio
+
+* customize install
+alpine defaults to ext4 and having a swap partition, but this can be
+changed with some environment variables when running the installer
+#+begin_example
+ROOTFS=btrfs SWAP_SIZE=0 setup-alpine
+#+end_example
