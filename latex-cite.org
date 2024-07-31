@@ -82,7 +82,7 @@ biblatex supports various styles. here are a few, although there are
 biber provides better unicode support than other citation processors.
 
 since biber is a backend, it requires ~biblatex~ to work, which is
-probably provided by a package named similar to (dispite the name)
+probably provided by a package named similar to (despite the name)
 ~texmf-dist-bibtexextra~ or ~texlive-bibtexextra~ in your package
 manager.
 
