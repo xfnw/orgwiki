@@ -6,7 +6,6 @@ gdb is a useful debugger
 for c segmentation faults, you may also want [[./asan.org][address sanitizer]]
 
 * useful commands
-
 gdb has tons of commands. these are the ones i use most often.
 
 | abbrev | command     | description                                  |
@@ -21,6 +20,15 @@ gdb has tons of commands. these are the ones i use most often.
 | ~l~    | ~list~      | show the source code                         |
 | ~p~    | ~print~     | get the value of variable                    |
 | ~bt~   | ~backtrace~ | show the backtrace                           |
+
+* logging
+enable logging to ~gdb.txt~ with ~set log en on~ (short for ~set
+logging enabled on~ )
+
+* full backtrace
+an extra verbose backtrace can be obtained with ~bt full~. if the
+program has multiple threads, this can be applied to all of them with
+~th a a bt full~ (short for ~thread apply all backtrace full~)
 
 * debuginfod
 gdb supports an automatic debug symbol downloading service called
