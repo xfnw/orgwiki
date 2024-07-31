@@ -74,6 +74,7 @@ biblatex supports various styles. here are a few, although there are
 | ~apa~          | apa-style                                              |
 | ~nature~       | used by the Nature journal                             |
 | ~science~      | used by the (aptly-named) Science journal              |
+| ~ieee~         | used by the IEEE                                       |
 | ~phys~         | used in physics                                        |
 | ~numeric~      | just numbers in square brackets                        |
 | ~numeric-comp~ | like ~numeric~ but puts multiple citations into ranges |
