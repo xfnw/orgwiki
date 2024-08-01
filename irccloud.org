@@ -3,10 +3,10 @@
 
 * irc ident
 irccloud's ident strings start with either ~uid~ or ~sid~, which
-signify it is an unpaid or paid account respectively. next is the
-incremental decimal account id number, which uniquely identifies each
-account. if a free account is upgraded to a paid one, the ~uid~ will
-change to ~sid~, but the number will not change.
+signify it is a user (free) or subscriber (paid) account respectively.
+next is the incremental decimal account id number, which uniquely
+identifies each account. if a free account is upgraded to a paid one,
+the ~uid~ will change to ~sid~, but the number will not change.
 
 this means to ban an irccloud user, it is a good idea to use a
 ~?~ (any single character) wildcard like so:
