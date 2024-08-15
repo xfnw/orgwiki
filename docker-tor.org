@@ -36,6 +36,12 @@ udp, it sends all udp traffic to tor's dns resolver (which amusingly
 means that /any/ routable ip can resolve dns). icmp also cannot be
 sent over tor, so just drop it.
 
+#+begin_chat hi
+this blocks opening direct connections to the host. if you do want to
+allow that, change ~-I DOCKER-USER~ to ~-t nat -I PREROUTING~ and
+~DROP~ to ~ACCEPT~ on the third line.
+#+end_chat
+
 it can also be made into a systemd oneshot service, ensuring that
 it'll still work after rebooting
 #+begin_src systemd
