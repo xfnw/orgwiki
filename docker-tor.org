@@ -36,6 +36,25 @@ udp, it sends all udp traffic to tor's dns resolver (which amusingly
 means that /any/ routable ip can resolve dns). icmp also cannot be
 sent over tor, so just drop it.
 
+it can also be made into a systemd oneshot service, ensuring that
+it'll still work after rebooting
+#+begin_src systemd
+[Unit]
+Description=add iptables rules
+After=docker.service
+Before=tor.service
+
+[Service]
+Type=oneshot
+ExecStart=iptables -t nat -I PREROUTING -s 10.42.0.0/24 -p tcp --syn -j REDIRECT --to-ports 9040
+ExecStart=iptables -t nat -I PREROUTING -s 10.42.0.0/24 -p udp -j REDIRECT --to-ports 5353
+ExecStart=iptables -I DOCKER-USER -s 10.42.0.0/24 -p tcp --syn --dst 10.42.0.1 -j DROP
+ExecStart=iptables -I DOCKER-USER -s 10.42.0.0/24 -p icmp -j DROP
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+#+end_src
 * connect a container to the network
 use the ~--network~ flag during docker run, or you can add an existing
 container with ~docker network connect~
