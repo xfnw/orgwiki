@@ -48,7 +48,7 @@ enter to boot it up.
 
 ** setup auth listening
 run ~ndb/query sys <sysname>~ and then fill out the information into
-~/lib/ndb/local~ and uncomment the ipnet block near the bottom.
+~/lib/ndb/local~ and uncomment the auth and ipnet blocks near the bottom.
 
 - set ~auth~ and ~cpu~ to your sysname
 - ~authdom~ must be what we set it to before, set ~ipnet~ to the same
