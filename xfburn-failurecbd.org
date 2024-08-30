@@ -7,4 +7,4 @@ Failure: CDB= WRITE(10) : 2a 00 00 00 00 00 00 00 10 00  : dxfer_len= 32768
 #+end_quote
 try reducing the write speed 
 
-it could also mean you are trying to burn too large of an iso, or that you have a hardware failure[fn:1:https://forums.linuxmint.com/viewtopic.php?t=268059]
+it could also mean you are trying to burn too large of an iso, or that you have a hardware failure[fn:1:[[https://forums.linuxmint.com/viewtopic.php?t=268059]]]
