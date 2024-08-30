@@ -21,11 +21,3 @@ to pin(1)
 * graphical
 
 ** TODO mounting a rio session
-find the rio session you want to connect to in ~/srv~ and then you can
-mount it to your ~/mnt/wsys~
-
-#+begin_example
-mount '#s/rio.glenda.700' /mnt/wsys 1
-#+end_example
-
-and then bind the stuff you need to the equivalants in ~/dev~
