@@ -29,6 +29,7 @@
 - [[./ffmpeg-loop.org][ffmpeg looping]]
 - [[./ffmpeg-webp.org][generate webp's with ffmpeg]]
 - [[./finger-inet-sh.org][shell script finger daemon]]
+- [[./firefox.org][firefox]]
 - [[./gdb.org][gnu debugger]]
 - [[./git-archive.org][reproducing git archives]]
 - [[./git-compression.org][compress a git repository]]

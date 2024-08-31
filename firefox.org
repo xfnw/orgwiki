@@ -1,0 +1,11 @@
+#+TITLE: firefox
+
+* scrollbars
+disable ~widget.gtk.overlay-scrollbars.enabled~ in about:config to
+prevent scrollbars automatically hiding
+
+this can sometimes result in unusable scrollbar colors, the
+[[https://github.com/WesleyBranton/Custom-Scrollbar][custom-scrollbar]] extension may fix this
+
+* fix theme
+you can use [[https://github.com/black7375/Firefox-UI-Fix][firefox-ui-fix]] to have tabs that actually look like tabs!
