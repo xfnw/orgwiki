@@ -1,3 +1,4 @@
 title="orgwiki"
-url="https://xfnw.github.io/orgwiki"
+url="https://xfnw-orgwiki.pgs.sh"
+id="https://xfnw.github.io/orgwiki"
 exclude=['^index\.html$']
