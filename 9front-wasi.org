@@ -2,7 +2,7 @@
 
 the web assembly system interface allows many command-line utilities
 to run anywhere, including plan 9! it's like java but simpler, at the
-cost of stuff like networking support.
+cost of not supporting some stuff like networking.
 
 #+TOC: headlines 2
 
@@ -37,7 +37,7 @@ addition to python and ruby.
 #+begin_chat hi
 it's a bit out of date though, since [2024-05-31 Fri] they're
 seemingly in the process of migrating the repository to some other
-organization, but still has not touched it as of [2024-09-15 Sun]
+organization, who still has not touched it as of [2024-09-15 Sun]
 #+end_chat
 
 the ~wasmedge~ variants seem to not be supported by wazero, seems
