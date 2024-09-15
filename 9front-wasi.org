@@ -1,0 +1,54 @@
+#+TITLE: wasi on 9front
+
+the web assembly system interface allows many command-line utilities
+to run anywhere, including plan 9! it's like java but simpler, at the
+cost of stuff like networking support.
+
+#+TOC: headlines 2
+
+* runtime
+[[https://github.com/tetratelabs/wazero][wazero]] is a zero dependency wasi runtime written in go, it mostly
+works in 9front
+
+* pre-compiled blobs
+
+** python3
+brettcannon has a [[https://github.com/brettcannon/cpython-wasi-build/releases/tag/v3.12.2][build of python 3.12.2]]. running files works, however
+~time.sleep()~ errors out due to wazero missing this functionality,
+and there appears to be some platform-specific bug with the repl that
+causes it to hang on plan 9.
+
+#+begin_chat vulpine/eepy
+ugh, isn't the whole point of wasm to /not/ have platform-specific bugs!?
+#+end_chat
+
+#+begin_example
+; hget https://github.com/brettcannon/cpython-wasi-build/releases/download/v3.12.2/python-3.12.2-wasi_sdk-20.zip | unzip -s
+; mkdir src
+; echo 'print("hewwo")' > src/test.py
+; wazero run -mount lib -mount src python.wasm src/test.py
+hewwo
+#+end_example
+
+** php-cgi
+vmware-labs' [[https://github.com/vmware-labs/webassembly-language-runtimes][webassembly-language-runtimes]] has a [[https://github.com/vmware-labs/webassembly-language-runtimes/releases/tag/php%2F8.2.6%2B20230714-11be424][build of php 8.2.6]] in
+addition to python and ruby.
+
+#+begin_chat hi
+it's a bit out of date though, since [2024-05-31 Fri] they're
+seemingly in the process of migrating the repository to some other
+organization, but still has not touched it as of [2024-09-15 Sun]
+#+end_chat
+
+the ~wasmedge~ variants seem to not be supported by wazero, seems
+we're stuck with ~php-cgi~.
+
+#+begin_example
+; hget https://github.com/vmware-labs/webassembly-language-runtimes/releases/download/php%2F8.2.6%2B20230714-11be424/php-cgi-8.2.6.wasm > php-cgi.wasm
+; echo '<?php echo "hewwo";' | wazero run php-cgi.wasm
+X-Powered-By: PHP/8.2.6
+Content-type: text/html; charset=UTF-8
+
+hewwo
+#+end_example
+
