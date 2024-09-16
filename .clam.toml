@@ -1,4 +1,6 @@
-title="orgwiki"
 url="https://xfnw-orgwiki.pgs.sh"
 id="https://xfnw.github.io/orgwiki"
-exclude=['^index\.html$']
+
+[[feed]]
+title="orgwiki"
+path="feed.xml"
