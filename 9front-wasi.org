@@ -35,12 +35,13 @@ vmware-labs' [[https://github.com/vmware-labs/webassembly-language-runtimes][web
 addition to python and ruby.
 
 #+begin_chat hi
-it's a bit out of date though, since [2024-05-31 Fri] they're
-seemingly in the process of migrating the repository to some other
-organization, who still has not touched it as of [2024-09-15 Sun]
+it's a bit out of date though, the latest build in their releases is
+from [2023-12-11 Mon]. since [2024-05-31 Fri] they're seemingly in
+the process of migrating the repository to some other organization,
+who still has not touched it as of [2024-09-15 Sun]
 #+end_chat
 
-the ~wasmedge~ variants seem to not be supported by wazero, seems
+the ~wasmedge~ variants seem to not be supported by wazero, looks like
 we're stuck with ~php-cgi~.
 
 #+begin_example
