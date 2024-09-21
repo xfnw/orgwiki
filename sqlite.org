@@ -45,6 +45,12 @@ json_extract(value, '$.bar') FROM json_each(readfile('/dev/stdin'));
 will take a list of json objects from stdin and put the values from
 the 'foo' and 'bar' keys into the 'beep' and 'boop' columns.
 
+#+begin_chat vulpine/eepy
+sad, with sqlite 3.46.1 ~readfile('/dev/stdin')~ seems to no longer
+work, giving an ~Error: stepping, out of memory (7)~ error. guess i'll
+have to use a normal file...
+#+end_chat
+
 ** generated columns
 sqlite can have special columns with calculated values, called
 [[https://www.sqlite.org/gencol.html][generated columns]]. we can use them to derive column values from json.
