@@ -30,3 +30,8 @@ stuff needs to be pulled into scope
 #+begin_example
 nix-build -E "with import <nixpkgs> {}; with python3Packages; callPackage ./default.nix {}"
 #+end_example
+
+* build all the things
+#+begin_example
+nix-build -E 'builtins.filter (v: v.type or null == "derivation" && !v.meta.broken) (builtins.attrValues (import ./. {}))'
+#+end_example
