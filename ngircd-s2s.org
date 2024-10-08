@@ -36,3 +36,8 @@ set umodes on anyone for some reason.
 #+begin_example
 :server. NICK doot 1 username host 1 + :realname
 #+end_example
+
+* introducing a service
+#+begin_example
+:server. SERVICE BoopServ 1 * + 1 :realname
+#+end_example
