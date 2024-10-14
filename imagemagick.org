@@ -46,3 +46,9 @@ that still preserves detail even with darker/lighter areas.
 may benefit from ~-flatten~ and ~-colorspace gray~ beforehand. oddly
 this sometimes makes it output fully transparent images, not sure why
 but an offset of -1 (ie ~30x30-1~) seems to fix this...
+
+* transforms
+
+** flip flops
+~-flip~ and ~-flop~ will vertically and horizontally flip an image
+respectively
