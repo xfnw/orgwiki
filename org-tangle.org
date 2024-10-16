@@ -13,6 +13,7 @@ programming)'s src blocks
 | ~C-c C-c~           | (in a src block) execute it                |
 | ~C-c '~             | open src block in a new buffer             |
 | ~C-c C-v t~         | tangle                                     |
+| ~C-c C-v d~         | "demarcate" (split) a block in two         |
 | ~M-x o-j RET RET~   | jump from tangled block back to source org |
 | ~M-x o-det RET RET~ | detangle tangled block                     |
 
