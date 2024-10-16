@@ -1,0 +1,199 @@
+#+TITLE: a totally unique title in forty-six characters
+
+when i was watching [[https://youtu.be/uMogvkogvhE][carykh's new video "This title has twenty-nine
+letters."]] the other day, i was thinking about how these
+self-referential sentences would be a really good problem to feed a
+SAT solver instead of cary's essentially brute-force approach.
+surprisingly, skimming the comments, nobody seems to have mentioned
+this. might as well try it myself, plus it'd be a good opportunity to
+learn more of z3's z3py python bindings.
+
+* the first attempt
+i couldn't figure out a way to turn numbers into words, so i just
+made a function with the first hundred number names asserted
+#+begin_src python :tangle ../tangle/wordfun.py
+from z3 import *
+
+def gen_numbers(solver):
+    numstr = Function('numstr', IntSort(), StringSort())
+
+    # weird numbers
+    solver.add(numstr(0) == "zero")
+    solver.add(numstr(10) == "ten")
+    solver.add(numstr(11) == "eleven")
+    solver.add(numstr(12) == "twelve")
+    solver.add(numstr(13) == "thirteen")
+    solver.add(numstr(14) == "fourteen")
+    solver.add(numstr(15) == "fifteen")
+    solver.add(numstr(16) == "sixteen")
+    solver.add(numstr(17) == "seventeen")
+    solver.add(numstr(18) == "eighteen")
+    solver.add(numstr(19) == "nineteen")
+
+    for n, w in [(0,""),(2,"twenty"),(3,"thirty"),(4,"fourty"),(5,"fifty"),(6,"sixty"),(7,"seventy"),(8,"eighty"),(9,"ninety")]:
+        n *= 10
+        if n != 0:
+            solver.add(numstr(n) == w)
+        solver.add(numstr(n+1) == w+"one")
+        solver.add(numstr(n+2) == w+"two")
+        solver.add(numstr(n+3) == w+"three")
+        solver.add(numstr(n+4) == w+"four")
+        solver.add(numstr(n+5) == w+"five")
+        solver.add(numstr(n+6) == w+"six")
+        solver.add(numstr(n+7) == w+"seven")
+        solver.add(numstr(n+8) == w+"eight")
+        solver.add(numstr(n+9) == w+"nine")
+
+    return numstr
+#+end_src
+then it's as simple as asserting a string's length to be some integer
+and referencing that inside the string
+#+begin_src python :tangle ../tangle/wordfun.py
+def characters_long(solver):
+    numstr = gen_numbers(solver)
+    o = String("output")
+    l = Int("l")
+
+    solver.add(l == Length(o))
+    solver.add(o == Concat("This sentence is ", numstr(l), " characters long"))
+#+end_src
+and out pops "This sentence is fourtytwo characters long"!
+#+begin_chat hi
+you spelled forty wrong...
+#+end_chat
+#+begin_chat vulpine
+uhhhhh, well that's fine! "fourtytwo" and "forty-two" are the same
+length so it still works :P
+#+end_chat
+a little "borrowing" [[https://stackoverflow.com/a/70689580][from stackoverflow]] and a pile of z3-friendly
+expressions to count vowels and consonants later...
+#+begin_src python :tangle ../tangle/wordfun.py
+# OrdAt stolen from https://stackoverflow.com/a/70689580
+def OrdAt(s, i):
+    return StrToCode(SubString(s, i, 1))
+
+def IsVowel(c):
+    # ", ".join(["c == "+str(ord(a)) for a in 'aeiouAEIOU'])
+    return Or(c == 97, c == 101, c == 105, c == 111, c == 117, c == 65, c == 69, c == 73, c == 79, c == 85)
+
+def IsLetter(c):
+    return Or(And(c >= 97, c <= 122), And(c >= 65, c <= 90))
+
+def IsConsonant(c):
+    return And(IsLetter(c), Not(IsVowel(c)))
+
+def CountVowels(s, l):
+    return Sum([IsVowel(OrdAt(s, i)) if 1 else 0 for i in range(l)])
+
+def CountConsonants(s, l):
+    return Sum([IsConsonant(OrdAt(s, i)) if 1 else 0 for i in range(l)])
+
+def vowels_con(solver):
+    numstr = gen_numbers(solver)
+    o = String("output")
+    s = StringVal("Thissentencehasvowelsandconsonants")
+    v = Int("v")
+    c = Int("c")
+
+    def CV(n):
+        return CountVowels(numstr(n), 12)
+    def CC(n):
+        return CountConsonants(numstr(n), 12)
+
+    solver.add(v == Sum(CountVowels(s, 34), CV(v), CV(c)))
+    solver.add(c == Sum(CountConsonants(s, 34), CC(v), CC(c)))
+
+    solver.add(o == Concat(StringVal("This sentence has "), numstr(v), " vowels and ", numstr(c), " consonants"))
+#+end_src
+#+begin_chat vulpine/eepy
+oh no it's unusably slow
+#+end_chat
+#+begin_chat hi
+well, maybe we don't actually need to count the vowels and consonants
+in z3, it's not like the names of numbers change
+#+end_chat
+
+* the much more boring but better solution
+might as well just use ~num2words~ so i don't misspell forty again...
+#+begin_src python :tangle ../tangle/wordhard.py
+from z3 import *
+from num2words import num2words
+#+end_src
+it's so nice to have normal values you can do python things with
+#+begin_src python :tangle ../tangle/wordhard.py
+def vowels(s):
+    return sum(1 for c in s if c in "aeiouAEIOU")
+
+def consonants(s):
+    return sum(1 for c in s if c.isalpha() and c not in "aeiouAEIOU")
+#+end_src
+like before, i assert the names for some numbers, but this time i also
+record the length and number of vowels and consonants
+#+begin_src python :tangle ../tangle/wordhard.py
+def gen_numbers(solver, ran):
+    numstr = Function('numstr', IntSort(), StringSort())
+    numlen = Function('numlen', IntSort(), IntSort())
+    numvow = Function('numvow', IntSort(), IntSort())
+    numcon = Function('numcon', IntSort(), IntSort())
+
+    for n in ran:
+        name = num2words(n)
+
+        solver.add(numstr(n) == name)
+        solver.add(numlen(n) == len(name))
+        solver.add(numvow(n) == vowels(name))
+        solver.add(numcon(n) == consonants(name))
+
+    return numstr, numlen, numvow, numcon
+#+end_src
+have to be more strict about what numbers are in range when not tying
+everything to actual strings
+#+begin_src python :tangle ../tangle/wordhard.py
+def fence(solver, ran, *vars):
+    for v in vars:
+        solver.add(And(v >= ran.start, v < ran.stop))
+#+end_src
+time to make assertions about some numbers added together instead of
+expensive strings
+#+begin_src python :tangle ../tangle/wordhard.py
+def characters_long(solver):
+    numstr, numlen, numvow, numcon = gen_numbers(solver, range(100))
+    o = String("output")
+    l = Int("l")
+
+    fence(solver, range(100), l)
+    solver.add(l == numlen(l)+len("this sentence is  characters long"))
+    solver.add(o == Concat("This sentence is ", numstr(l), " characters long"))
+
+def vowels_con(solver):
+    numstr, numlen, numvow, numcon = gen_numbers(solver, range(100))
+    sam = "thissentencehasvowelsandconsonants"
+    o = String("output")
+    v = Int("v")
+    c = Int("c")
+
+    fence(solver, range(100), v, c)
+    solver.add(v == vowels(sam)+numvow(v)+numvow(c))
+    solver.add(c == consonants(sam)+numcon(v)+numcon(c))
+    solver.add(o == Concat("This sentence has ", numstr(v), " vowels and ", numstr(c), " consonants"))
+
+def vowels_con_len(solver):
+    numstr, numlen, numvow, numcon = gen_numbers(solver, range(100))
+    sam = "this sentence has  vowels,  consonants, and is  characters long"
+    o = String("output")
+    v = Int("v")
+    c = Int("c")
+    l = Int("l")
+
+    fence(solver, range(100), v, c, l)
+    solver.add(v == vowels(sam)+numvow(v)+numvow(c)+numvow(l))
+    solver.add(c == consonants(sam)+numcon(v)+numcon(c)+numcon(l))
+    solver.add(l == len(sam)+numlen(v)+numlen(c)+numlen(l))
+    solver.add(o == Concat("This sentence has ", numstr(v), " vowels, ", numstr(c), " consonants, and is ", numstr(l), " characters long"))
+#+end_src
+nyoom!
+
+now we can "This sentence is forty-two characters long" or "This
+sentence has eighteen vowels and thirty-four consonants" and even
+combine them like "This sentence has twenty-three vowels, fifty-two
+consonants, and is ninety characters long" at a reasonable speed

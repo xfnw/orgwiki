@@ -2,5 +2,11 @@ url="https://xfnw-orgwiki.pgs.sh"
 id="https://xfnw.github.io/orgwiki"
 
 [[feed]]
-title="orgwiki"
+title="everything in orgwiki"
 path="feed.xml"
+
+[[feed]]
+title="blog posts in orgwiki"
+path="blog.xml"
+include=["^blog/"]
+exclude=['/index\.html$','/[0-9]{4}\.html']
