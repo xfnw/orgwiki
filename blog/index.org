@@ -1,6 +1,6 @@
 #+TITLE: current blog posts
 
-there is also an [[../blog.xml][atom feed]]
+there is also an [[../blog.xml][atom feed]] for blog posts
 
 * 2024
 - [[./z3-sentences.org][a totally unique title in forty-six characters]]

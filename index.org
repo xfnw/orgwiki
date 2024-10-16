@@ -4,5 +4,5 @@
 stuff here is pretty unorganized, i'll hopefully set up a way to search
 through it Soon\trade
 
-there is also an [[./feed.xml][atom feed]] for recently updated pages
+there is also an [[./feed.xml][atom feed]] for /all/ recently updated pages
 
