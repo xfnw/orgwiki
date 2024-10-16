@@ -11,14 +11,6 @@ you can use it [[http://www.google.com/url?q=https://dreampuf.github.io/Graphviz
 command to run it will be the layout plugin you want to use, for
 example ~dot~
 
-* xfnw's opinionated recommendations
-
-** layout plugin
-for directed graphs (ie flowcharts), use ~dot~. for undirected graphs,
-use ~fdp~. all the other ones i have either not been able to output
-anything meaningful, or layout the data worse than ~dot~ and ~fdp~
-(resulting in overlaps if you look at it wrong)
-
 * examples
 
 ** irc LINKS graph
