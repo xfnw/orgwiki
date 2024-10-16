@@ -7,7 +7,7 @@ graphviz is a cool renderer thing for diagrams
 
 * using it
 
-you can use it [[http://www.google.com/url?q=https://dreampuf.github.io/GraphvizOnline/&sa=U&ved=2ahUKEwiBhu2An4H8AhXTEFkFHREXByAQFnoECAoQAg&usg=AOvVaw3_6nvfLOYJh713VB5c7nfo][online]], or, if you install it to your computer, the
+you can use it [[https://dreampuf.github.io/GraphvizOnline/][online]], or, if you install it to your computer, the
 command to run it will be the layout plugin you want to use, for
 example ~dot~
 
@@ -23,8 +23,9 @@ sometimes reversing the ~LINKS~ output with ~tac(1)~ or sorting with
 better layout.
 
 #+begin_fixme
-this assumes the letters of servernames are unique! it will break, for
-example, if you have both ~me.ow.cat~ and ~meow.cat~
+this assumes the letters of servernames are unique since it does weird
+broken escaping instead of just quoting the servernames. it will
+break, for example, if you have both ~me.ow.cat~ and ~meow.cat~
 #+end_fixme
 
 #+begin_src awk :tangle tangle/linkstographviz.awk
