@@ -8,7 +8,7 @@ line, ~BSP~ to delete a line, and ~g RTN~ to end a program.
 
 * exponent function
 
-(for positive integers only)
+(for positive integers only. uses 2 stack and registers I, 0)
 
 borrowed from [[https://imapenguin.com/simple-exponents-on-an-hp-16c/][this blog]] and modified avoid messing up stack
 
@@ -27,6 +27,8 @@ borrowed from [[https://imapenguin.com/simple-exponents-on-an-hp-16c/][this blog
 | 011 | RTN   | 43 21    | return                        |
 
 * natural log
+
+(uses 3 stack, flag 0, and registers I, 0)
 
 based on part of an algorithm from [[https://albillo.hpcalc.org/][Valentín Albillo]]'s [[https://albillo.hpcalc.org/articles/HP%20Article%20VA049%20-%20Boldly%20Going%20-%20HP-16C%20Scientific%20Functions%20Part%202.pdf][Boldly Going
 article]] but reworked to not mess up the stack
@@ -82,7 +84,7 @@ article]] but reworked to not mess up the stack
 
 * factorial
 
-(for integers > 1 only)
+(for integers > 1 only. uses 2 stack and register I)
 
 | num | keys  | display  | description |
 |-----+-------+----------+-------------|
