@@ -37,15 +37,15 @@ article]] but reworked to not mess up the stack
 |-----+-------+----------+----------------|
 | 012 | LBL 7 | 43,22, 7 | entry point    |
 | 013 | ENTER | 36       | dup            |
-| 014 | 1/x   | 43 26    |                |
+| 014 | 1/x   | 43 26    | inverse        |
 | 015 | CF 0  | 43, 5, 0 | default flag   |
 | 016 | x>y   | 43 3     | input<1?       |
 | 017 | SF 0  | 43, 4, 0 | save for later |
-| 018 | +     | 40       |                |
+| 018 | +     | 40       | add inverse    |
 | 019 | 2     | 2        | float mode:    |
 | 020 | /     | 10       | no shifts ;_;  |
-| 021 | 1     | 1        |                |
-| 022 | STO I | 44 32    | put 1 in I     |
+| 021 | 1     | 1        | put 1          |
+| 022 | STO I | 44 32    | into I         |
 | 023 | 1     | 1        |                |
 | 024 | 5     | 5        |                |
 | 025 | EEX   | 42 49    |                |
@@ -61,19 +61,19 @@ article]] but reworked to not mess up the stack
 | 035 | /     | 10       | halve          |
 | 036 | sqrt  | 43 25    |                |
 | 037 | ISZ   | 43 24    | increment I    |
-| 038 | x>y   | 43 3     |                |
-| 039 | GTO 9 | 22 9     |                |
+| 038 | x>y   | 43 3     | x>y?           |
+| 039 | GTO 9 | 22 9     | yes, loop      |
 | 040 | R↓    | 33       |                |
 | 041 | R↓    | 33       | pop unneeded   |
 | 042 | RCL 0 | 45 0     | restore old    |
 | 043 | 1     | 1        |                |
-| 044 | -     | 30       |                |
+| 044 | -     | 30       | decrement      |
 | 045 | ENTER | 36       |                |
 | 046 | +     | 40       | double         |
 | 047 | sqrt  | 43 25    |                |
 | 048 | DSZ   | 43 23    | put I back     |
 | 049 | DSZ   | 43 23    | decrement I    |
-| 050 | LBL 8 | 43,22, 8 |                |
+| 050 | LBL 8 | 43,22, 8 | loop target    |
 | 051 | ENTER | 36       |                |
 | 052 | +     | 40       | double         |
 | 053 | DSZ   | 43 23    | decrement I    |
@@ -89,10 +89,10 @@ article]] but reworked to not mess up the stack
 | num | keys  | display  | description |
 |-----+-------+----------+-------------|
 | 058 | LBL F | 43,22, F | entry point |
-| 059 | STO I | 43 32    |             |
+| 059 | STO I | 43 32    | store in I  |
 | 060 | DSZ   | 43 23    | skip first  |
 | 061 | LBL 4 | 43,22, 4 | loop target |
-| 062 | RCL I | 45 32    |             |
+| 062 | RCL I | 45 32    | push I      |
 | 063 | *     | 20       | multiply I  |
 | 064 | DSZ   | 43 23    | decrement I |
 | 065 | GTO 4 | 22 4     | not 0? loop |
