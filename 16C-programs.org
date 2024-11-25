@@ -17,10 +17,10 @@ borrowed from [[https://imapenguin.com/simple-exponents-on-an-hp-16c/][this blog
 | 001 | LBL E | 43,22, E | convenient entry point        |
 | 002 | STO I | 44 I     | store in I                    |
 | 003 | R↓    | 33       | pop old I value               |
-| 004 | STO A | 44 A     | store in A                    |
+| 004 | STO 0 | 44 0     | store in 0                    |
 | 005 | DSZ   | 43 23    | decrement I and nop branch    |
 | 006 | LBL 0 | 43,22, 0 | label for loop target         |
-| 007 | RCL A | 45 A     | push A to stack               |
+| 007 | RCL 0 | 45 0     | push 0 to stack               |
 | 008 | *     | 20       | multiply it                   |
 | 009 | DSZ   | 43 23    | decrement and branch unless 0 |
 | 010 | GTO 0 | 22 0     | I is not 0, loop again        |
