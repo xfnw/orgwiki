@@ -1,0 +1,13 @@
+#+TITLE: sstrip
+
+* stripping shared objects
+unlike normal ~strip~, it is a bad idea to sstrip shared objects.
+
+doing so will cause linker errors like
+#+begin_example
+/usr/bin/ld: /usr/lib/sstripped.so: error adding symbols: file in wrong format
+#+end_example
+
+which is quite an unhelpful error message because everyone else
+running into it seems to instead be attempting to cross compile
+incorrectly...
