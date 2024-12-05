@@ -1,0 +1,22 @@
+#+TITLE: Ɛ is not epsilon: a mini-rant about a seo spam site
+
+recently i came across a website about a unicode character,
+backwards3[.]info, which is apparently dedicated to telling everyone
+that the Ɛ "backwards 3" character is called epsilon.
+
+#+begin_chat vulpine/eepy
+not linking to it directly because the rest of that site appears to be
+just seo spam stuff
+#+end_chat
+
+except wait, ε is the actual epsilon character, and it's a lot
+smaller. maybe Ɛ is the capitalized version? well no, greek capital
+letter epsilon is Ε. what the heck is Ɛ then?
+
+#+begin_chat hi
+let's feed it to [[https://crates.io/crates/unicode_names2][unicode_names2]]!
+#+end_chat
+
+Ɛ is latin capital letter open e. that's right, the entire premise of
+backwards3[.]info is so backwards (hehe) that they chose a character
+from a completely different alphabet...
