@@ -24,9 +24,9 @@ nix-build maintainers/scripts/build.nix --argstr maintainer xfnw
 nix-build -E "with import <nixpkgs> {}; callPackage ./default.nix {}"
 #+end_example
 
-though with special types of packages, such as python ones, additional
-stuff needs to be pulled into scope
+though some special types of packages, such as python ones, have their
+own version of ~callPackage~
 #+begin_example
-nix-build -E "with import <nixpkgs> {}; with python3Packages; callPackage ./default.nix {}"
+nix-build -E "with import <nixpkgs> {}; python3Packages.callPackage ./default.nix {}"
 #+end_example
 
