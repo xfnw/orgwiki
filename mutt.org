@@ -1,0 +1,8 @@
+#+TITLE: mutt
+
+* useful patterns
+there are way more than these, but here are a few i find most useful:
+- ~~Cstuff~ :: mail part of a certain list
+- ~~p~ :: stuff directed at you
+- ~~=~ :: find duplicates messages
+- ~!~i.~ :: messages lacking a ~Message-ID~
