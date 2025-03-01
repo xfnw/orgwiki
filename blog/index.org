@@ -2,6 +2,9 @@
 
 there is also an [[../blog.xml][atom feed]] for blog posts
 
+* 2025
+- [[./blackrock.org][format-preserving encryption is neat]]
+
 * 2024
 - [[./not-epsilon.org][Ɛ is not epsilon: a mini-rant about a seo spam site]]
 - [[./z3-sentences.org][a totally unique title in forty-six characters]]
