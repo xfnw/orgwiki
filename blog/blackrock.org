@@ -1,0 +1,157 @@
+#+TITLE: format-preserving encryption is neat
+
+have you ever wondered how [[https://github.com/robertdavidgraham/masscan][masscan]] chooses what order to scan targets?
+just doing it sequentially is obviously not ideal, but making a list
+of every target and then shuffling it would waste tons of memory.
+
+it'd need some kind of function with a domain of how many things to
+shuffle, where each output has one corresponding input, and has
+random-looking behavior...
+
+#+begin_chat hi
+each output having one corresponding input means it'd be "invertible"
+#+end_chat
+
+* power of 2 trickery
+that sounds like a block cipher! let's make a little feistel network!
+
+#+begin_chat vulpine
+obligatory don't actually use this for anything that needs to be
+secure. i designed the round function around using some funny numbers,
+rather than actual security. also you'd want some way to seed it,
+unless you want it to shuffle stuff the same way every time.
+#+end_chat
+
+first we need a round function, this is what mixes stuff around to
+make the output seem random. the cool part about feistel networks is
+that this can be literally any pure function, and it'll still be
+invertible.
+
+#+begin_src python :tangle ../tangle/blackrock.py
+rounds = [0xe6, 0x21, 170, 59, 239]
+
+def round_function(right, round):
+    return (right*round)^6
+#+end_src
+
+the feistel network itself is pretty simple, it just chops up the
+input, does a few iterations of flip flopping stuff around while
+xoring in the output of the round function, and then glues it back
+together.
+
+#+begin_src python :tangle ../tangle/blackrock.py
+def feistel(inp):
+    left = inp>>8
+    right = inp&255
+
+    for round in rounds:
+        left ^= round_function(right, round) & 255
+        left, right = right, left
+
+    return (left<<8)+right
+#+end_src
+
+this is has a 16 bit block size (as in has a domain of 0-65535), but
+it is pretty trivial to adjust the domain to any power of 2, although
+an odd number of bits needs a slightly more complicated "unbalanced"
+version.
+
+except wait, masscan accepts arbitrary ranges of things to scan, that
+might not be a power of 2...
+
+* blackrock
+if you actually go looking in masscan's code for how it solves this,
+you'll find something called "blackrock". it's named after John Black
+and Phillip Rogaway, who created the technique of "cycle walking" to
+squish normal block ciphers into any arbitrary domain.
+
+#+begin_chat hi
+"format-preserving encryption" is the fancy term for block ciphers
+with weird domains
+#+end_chat
+
+so how does cycle walking work? by feeding the output of a block
+cipher into itself until it fits!
+
+#+begin_src python :tangle ../tangle/blackrock.py
+def scramble(inp, size):
+    assert size <= 65536 and inp < size
+
+    r = feistel(inp)
+    while r >= size:
+        r = feistel(r)
+
+    return r
+#+end_src
+
+yup, that's it, that's the whole thing.
+
+it doesn't even need to be a block cipher, any invertible function
+with a finite domain can be squished like this too.
+
+* what!?
+the reason this works is really clever. feeding the output back in
+like this must form a loop that ends up within the domain you want.
+having only one input that can get a specific output means it cannot
+repeat numbers until it reaches the initial input, and it must reach
+the initial input as its domain being finite means it'd run out of
+other numbers to choose. since the initial input would already be in
+the domain you want, it is guaranteed to find an output that fits.
+
+* oh also it can go backwards
+a nice side-effect of needing an invertible function is that you can
+invert it.
+
+inverting a feistel network is as simple as running the rounds in
+reverse and xoring the round function'd left into the right instead of
+the right into the left.
+
+#+begin_src python :tangle ../tangle/blackrock.py
+def unfeistel(inp):
+    left = inp>>8
+    right = inp&255
+
+    for round in reversed(rounds):
+        right ^= round_function(left, round) & 255
+        right, left = left, right
+
+    return (left<<8)+right
+#+end_src
+
+unscramble is the exact same as scramble, except for using the inverse
+feistel network.
+
+#+begin_src python :tangle ../tangle/blackrock.py
+def unscramble(inp, size):
+    assert size <= 65536 and inp < size
+
+    r = unfeistel(inp)
+    while r >= size:
+        r = unfeistel(r)
+
+    return r
+#+end_src
+
+* let's test it out
+sticking the output into a list like this does defeat the point, but
+whatever
+
+#+begin_src python :tangle ../tangle/blackrock.py
+if __name__ == "__main__":
+    shuffled = [scramble(h, 200) for h in range(200)]
+    print("woah some questionably-shuffled numbers", shuffled)
+#+end_src
+
+gotta make sure it is actually shuffled
+
+#+begin_src python :tangle ../tangle/blackrock.py
+    ordered = list(range(200))
+    assert shuffled != ordered
+#+end_src
+
+test out undoing the shuffling for good measure
+
+#+begin_src python :tangle ../tangle/blackrock.py
+    unshuffled = [unscramble(shuffled[h], 200) for h in range(200)]
+    assert unshuffled == ordered
+#+end_src
