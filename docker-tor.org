@@ -4,7 +4,13 @@
 this can offer a bit of extra protection against your tor hidden
 service being accidentally deanonymized by unsafe server software.
 however, keep in mind that docker is not a security device and can
-likely be escaped from.
+be escaped from if you're not careful.
+
+#+begin_chat hi
+if you do not need the docker part, it may be better to use [[https://github.com/orjail/orjail][orjail]],
+which does a similar thing but using network namespaces directly
+instead of relying on docker
+#+end_chat
 
 #+begin_fixme
 lacks ipv6 support. as of [2023-11-29 Wed] docker hides ipv6 behind an
