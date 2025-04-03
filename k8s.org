@@ -1,0 +1,11 @@
+#+TITLE: kubernetes
+
+* debugging a volume
+the ~kubectl debug~ command is a nice way to mess around with an
+existing pod by adding ephemeral containers to it. annoyingly, it does
+not seem to provide a convenient way to access volumes, instead
+requiring a custom profile json file
+#+begin_example
+echo '{"volumeMounts":[{"mountPath":"/data","name":"datavol"}]}' > profile.json
+kubectl debug -it --image busybox --custom profile.json my-cool-pod
+#+end_example
