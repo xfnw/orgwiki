@@ -1,5 +1,4 @@
 #+TITLE: ngircd s2s
-#+SETUPFILE: setupfile.org
 
 * handshake
 courtesy of Noisytoot
@@ -40,4 +39,14 @@ set umodes on anyone for some reason.
 * introducing a service
 #+begin_example
 :server. SERVICE BoopServ 1 * + 1 :realname
+#+end_example
+
+* METADATA
+#+begin_example
+:server. METADATA jmjl accountname :youraccount
+:server. METADATA jmjl certfp :aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+:server. METADATA jmjl cloakhost :stuff.to.show.when.plus.x
+:server. METADATA jmjl host :stuff.to.show.when.minus.x
+:server. METADATA jmjl info :my cool gecos
+:server. METADATA jmjl user :~username
 #+end_example
