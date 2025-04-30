@@ -1,0 +1,34 @@
+#+TITLE: nncp
+
+* building
+if you do not need it, building without yggdrasil support makes the
+binary a bit smaller. manually installing nncp expects the config to
+be in a rather odd location, however this can be overridden by the
+~CFGPATH~ environment variable.
+#+begin_example
+GO_CFLAGS="-tags noyggdrasil" CFGPATH=/etc/nncp.hjson bin/build
+#+end_example
+
+* acks with keep
+nncp's ack system allows keeping outbound packets when transmitting,
+and then only removing them from the transmit queue once an ack has
+been received, so a packet that gets lost can just get re-sent later.
+reliability is neat, so i am drawn to it, but the way it is
+implemented seems pretty flawed. as far as i can tell, there are 3
+ways to use it, each with their own downsides:
+
+1. incoming packets are marked as seen and acks are sent once. if an
+   ack gets dropped, the original packet it was for will get
+   continually re-sent forever, since new acks are not generated when
+   receiving already seen packets.
+2. incoming packets are marked as seen and acks are continually
+   re-sent forever. not great, but hopefully your acks are smaller
+   than the packets they're for?
+3. incoming packets do not get marked as seen and acks are sent
+   once. this means the same packets might get re-processed multiple
+   times, but at least there will not be added overhead forever.
+
+i think option 3 is the least bad, but it does interact rather oddly
+with the default file transferring stuff, you'll get a new numbered
+file name every time the same packet gets processed again, so i assume
+this is not the intended use case?
