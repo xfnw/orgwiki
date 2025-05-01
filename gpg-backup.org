@@ -8,9 +8,9 @@ this includes local signatures
 
 ** to a file
 #+begin_example
-gpg --export --export-options export-backup file
+gpg --export --export-options export-backup >file
 ...
-gpg --import --import-options import-restore file
+gpg --import --import-options import-restore >file
 #+end_example
 
 ** directly over ssh
@@ -22,9 +22,9 @@ gpg --export --export-options export-backup | ssh user@host -- gpg --import --im
 
 ** to a file
 #+begin_example
-gpg --export-ownertrust file
+gpg --export-ownertrust >file
 ...
-gpg --import-ownertrust file
+gpg --import-ownertrust >file
 #+end_example
 
 ** directly over ssh
@@ -38,7 +38,7 @@ note that since importing a password-protected secret key asks for the
 password, it is difficult to do while piping over ssh.
 
 #+begin_example
-gpg --export-secret-keys file
+gpg --export-secret-keys >file
 ...
 gpg --import file
 #+end_example
@@ -50,7 +50,7 @@ them and create new subkeys, without the hassle of your entire key
 needing to be revoked.
 
 #+begin_example
-gpg --export-secret-subkeys file
+gpg --export-secret-subkeys >file
 ...
 gpg --import file
 #+end_example
