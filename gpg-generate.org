@@ -29,8 +29,8 @@ do put an email though, else some keyservers will not accept it
 ** the main key should have minimal capabilities
 ideally only Certify. using subkeys for more stuff allows easier key
 rotation. also this allows you to store the main key securely, and
-only keep the easily-rotatable (and revocable) subkeys on your
-daily-driver computer.
+[[./gpg-backup.org#just-the-subkeys][only keep the easily-rotatable (and revocable) subkeys on your
+daily-driver computer]].
 
 to add secret subkeys, run ~--edit-key~ on your key id, and then use
 the ~addkey~ command. ~save~ when done.
