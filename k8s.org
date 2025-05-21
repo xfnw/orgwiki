@@ -9,3 +9,39 @@ requiring a custom profile json file
 echo '{"volumeMounts":[{"mountPath":"/data","name":"datavol"}]}' > profile.json
 kubectl debug -it --image busybox --custom profile.json my-cool-pod
 #+end_example
+
+* longhorn in helm controller
+if you've used longhorn for a bit, you'll know that it occasionally
+shits itself. but if you use the recommended setup for helm controller
+(setting ~failurePolicy: abort~), it'll still error out even after the
+original issue is resolved.
+
+#+begin_example
+Release status is 'failed' and failure policy is 'abort', not 'reinstall'; waiting for operator intervention
+#+end_example
+
+so how does one intervene?
+
+by digging around in longhorn's secrets with ~kubectl get -n longhorn-system secrets~
+
+#+begin_example
+NAME                                     TYPE                 DATA   AGE
+longhorn-webhook-ca                      kubernetes.io/tls    2      42d
+longhorn-webhook-tls                     kubernetes.io/tls    2      42d
+sh.helm.release.v1.longhorn-install.v1   helm.sh/release.v1   1      42d
+sh.helm.release.v1.longhorn-install.v2   helm.sh/release.v1   1      42d
+sh.helm.release.v1.longhorn-install.v3   helm.sh/release.v1   1      8d
+sh.helm.release.v1.longhorn-install.v4   helm.sh/release.v1   1      8d
+sh.helm.release.v1.longhorn-install.v5   helm.sh/release.v1   1      77m
+#+end_example
+
+and then just deleting the most recent ~helm.sh~ one!?
+
+#+begin_example
+kubectl delete -n longhorn-system secrets sh.helm.release.v1.longhorn-install.v5
+#+end_example
+
+and only /then/ will it re-attempt running the helm chart. as far as i
+can tell, longhorn just does not document this anywhere, i only know
+about this because of [[https://github.com/longhorn/longhorn/issues/9506#issuecomment-2430291968][one comment on the github issue about adding
+helm controller support]]...
