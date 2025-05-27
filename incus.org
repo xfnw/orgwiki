@@ -1,0 +1,13 @@
+#+TITLE: incus
+
+* switch from kubernetes?
+i am thinking of switching my [[./k8s.org][kubernetes]] cluster to an incus one,
+managing both containers and virtual machines in one place seems neat.
+also, at least from my cursory look, [[https://linuxcontainers.org/incus/docs/main/][the incus documentation]] feels a
+lot more useful than kubernetes'. not sure how i feel about system
+containers instead of application containers part though, i would like
+to at least somewhat declaratively configure applications to host.
+
+#+begin_chat hi
+[[https://kubevirt.io/][kubevirt]] does exist, but it is a bit odd
+#+end_chat
