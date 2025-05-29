@@ -2,9 +2,18 @@
 
 a simple to install [[./k8s.org][kubernetes]] distribution
 
-* TODO resetting a cluster
-something something ~k3s server --cluster-reset~
+* resetting a cluster
+start k3s with ~--cluster-reset~
 
-#+begin_chat vulpine/eepy
-i'll fill out this page more next time my cluster explodes
-#+end_chat
+#+begin_example
+k3s server --cluster-reset
+#+end_example
+
+let it run and then it'll tell you to delete ~${datadir}/server/db~ on
+every other node
+
+#+begin_example
+rm -r /var/lib/rancher/k3s/server/db
+#+end_example
+
+then you can start them back up and they'll rejoin
