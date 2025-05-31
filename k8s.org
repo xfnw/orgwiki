@@ -45,3 +45,9 @@ and only /then/ will it re-attempt running the helm chart. as far as i
 can tell, longhorn just does not document this anywhere, i only know
 about this because of [[https://github.com/longhorn/longhorn/issues/9506#issuecomment-2430291968][one comment on the github issue about adding
 helm controller support]]...
+
+#+begin_chat vulpine/eepy
+i realize this is probably a helm-controller thing rather than a
+longhorn specific thing, but i am leaving this here because longhorn
+is the only thing in my cluster that constantly breaks like this
+#+end_chat
