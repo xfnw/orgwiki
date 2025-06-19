@@ -27,6 +27,8 @@ this page is mostly borrowed from [[https://github.com/dylanaraps][dylanaraps]]'
 | ~\033[7m~ | swap foreground and background colors. |
 | ~\033[8m~ | hidden text.                           |
 | ~\033[9m~ | strike-through text.                   |
+| ~\033#8~  | fill the screen with =E=               |
+| ~\033(0~  | fun characters                         |
 
 * cursor movement
 
