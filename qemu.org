@@ -1,0 +1,9 @@
+#+TITLE: qemu
+
+* escaping
+
+** nographic
+press ~C-a x~ to quit
+
+** curses
+press ~M-2~ to switch to the console tab, then ~q~ to exit
