@@ -2,3 +2,7 @@
 
 * fix theme
 you can use [[https://github.com/black7375/Firefox-UI-Fix][firefox-ui-fix]] to have tabs that actually look like tabs!
+
+* url bar overzealously searching
+enable ~browser.fixup.dns_first_for_single_words~ in about:config to
+make it check for hostnames instead of forcing them to be searches
