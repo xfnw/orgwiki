@@ -1,5 +1,11 @@
 #+TITLE: signing a cert with openssl
 
 * TODO making a certificate signing request
+#+begin_example
+openssl req -newkey rsa:4096 -nodes -keyout meow.key -out meow.csr -subj '/CN=meow.example.com'
+#+end_example
 
 * TODO signing the certificate signing request
+#+begin_example
+openssl req -CAkey my-ca.key -CA my-ca.pem -addext basicConstraints=critical,CA:FALSE -addext 'subjectAltName=DNS:meow.example.com' -set_serial 69 -in meow.csr -out meow.pem
+#+end_example
