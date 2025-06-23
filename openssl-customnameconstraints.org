@@ -20,7 +20,7 @@ authorityKeyIdentifier  = keyid,issuer:always
 make your ca with the name constraints 
 
 #+begin_example sh
-openssl req -new -x509 -days 3650 -newkey rsa:4096 -nodes \
+openssl req -new -x509 -days 3650 -newkey rsa:4096 -noenc \
 -extensions domain_ca -keyout my-ca.key -out my-ca.pem \
 -subj '/C=US/O=Example/OU=CA' -config name-constraint.ini
 #+end_example

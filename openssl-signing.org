@@ -2,7 +2,7 @@
 
 * TODO making a certificate signing request
 #+begin_example
-openssl req -newkey rsa:4096 -nodes -keyout meow.key -out meow.csr -subj '/CN=meow.example.com'
+openssl req -newkey rsa:4096 -noenc -keyout meow.key -out meow.csr -subj '/CN=meow.example.com'
 #+end_example
 
 * TODO signing the certificate signing request
