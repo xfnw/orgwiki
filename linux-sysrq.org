@@ -24,7 +24,7 @@ alt.
 
 | key | behavior                                                                 |
 |-----+--------------------------------------------------------------------------|
-| f   | force an [[https://en.wikipedia.org/wiki/Out_of_memory#Out_of_memory_management][OOM kill]] now, even if not out of memory. mey help with a freeze |
+| f   | force an [[https://en.wikipedia.org/wiki/Out_of_memory#Recovery][OOM kill]] now, even if not out of memory. mey help with a freeze |
 | n   | nice real-time tasks, may also help with a freeze                        |
 | k   | kill current console, can be used as a "[[https://en.wikipedia.org/wiki/Secure_attention_key][secure attention key]]"            |
 | 0-9 | set kernel verbosity                                                     |
