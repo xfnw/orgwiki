@@ -7,5 +7,5 @@ openssl req -newkey rsa:4096 -noenc -keyout meow.key -out meow.csr -subj '/CN=me
 
 * TODO signing the certificate signing request
 #+begin_example
-openssl req -CAkey my-ca.key -CA my-ca.pem -addext basicConstraints=critical,CA:FALSE -addext 'subjectAltName=DNS:meow.example.com' -set_serial 69 -in meow.csr -out meow.pem
+openssl req -CAkey my-ca.key -CA my-ca.pem -addext basicConstraints=critical,CA:FALSE -addext 'subjectAltName=DNS:meow.example.com' -in meow.csr -out meow.pem
 #+end_example
