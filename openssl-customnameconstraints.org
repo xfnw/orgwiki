@@ -25,3 +25,7 @@ openssl req -new -x509 -days 3650 -newkey rsa:4096 -nodes \
 -subj '/C=US/O=Example/OU=CA' -config name-constraint.ini
 #+end_example
 
+#+begin_chat hi
+you can use ~ed25519~ instead of ~rsa:4096~ if you want a nice and
+smol cert, but that will be less compatible with stuff
+#+end_chat
