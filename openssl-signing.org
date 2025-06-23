@@ -1,0 +1,5 @@
+#+TITLE: signing a cert with openssl
+
+* TODO making a certificate signing request
+
+* TODO signing the certificate signing request
