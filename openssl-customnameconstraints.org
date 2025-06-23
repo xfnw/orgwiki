@@ -6,15 +6,15 @@ adapted from [[https://serverfault.com/a/764699/973375][this ServerFault post]] 
 make a ~name-constraint.ini~ file
 
 #+begin_example ini
-[ req ]
+[req]
 distinguished_name      = req_distinguished_name
 keyUsage                = critical, keyCertSign, cRLSign
-[ domain_ca ]
-basicConstraints = critical, CA:TRUE
+[domain_ca]
+basicConstraints        = critical, CA:TRUE
 nameConstraints         = critical, permitted;DNS:.example.com
 subjectKeyIdentifier    = hash
 authorityKeyIdentifier  = keyid,issuer:always
-[ req_distinguished_name ]
+[req_distinguished_name]
 #+end_example
 
 make your ca with the name constraints 
