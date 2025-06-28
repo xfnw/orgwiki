@@ -1,7 +1,0 @@
-#+TITLE: freeze a znc account
-#+SETUPFILE: setupfile.org
-
-#+begin_quote
-/msg *blockuser block <USERNAME>
-#+end_quote
-

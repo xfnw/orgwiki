@@ -1,5 +1,0 @@
-#+TITLE: ngircd cloak host salt
-#+SETUPFILE: setupfile.org
-
-ngircd seems to (only sometimes) truncate the CloakHostSalt to 20 chars
-
