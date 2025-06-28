@@ -1,11 +1,18 @@
 #+TITLE: signing a cert with openssl
 
-* TODO making a certificate signing request
+you'll need a certificate signing request to sign. have whoever you want
+to sign a cert for make a csr and send it to you.
+
 #+begin_example
 openssl req -newkey rsa:4096 -noenc -keyout meow.key -out meow.csr -subj '/CN=meow.example.com'
 #+end_example
 
-* TODO signing the certificate signing request
+then the signing request can be signed to produce a certificate. note
+that openssl will not copy over extensions from the csr by default,
+so add them in with ~-addext~.
+
 #+begin_example
 openssl req -CAkey my-ca.key -CA my-ca.pem -addext basicConstraints=critical,CA:FALSE -addext 'subjectAltName=DNS:meow.example.com' -in meow.csr -out meow.pem
 #+end_example
+
+out pops the signed certificate!
