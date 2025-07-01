@@ -1,0 +1,8 @@
+#+TITLE: fuzzball muck
+
+[[https://github.com/fuzzball-muck/fuzzball][fuzzball]] is a cool [[https://en.wikifur.com/wiki/MUCK][MUCK]] server
+
+* exits that take parameters
+when trying to make an exit that runs some [[abbr:Message Parsing Interpreter][MPI]] with ~@fail~ when
+visited, the destination needs to point at ~NIL~ for the exit to be
+used with a parameter
