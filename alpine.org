@@ -13,7 +13,7 @@ documentation, or install the packages suffixed with ~-doc~ to install
 the documentation for a specific package
 
 note that sometimes the ~-doc~ suffixed package is only for the main
-package when you have a few packages with different configurations of
+package. when you have a few packages with different configurations of
 the same software, for example ~emacs-x11~ ~emacs-gtk3~ etc share the
 ~emacs-doc~ package for their documentation (ew texinfo) which will
 not automatically get pulled in by ~docs~
