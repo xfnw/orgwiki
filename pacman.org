@@ -24,7 +24,7 @@ pacman -Scc
 * removing no longer required dependencies
 this is somewhat akin to ~apt autoremove~
 #+begin_example
-pacman -Rns $(pacman -Qttqd)
+pacman -Qttdq | pacman -Rns -
 #+end_example
 
 * keeping kernel modules
