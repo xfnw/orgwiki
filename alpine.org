@@ -1,7 +1,6 @@
 #+TITLE: alpine linux
-#+SETUPFILE: setupfile.org
 
-alpine linux is a minimalist linux distro with a super fast package
+alpine linux is a smol linux distro with a super fast package
 manager (apk)
 
 #+TOC: headlines 3
