@@ -38,9 +38,9 @@ use the ~-flatten~ option for this. you can also set the ~-background
 color~ to a color beforehand if you want to replace the alpha with a
 specific color.
 
-** local automatic threshold
+** local adaptive threshold
 the ~-lat~ option takes window dimentions and an offset as an
-argument, and then does a local Otsu threshold to get 1-bit color
+argument, and then does a local threshold to get 1-bit color
 that still preserves detail even with darker/lighter areas.
 
 may benefit from ~-flatten~ and ~-colorspace gray~ beforehand. oddly
