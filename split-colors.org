@@ -1,0 +1,5 @@
+- dark red :: behind and lost time
+- light red :: behind and gained time
+- light green :: ahead and lost time
+- saturated green :: ahead and gained time
+- gold :: segment faster than ever before
