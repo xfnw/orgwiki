@@ -1,0 +1,7 @@
+#+TITLE: using nixos offline
+
+to rebuild while offline, you'll need to turn off checking cache servers
+with ~--option substitute false~, since that needs internet access
+#+begin_example
+nixos-rebuild switch --option substitute false
+#+end_example
