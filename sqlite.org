@@ -1,5 +1,4 @@
 #+TITLE: sqlite
-#+SETUPFILE: setupfile.org
 
 #+TOC: headlines 3
 
@@ -28,6 +27,12 @@ CREATE TABLE example
 , FOREIGN KEY(columnname) REFERENCES othertable(othercolumn)
 );
 #+end_example
+
+* getting other columns when grouping
+unlike other sql engines, sqlite is cool and [[https://www.sqlite.org/lang_select.html#bareagg][allows bare columns when
+aggregating stuff]], which lets you get other columns from the same row
+that was chosen by an aggreate function. it does weird stuff if you
+have multiple aggreate functions though
 
 * json
 
