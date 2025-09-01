@@ -5,6 +5,7 @@ cant easily buy, have a lot though
 
 * coal or fuel oil
 1 coal = 20 seconds of 80 ku = 1.3333 kud
+
 1 coal / 5 mg = 0.2666 kud / mg
 
 1 irl day of power would cost around 40500 mg
@@ -13,6 +14,7 @@ fuel oil burns at the same rate, but cant easily buy, have a lot though
 
 * cheapie
 .10 mg per kud
+
 1/_ = 10 kud / mg
 
 1 irl day of power would cost around 1080 mg
