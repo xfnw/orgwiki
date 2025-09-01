@@ -1,0 +1,17 @@
+#+TITLE: sunfish postmarketos adventures
+
+#+begin_chat vulpine/eepy
+ive given up on this and just use graphene os for the time being
+#+end_chat
+
+* prior art
+[[https://gitlab.postmarketos.org/postmarketOS/pmaports/-/merge_requests/3136/diffs#aa9c8ddaad1a678a9b81d44eb186e2eb240c9824][3a merge request]]
+
+* links
+[[https://wiki.postmarketos.org/wiki/Google_Pixel_4a_(google-sunfish)][wiki page]]
+
+[[https://wiki.postmarketos.org/wiki/Qualcomm_Snapdragon_730/730G/732G_(SM7150)][soc page]]
+
+[[https://wiki.postmarketos.org/wiki/User:AceOfSpadesProduc100/Downstream_porting_for_google-sunfish][aceofspades guide]] [[https://wiki.postmarketos.org/wiki/Porting_to_a_new_device][porting to a new device]]
+
+
