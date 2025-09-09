@@ -10,6 +10,9 @@ make it check for hostnames instead of forcing them to be searches
 * url bar hiding protocol
 turn off ~browser.urlbar.trimURLs~ in about:config
 
+* shut up about enabling drm
+turn off ~media.gmp-widevinecdm.visible~ in about:config
+
 * space beside url bar
 to remove the wasted space, right click on them and go to Customize
 Toolbar, then you can right click on the same place again and Remove
