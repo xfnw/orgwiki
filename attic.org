@@ -1,0 +1,22 @@
+#+TITLE: attic binary cache
+
+a pretty nice nix binary cache server
+
+* tips
+
+** pushing build dependencies
+there is [[https://github.com/zhaofengli/attic/issues/206][an open issue]] about supporting this, but for now it can be
+worked around with some nix-store
+
+#+begin_example
+nix-store -q --valid-derivers result* |
+xargs nix-store -qR --include-outputs -- |
+attic push --stdin mycache
+#+end_example
+
+** pushing flake inputs
+#+begin_example
+nix flake archive --json |
+jq -r '.. | .path? | strings' |
+attic push --stdin mycache
+#+end_example
