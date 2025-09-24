@@ -1,5 +1,4 @@
 #+TITLE: imagemagick
-#+SETUPFILE: setupfile.org
 
 imagemagick is a command-line image manipulation tool.
 
@@ -43,9 +42,9 @@ the ~-lat~ option takes window dimentions and an offset as an
 argument, and then does a local threshold to get 1-bit color
 that still preserves detail even with darker/lighter areas.
 
-may benefit from ~-flatten~ and ~-colorspace gray~ beforehand. oddly
-this sometimes makes it output fully transparent images, not sure why
-but an offset of -1 (ie ~30x30-1~) seems to fix this...
+may benefit from ~-alpha deactivate~ and/or ~-colorspace gray~
+beforehand. adding an offset can sometimes help make the output less
+noisy, like ~10x10+621~
 
 * transforms
 
