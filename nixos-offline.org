@@ -5,3 +5,9 @@ with ~--option substitute false~, since that needs internet access
 #+begin_example
 nixos-rebuild switch --option substitute false
 #+end_example
+
+or, if a specific cache is offline, you can override which caches to
+check with ~--option binary-caches~
+#+begin_example
+nixos-rebuild switch --option binary-caches https://cache.nixos.org/
+#+end_example
