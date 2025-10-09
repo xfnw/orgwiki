@@ -11,6 +11,7 @@ worked around with some nix-store
 #+begin_example
 nix-store -q --valid-derivers result* |
 xargs nix-store -qR --include-outputs -- |
+grep -v '\.drv$' |
 attic push --stdin mycache
 #+end_example
 
