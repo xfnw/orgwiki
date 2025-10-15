@@ -1,4 +1,4 @@
-#+TTILE: *lix ur installer*
+#+TITLE: *lix ur installer*
 
 ive been happily using lix HEAD on my nixos boxes, so why not build
 the installer myself too for my non-nixos boxes? well it turns out you
