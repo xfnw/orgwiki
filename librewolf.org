@@ -1,0 +1,27 @@
+#+TITLE: libre woof
+
+a fork of [[./firefox.org][firefox]] that is somewhat privacy focused
+
+* url bar overzealously searching
+enable ~browser.fixup.dns_first_for_single_words~ in about:config to
+make it check for hostnames instead of forcing them to be searches
+
+* url bar hiding protocol
+turn off ~browser.urlbar.trimURLs~ in about:config
+
+* space beside url bar
+to remove the wasted space, right click on them and go to Customize
+Toolbar, then you can right click on the same place again and Remove
+from Toolbar
+
+not sure why this requires being in the customizing toolbar mode, the
+list all tabs button has an option to remove it without being in the
+customizing mode...
+
+* dark theme not working
+the ~ResistFingerprinting~ option intentionally breaks
+~prefers-color-scheme~ :(
+
+* extra settings i like
+- disable Use smooth scrolling
+- enable Always show scrollbars
