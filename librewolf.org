@@ -22,6 +22,11 @@ customizing mode...
 the ~ResistFingerprinting~ option intentionally breaks
 ~prefers-color-scheme~ :(
 
+#+begin_chat vulpine/eepy
+at least it actually tells you this in the settings now, instead of
+just silently not working...
+#+end_chat
+
 * extra settings i like
 - disable Use smooth scrolling
 - enable Always show scrollbars
