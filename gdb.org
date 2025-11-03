@@ -13,7 +13,8 @@ gdb has tons of commands. these are the ones i use most often.
 | ~r~    | ~run~       | start execution, from the beginning          |
 | ~b~    | ~break~     | create a breakpoint                          |
 | ~d~    | ~delete~    | delete a breakpoint or clear all breakpoints |
-| ~s~    | ~step~      | do one instruction                           |
+| ~si~   | ~stepi~     | do one instruction                           |
+| ~s~    | ~step~      | run until reaching a different line          |
 | ~n~    | ~next~      | step until the next line                     |
 | ~f~    | ~frame~     | show where you are in execution again        |
 | ~fin~  | ~finish~    | step until the current funtion returns       |
