@@ -3,26 +3,13 @@
 adapted from [[https://serverfault.com/a/764699/973375][this ServerFault post]] and [[https://systemoverlord.com/2020/06/14/private-ca-with-x-509-name-constraints.html][this blogpost]].
 
 * making your own name-constrained CA
-make a ~name-constraint.ini~ file
-
-#+begin_example ini
-[req]
-distinguished_name      = req_distinguished_name
-keyUsage                = critical, keyCertSign, cRLSign
-[domain_ca]
-basicConstraints        = critical, CA:TRUE
-nameConstraints         = critical, permitted;DNS:.example.com
-subjectKeyIdentifier    = hash
-authorityKeyIdentifier  = keyid,issuer:always
-[req_distinguished_name]
-#+end_example
-
-make your ca with the name constraints 
-
 #+begin_example sh
 openssl req -new -x509 -days 3650 -newkey rsa:4096 \
--extensions domain_ca -keyout my-ca.key -out my-ca.pem \
--subj '/C=US/O=Example/OU=CA' -config name-constraint.ini
+-keyout my-ca.key -out my-ca.pem -subj '/C=US/O=Example/OU=CA' \
+-addext "keyUsage = critical, keyCertSign, cRLSign" \
+-addext "subjectKeyIdentifier = hash" \
+-addext "basicConstraints = critical, CA:TRUE" \
+-addext "nameConstraints = critical, permitted;DNS:.example.com"
 #+end_example
 
 #+begin_chat hi
