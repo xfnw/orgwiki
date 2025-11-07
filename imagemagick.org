@@ -46,6 +46,11 @@ may benefit from ~-alpha deactivate~ and/or ~-colorspace gray~
 beforehand. adding an offset can sometimes help make the output less
 noisy, like ~10x10+621~
 
+** composite
+by itself ~-composite~ will layer two images on top of each other,
+but it can also do fun stuff like applying the alpha channel from
+one image to another with ~-compose CopyOpacity -composite~
+
 * transforms
 
 ** flip flops
