@@ -9,7 +9,7 @@ under-documented
 assuming you are at the root of the nixpkgs tree, you can use the ~-A~
 option to choose a package to build
 #+begin_example
-nix-build . -A xcd
+nix-build -A xcd
 #+end_example
 
 * building a maintainer's packages
@@ -21,12 +21,12 @@ nix-build maintainers/scripts/build.nix --argstr maintainer xfnw
 
 * building a nix file with a channel
 #+begin_example
-nix-build -E "with import <nixpkgs> {}; callPackage ./default.nix {}"
+nix-build -E "(import <nixpkgs> {}).callPackage ./default.nix {}"
 #+end_example
 
 though some special types of packages, such as python ones, have their
 own version of ~callPackage~
 #+begin_example
-nix-build -E "with import <nixpkgs> {}; python3Packages.callPackage ./default.nix {}"
+nix-build -E "(import <nixpkgs> {}).python3Packages.callPackage ./default.nix {}"
 #+end_example
 
