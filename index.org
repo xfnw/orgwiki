@@ -1,9 +1,15 @@
 #+TITLE: xfnw's org wiki thing
 #+SETUPFILE: setupfile.org
 
-stuff here is pretty unorganized, i'll hopefully set up a way to search
-through it Soon\trade
-
 there is a lil [[./blog/][blog]] here with [[./blog.xml][its own atom feed]]
 and also [[./feed.xml][another atom feed]] for /all/ recently updated pages
 
+#+begin_export html
+<script src="pagefind/pagefind-ui.js"></script>
+<div id="search"></div>
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({ element: "#search", showSubResults: true });
+    });
+</script>
+#+end_export
