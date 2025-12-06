@@ -16,7 +16,7 @@ its a nice lil static binary
 #+begin_example
 git clone https://git.lix.systems/lix-project/lix-installer
 cd lix-installer
-nix build . --override-input lix ./path/to/where/you/put/lix
+nix build --override-input lix ./path/to/where/you/put/lix
 #+end_example
 
 #+begin_chat hi
