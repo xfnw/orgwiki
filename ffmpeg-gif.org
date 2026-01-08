@@ -19,7 +19,7 @@ allows the file size to be much smaller.
 
 snippet mostly borrowed from [[http://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html][pkh's blog]]
 
-#+begin_src sh :tangle tangle/ffmpeggif.sh
+#+begin_src sh :tangle ffmpeggif.sh
 #!/bin/sh
 
 palette="/tmp/palette.png"

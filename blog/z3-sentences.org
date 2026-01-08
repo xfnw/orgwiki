@@ -11,7 +11,7 @@ learn more of z3's z3py python bindings.
 * the first attempt
 i couldn't figure out a way to turn numbers into words, so i just
 made a function with the first hundred number names asserted
-#+begin_src python :tangle ../tangle/wordfun.py
+#+begin_src python :tangle wordfun.py
 from z3 import *
 
 def gen_numbers(solver):
@@ -48,7 +48,7 @@ def gen_numbers(solver):
 #+end_src
 then it's as simple as asserting a string's length to be some integer
 and referencing that inside the string
-#+begin_src python :tangle ../tangle/wordfun.py
+#+begin_src python :tangle wordfun.py
 def characters_long(solver):
     numstr = gen_numbers(solver)
     o = String("output")
@@ -67,7 +67,7 @@ length so it still works :P
 #+end_chat
 a little "borrowing" [[https://stackoverflow.com/a/70689580][from stackoverflow]] and a pile of z3-friendly
 expressions to count vowels and consonants later...
-#+begin_src python :tangle ../tangle/wordfun.py
+#+begin_src python :tangle wordfun.py
 # OrdAt stolen from https://stackoverflow.com/a/70689580
 def OrdAt(s, i):
     return StrToCode(SubString(s, i, 1))
@@ -115,12 +115,12 @@ in z3, it's not like the names of numbers change
 
 * the much more boring but better solution
 might as well just use ~num2words~ so i don't misspell forty again...
-#+begin_src python :tangle ../tangle/wordhard.py
+#+begin_src python :tangle wordhard.py
 from z3 import *
 from num2words import num2words
 #+end_src
 it's so nice to have normal values you can do python things with
-#+begin_src python :tangle ../tangle/wordhard.py
+#+begin_src python :tangle wordhard.py
 def vowels(s):
     return sum(1 for c in s if c in "aeiouAEIOU")
 
@@ -129,7 +129,7 @@ def consonants(s):
 #+end_src
 like before, i assert the names for some numbers, but this time i also
 record the length and number of vowels and consonants
-#+begin_src python :tangle ../tangle/wordhard.py
+#+begin_src python :tangle wordhard.py
 def gen_numbers(solver, ran):
     numstr = Function('numstr', IntSort(), StringSort())
     numlen = Function('numlen', IntSort(), IntSort())
@@ -148,14 +148,14 @@ def gen_numbers(solver, ran):
 #+end_src
 have to be more strict about what numbers are in range when not tying
 everything to actual strings
-#+begin_src python :tangle ../tangle/wordhard.py
+#+begin_src python :tangle wordhard.py
 def fence(solver, ran, *vars):
     for v in vars:
         solver.add(And(v >= ran.start, v < ran.stop))
 #+end_src
 time to make assertions about some numbers added together instead of
 expensive strings
-#+begin_src python :tangle ../tangle/wordhard.py
+#+begin_src python :tangle wordhard.py
 def characters_long(solver):
     numstr, numlen, numvow, numcon = gen_numbers(solver, range(100))
     o = String("output")

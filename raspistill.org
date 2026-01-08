@@ -4,7 +4,7 @@
 * cgi
 you can expose a pi cam to remote viewing with a cgi script
 
-#+begin_src sh :tangle tangle/full.cgi
+#+begin_src sh :tangle full.cgi
 #!/bin/sh
 echo "Content-Type: image/jpeg"
 echo
@@ -14,7 +14,7 @@ raspistill -o - -t 1 -n
 ** make it smol
 qvga is smol and bandwidth friendly
 
-#+begin_src sh :tangle tangle/qvga.cgi
+#+begin_src sh :tangle qvga.cgi
 #!/bin/sh
 echo "Content-Type: image/jpeg"
 echo

@@ -28,7 +28,7 @@ broken escaping instead of just quoting the servernames. it will
 break, for example, if you have both ~me.ow.cat~ and ~meow.cat~
 #+end_fixme
 
-#+begin_src awk :tangle tangle/linkstographviz.awk
+#+begin_src awk :tangle linkstographviz.awk
 BEGIN {
 	"date -u '+%Y-%m-%d %H:%M:%SZ'" | getline time;
 	print "graph l {"

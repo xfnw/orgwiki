@@ -27,7 +27,7 @@ make the output seem random. the cool part about feistel networks is
 that this can be literally any pure function, and it'll still be
 invertible.
 
-#+begin_src python :tangle ../tangle/blackrock.py
+#+begin_src python :tangle blackrock.py
 rounds = [0xe6, 0x21, 170, 59, 239]
 
 def round_function(right, round):
@@ -39,7 +39,7 @@ input, does a few iterations of flip flopping stuff around while
 xoring in the output of the round function, and then glues it back
 together.
 
-#+begin_src python :tangle ../tangle/blackrock.py
+#+begin_src python :tangle blackrock.py
 def feistel(inp):
     left = inp>>8
     right = inp&255
@@ -73,7 +73,7 @@ with weird domains
 so how does cycle walking work? by feeding the output of a block
 cipher into itself until it fits!
 
-#+begin_src python :tangle ../tangle/blackrock.py
+#+begin_src python :tangle blackrock.py
 def scramble(inp, size):
     assert size <= 65536 and inp < size
 
@@ -106,7 +106,7 @@ inverting a feistel network is as simple as running the rounds in
 reverse and xoring the round function'd left into the right instead of
 the right into the left.
 
-#+begin_src python :tangle ../tangle/blackrock.py
+#+begin_src python :tangle blackrock.py
 def unfeistel(inp):
     left = inp>>8
     right = inp&255
@@ -121,7 +121,7 @@ def unfeistel(inp):
 unscramble is the exact same as scramble, except for using the inverse
 feistel network.
 
-#+begin_src python :tangle ../tangle/blackrock.py
+#+begin_src python :tangle blackrock.py
 def unscramble(inp, size):
     assert size <= 65536 and inp < size
 
@@ -136,7 +136,7 @@ def unscramble(inp, size):
 sticking the output into a list like this does defeat the point, but
 whatever
 
-#+begin_src python :tangle ../tangle/blackrock.py
+#+begin_src python :tangle blackrock.py
 if __name__ == "__main__":
     shuffled = [scramble(h, 200) for h in range(200)]
     print("woah some questionably-shuffled numbers", shuffled)
@@ -144,14 +144,14 @@ if __name__ == "__main__":
 
 gotta make sure it is actually shuffled
 
-#+begin_src python :tangle ../tangle/blackrock.py
+#+begin_src python :tangle blackrock.py
     ordered = list(range(200))
     assert shuffled != ordered
 #+end_src
 
 test out undoing the shuffling for good measure
 
-#+begin_src python :tangle ../tangle/blackrock.py
+#+begin_src python :tangle blackrock.py
     unshuffled = [unscramble(shuffled[h], 200) for h in range(200)]
     assert unshuffled == ordered
 #+end_src

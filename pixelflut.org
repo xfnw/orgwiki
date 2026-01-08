@@ -28,7 +28,7 @@ however some implementations add extra commands, like ~OFFSET~
 you can pipe your pixelflut lines through ~awk(1)~ to have interesting
 effects, for example making images bendy
 
-#+begin_src awk :tangle tangle/flutskew.awk
+#+begin_src awk :tangle flutskew.awk
 {$2=($2+($3**1.7)/60) % 1024; print}
 #+end_src
 

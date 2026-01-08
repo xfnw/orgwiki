@@ -4,7 +4,7 @@
 add this script to your inetd, and add text files or executables to
 ~/home/finger/fingers~ for a simple finger daemon
 
-#+begin_src sh :tangle tangle/finger.sh
+#+begin_src sh :tangle finger.sh
 cd /home/finger/fingers || exit
 
 user="$(head -n1 | sed 's/[^a-zA-Z0-9]//g')"
