@@ -28,6 +28,11 @@ used instead of ~default~. ~default~ is roughly equivalent to a
 
 ~dev devicename~ can be added to restrict it to ~devicename~.
 
+there are also ~blackhole~ routes, that just eats stuff
+#+begin_example
+ip r add blackhole 31.13.66.35
+#+end_example
+
 ** deleting a route
 #+begin_example
 ip r del default
