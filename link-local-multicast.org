@@ -1,0 +1,11 @@
+#+TITLE: ipv6 link-local multicast
+
+ipv6 has some fancy ips that do fun multicast things
+
+for example, to poke everything on your local link, you can use the
+~ff02::1~ all nodes address:
+#+begin_example
+ping ff02::1%wlan0
+#+end_example
+
+there are a bunch more of these, the iana has [[https://www.iana.org/assignments/ipv6-multicast-addresses/ipv6-multicast-addresses.xhtml#link-local][a big list]] of them
