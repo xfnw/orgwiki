@@ -1,0 +1,4 @@
+* excluding stuff when downloading recursively
+~-X~ ~--exclude-directories~ seems to not do anything for http stuff,
+luckily ~-R~ ~--reject~ (or even ~--reject-regex~ if you want to be
+fancy) can be used for this
