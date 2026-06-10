@@ -19,7 +19,7 @@ sqlite's default ~|~-delimited output is mildly unreadable
 ~box~ to output in fancy unicode boxes
 
 * foreign keys
-to enfore a dependency on another table, foreign keys can be used.
+to enforce a dependency on another table, foreign keys can be used.
 
 #+begin_example
 CREATE TABLE example
@@ -31,8 +31,8 @@ CREATE TABLE example
 * getting other columns when grouping
 unlike other sql engines, sqlite is cool and [[https://www.sqlite.org/lang_select.html#bareagg][allows bare columns when
 aggregating stuff]], which lets you get other columns from the same row
-that was chosen by an aggreate function. it does weird stuff if you
-have multiple aggreate functions though
+that was chosen by an aggregate function. it does weird stuff if you
+have multiple aggregate functions though
 
 * json
 
