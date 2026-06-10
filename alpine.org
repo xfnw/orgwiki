@@ -71,8 +71,8 @@ Downloading linux-lts-6.18.35-r0
 Executing busybox-1.37.0-r31.trigger
 Executing kmod-34.2-r1.trigger
 Executing mkinitfs-3.14.0-r0.trigger
-* creating /boot/initramfs-lts for 6.18.35-0-lts
+,* creating /boot/initramfs-lts for 6.18.35-0-lts
 Executing syslinux-6.04_pre1-r19.trigger
-* /boot is device /dev/sda1
+,* /boot is device /dev/sda1
 OK: 418.4 MiB in 212 packages
 #+end_example
