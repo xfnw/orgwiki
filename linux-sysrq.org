@@ -1,5 +1,4 @@
 #+TITLE: magic sysrq
-#+SETUPFILE: setupfile.org
 
 sysrq is a special key combination that allows sending commands
 directly to the linux kernel, even if userspace is broken/frozen.
@@ -10,8 +9,8 @@ control which sysrq features are enabled. a ~0~ disables all sysrq
 features, while ~1~ enables all of them. see [[https://docs.kernel.org/admin-guide/sysrq.html][the kernel documentation]]
 for more granular control of sysrq features
 
-since procfs options are not persistant over reboots, it can be
-enabled persistantly with the sysctl option ~kernel.sysrq=1~ in
+since procfs options are not persistent over reboots, it can be
+enabled persistently with the sysctl option ~kernel.sysrq=1~ in
 ~/etc/sysctl.d/~ or by setting the ~sysrq_always_enabled=1~ kernel
 parameter if you need it before the filesystem mounts
 
@@ -24,14 +23,14 @@ alt.
 
 | key | behavior                                                                 |
 |-----+--------------------------------------------------------------------------|
-| f   | force an [[https://en.wikipedia.org/wiki/Out_of_memory#Recovery][OOM kill]] now, even if not out of memory. mey help with a freeze |
+| f   | force an [[https://en.wikipedia.org/wiki/Out_of_memory#Recovery][OOM kill]] now, even if not out of memory. may help with a freeze |
 | n   | nice real-time tasks, may also help with a freeze                        |
 | k   | kill current console, can be used as a "[[https://en.wikipedia.org/wiki/Secure_attention_key][secure attention key]]"            |
 | 0-9 | set kernel verbosity                                                     |
 | v   | force viewing framebuffer (show console)                                 |
 | h   | print sysrq helptext to the kernel log, to see more keys not listed here |
 | r   | unraw the keyboard, to take back control from something like X11         |
-| e   | sigterm (gracefull kill) all tasks                                       |
+| e   | sigterm (graceful kill) all tasks                                       |
 | i   | sigkill all tasks                                                        |
 | s   | sync disks                                                               |
 | u   | unmount disks (sync first to avoid a dirty unmount)                      |

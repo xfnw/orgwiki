@@ -26,7 +26,7 @@ you can limit the number of colors with ~-colors~ and turn off
 dithering with ~+dither~, though this seems to really highlight
 artifacts if using jpeg.
 
-occationally, especially if you only have a few colors, this can
+occasionally, especially if you only have a few colors, this can
 actually produce larger file sizes than just normal indexed colors. if
 using PNG, you can prefix the filename with ~PNG8:~ to force normal
 colors which can then be indexed using something like [[./pngo.org][pngo]]. do check
@@ -38,7 +38,7 @@ color~ to a color beforehand if you want to replace the alpha with a
 specific color.
 
 ** local adaptive threshold
-the ~-lat~ option takes window dimentions and an offset as an
+the ~-lat~ option takes window dimensions and an offset as an
 argument, and then does a local threshold to get 1-bit color
 that still preserves detail even with darker/lighter areas.
 

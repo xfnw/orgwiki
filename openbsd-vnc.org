@@ -1,5 +1,4 @@
 #+TITLE: setting up vnc with xenodm on openbsd
-#+SETUPFILE: setupfile.org
 
 adapted from [[https://www.tumfatig.net/2011/vnc-server-on-openbsd/][this guide]], but modified to use xenodm
 
@@ -101,7 +100,7 @@ EndSection
 #+end_example
 
 replace the modeline with the one you generated in the previous step
-if nessesary.
+if necessary.
 
 * enable and start xenodm
 #+begin_src sh

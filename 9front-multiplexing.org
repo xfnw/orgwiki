@@ -1,8 +1,7 @@
 #+TITLE: multiplexing on 9front
-#+SETUPFILE: setupfile.org
 
 this page details how to (re)attach to processes. if you just have an
-unstable connection, and do not want to reattach from a seperate
+unstable connection, and do not want to reattach from a separate
 machine, consider aan(8) instead.
 
 #+TOC: headlines 3
@@ -15,7 +14,7 @@ machine, consider aan(8) instead.
 
 ** hubfs
 
-hubfs is similar to mq, but older, and does not include an equivalant
+hubfs is similar to mq, but older, and does not include an equivalent
 to pin(1)
 
 * graphical

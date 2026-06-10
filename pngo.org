@@ -1,7 +1,6 @@
 #+TITLE: pngo
-#+SETUPFILE: setupfile.org
 
-pngo is [[https://causal.agency/][june]]'s [[https://causal.agency/bin/pngo.html][png optimisation tool]].
+pngo is [[https://causal.agency/][june]]'s [[https://causal.agency/bin/pngo.html][png optimization tool]].
 
 seeing as there is no helptext and i have not bothered to install the
 manpage, here are some common options:

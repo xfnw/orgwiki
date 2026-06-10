@@ -1,5 +1,4 @@
 #+TITLE: hide that a libvirt guest is in a vm
-#+SETUPFILE: setupfile.org
 
 * not much performance impact
 
@@ -22,7 +21,7 @@ that however i cannot find any documentation on what it does
 
 * lots of performance impact
 
-** disabling hypervisor optimisations
+** disabling hypervisor optimizations
 #+begin_example
 <qemu:commandline>
   <qemu:arg value='-cpu'/>

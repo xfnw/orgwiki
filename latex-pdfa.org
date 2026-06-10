@@ -1,5 +1,4 @@
-#+TITLE: creating accessable PDF/A files with LaTeX
-#+SETUPFILE: setupfile.org
+#+TITLE: creating accessible PDF/A files with LaTeX
 
 my ~latex.org~ setupfile to do this automagically can be found
 [[./media/latex.org][here]]. (if viewing this on the web, you will probably have to change
@@ -8,8 +7,8 @@ this you must add ~pdfa~ to ~org-latex-default-packages-alist~'s
 ~hyperref~ item.
 
 * tagged pdf
-there is currently not a good solution for generating accessable
-(tagged) pdfs with LaTeX. the ~accessability~ package is pretty much
+there is currently not a good solution for generating accessible
+(tagged) pdfs with LaTeX. the ~accessibility~ package is pretty much
 the only option, and it barely works.
 
 #+begin_example
