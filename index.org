@@ -5,11 +5,9 @@ there is a lil [[./blog/][blog]] here with [[./blog.xml][its own atom feed]]
 and also [[./feed.xml][another atom feed]] for /all/ recently updated pages
 
 #+begin_export html
-<script src="pagefind/pagefind-ui.js"></script>
-<div id="search"></div>
-<script>
-    window.addEventListener('DOMContentLoaded', (event) => {
-        new PagefindUI({ element: "#search", showSubResults: true });
-    });
-</script>
+<script src="pagefind/pagefind-component-ui.js" type="module"></script>
+<pagefind-config bundle-path="./"></pagefind-config>
+<pagefind-input></pagefind-input>
+<pagefind-summary></pagefind-summary>
+<pagefind-results></pagefind-results>
 #+end_export
