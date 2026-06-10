@@ -1,5 +1,0 @@
-#+TITLE: minetest skins
-#+SETUPFILE: setupfile.org
-
-minetest uses a similar format to minecraft's skins, however there is
-only an overlay texture for the head.

@@ -1,0 +1,28 @@
+formerly known as minetest, luanti is an open source voxel game engine thing
+
+* skins
+luanti uses a similar format to minecraft's skins, however there is
+only an overlay texture for the head.
+
+* some mods i like
+in addition to dreambuilder stuff, these are most of the mods i use:
+
+- [[https://cheapiesystems.com/git/advtouchscreen][advtouchscreen]]
+- [[https://cheapiesystems.com/git/celevator][celevator]]
+- digilines
+- [[https://github.com/numberZero/digiline_routing][digiline_routing]]
+- digiscreen
+- digistuff
+- digiterms
+- [[https://cheapiesystems.com/git/elevatorparts][elevatorparts]]
+- [[https://cheapiesystems.com/git/firealarm][firealarm]]
+- [[https://cheapiesystems.com/git/flatperiod][flatperiod]]
+- illumination
+- laptop
+- [[https://github.com/minetest-mods/letters][letters]]
+- [[https://github.com/mt-mods/mooncontroller][mooncontroller]]
+- [[https://cheapiesystems.com/git/mooncontroller_convert][mooncontroller_convert]]
+- [[https://github.com/minetest-mods/pbj_pup][pbj_pup]]
+- [[https://cheapiesystems.com/git/player_textures][player_textures]]
+- [[https://cheapiesystems.com/git/printer][printer]]
+- skinsdb

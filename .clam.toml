@@ -10,3 +10,11 @@ title="blog posts in orgwiki"
 path="blog.xml"
 include=["^blog/"]
 exclude=['/index\.html$','/[0-9]{4}\.html']
+
+[[redirect]]
+path="minetest-mods.org"
+target="luanti.org"
+
+[[redirect]]
+path="minetest-skins.org"
+target="luanti.org"
