@@ -46,3 +46,33 @@ changed with some environment variables when running the installer
 #+begin_example
 ROOTFS=btrfs SWAP_SIZE=0 setup-alpine
 #+end_example
+
+* Connection aborted when installing/upgrading packages
+at least by default, apk seems to stream downloading stuff whilst
+extracting it, which normally works great, but if you have a really
+really slow disk you might get disconnected for taking too long (or at
+least that is what i assume is happening)
+
+#+begin_example
+ERROR: linux-lts-6.18.35-r0: failed to extract lib/modules/6.18.35-0-lts/kernel/drivers/gpu/drm/amd/amdgpu/amdgpu.ko.gz: Connection aborted
+ERROR: linux-lts-6.18.35-r0: unexpected end of file
+#+end_example
+
+separately downloading stuff with ~apk fetch~ and then feeding the
+file to ~apk add~ avoids this
+
+#+begin_example
+# apk fetch perl linux-lts
+Downloading perl-5.42.2-r0
+Downloading linux-lts-6.18.35-r0
+# apk add ./perl-5.42.2-r0.apk ./linux-lts-6.18.35-r0.apk
+(1/2) Replacing perl (5.42.2-r0 -> 5.42.2-r0)
+(2/2) Upgrading linux-lts (6.18.33-r0 -> 6.18.35-r0)
+Executing busybox-1.37.0-r31.trigger
+Executing kmod-34.2-r1.trigger
+Executing mkinitfs-3.14.0-r0.trigger
+* creating /boot/initramfs-lts for 6.18.35-0-lts
+Executing syslinux-6.04_pre1-r19.trigger
+* /boot is device /dev/sda1
+OK: 418.4 MiB in 212 packages
+#+end_example
