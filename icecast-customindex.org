@@ -1,5 +1,4 @@
 #+TITLE: icecast custom index page
-#+SETUPFILE: setupfile.org
 
 we can specify a custom ~xsl~ file for the index
 

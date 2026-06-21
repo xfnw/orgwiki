@@ -1,5 +1,4 @@
 #+TITLE: setup a 9front cpu server
-#+SETUPFILE: setupfile.org
 
 configuring 9front as a cpu server will allow drawterm'ing in
 

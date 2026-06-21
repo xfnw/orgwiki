@@ -1,5 +1,4 @@
 #+TITLE: calculating cert fingerprints with openssl
-#+SETUPFILE: setupfile.org
 
 some of the x509 certificate fingerprint algorithms used for certfp
 authentication on irc are weirdly hard to find documentation

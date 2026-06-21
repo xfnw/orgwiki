@@ -1,5 +1,4 @@
 #+TITLE: backing up and syncing gpg keys
-#+SETUPFILE: setupfile.org
 
 #+TOC: headlines 3
 

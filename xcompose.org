@@ -1,5 +1,4 @@
 #+TITLE: create custom compose keybinds with XCompose
-#+SETUPFILE: setupfile.org
 
 if you arent on [[./chromeos-blahaj.org][a system without compose]], compose is quite useful for
 typing those special characters. however you will quickly be tempted

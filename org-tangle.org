@@ -1,5 +1,4 @@
 #+TITLE: tangling with org
-#+SETUPFILE: setupfile.org
 
 tangle is a system for creating source files from org babel (literate
 programming)'s src blocks

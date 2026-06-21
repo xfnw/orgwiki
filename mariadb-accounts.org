@@ -1,5 +1,4 @@
 #+TITLE: mariadb accounts
-#+SETUPFILE: setupfile.org
 
 #+begin_example sql
 CREATE DATABASE honk;

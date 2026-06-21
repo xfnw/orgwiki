@@ -1,5 +1,4 @@
 #+TITLE: making citations with LaTeX
-#+SETUPFILE: setupfile.org
 
 #+TOC: headlines 3
 

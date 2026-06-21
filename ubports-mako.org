@@ -1,5 +1,4 @@
 #+TITLE: installing ubports on mako
-#+SETUPFILE: setupfile.org
 
 ubuntu touch is a failed and abandoned attempt by canonical to make a
 phone linux distro. ubports is an attempt to continue it.

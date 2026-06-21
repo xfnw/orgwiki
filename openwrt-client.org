@@ -1,5 +1,4 @@
 #+TITLE: openwrt client mode
-#+SETUPFILE: setupfile.org
 
 client mode is sort of like bridge mode, but it creates a little NAT.
 

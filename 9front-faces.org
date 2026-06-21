@@ -1,5 +1,4 @@
 #+TITLE: faces
-#+SETUPFILE: setupfile.org
 
 a face is kind of like a profile picture
 

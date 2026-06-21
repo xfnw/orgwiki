@@ -1,5 +1,4 @@
 #+TITLE: polkit libvirt rules
-#+SETUPFILE: setupfile.org
 
 * security considerations
 

@@ -1,5 +1,4 @@
 #+TITLE: generating gif's with ffmpeg
-#+SETUPFILE: setupfile.org
 
 gif is really a horrible format, avoid it if you can. [[./ffmpeg-webp.org][webp]] is a much
 nicer format if you insist on using an image, but dedicated video

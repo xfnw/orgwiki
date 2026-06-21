@@ -1,5 +1,4 @@
 #+TITLE: xfnw's org wiki thing
-#+SETUPFILE: setupfile.org
 
 there is a lil [[./blog/][blog]] here with [[./blog.xml][its own atom feed]]
 and also [[./feed.xml][another atom feed]] for /all/ recently updated pages

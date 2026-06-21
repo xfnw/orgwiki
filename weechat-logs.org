@@ -1,5 +1,4 @@
 #+TITLE: managing weechat logs
-#+SETUPFILE: setupfile.org
 
 * removing joins/parts/quits/nicks/aways
 

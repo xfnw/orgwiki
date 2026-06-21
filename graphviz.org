@@ -1,5 +1,4 @@
 #+TITLE: graphviz
-#+SETUPFILE: setupfile.org
 
 graphviz is a cool renderer thing for diagrams
 

@@ -1,5 +1,4 @@
 #+TITLE: shell script finger daemon
-#+SETUPFILE: setupfile.org
 
 add this script to your inetd, and add text files or executables to
 ~/home/finger/fingers~ for a simple finger daemon

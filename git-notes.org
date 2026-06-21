@@ -1,5 +1,4 @@
 #+TITLE: git notes
-#+SETUPFILE: setupfile.org
 
 git notes are a somewhat obscure feature to allow the addition of
 commentary to existing commits without breaking history. you can read

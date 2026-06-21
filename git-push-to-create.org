@@ -1,5 +1,4 @@
 #+TITLE: git push to create
-#+SETUPFILE: setupfile.org
 
 several ways to get push to create, which lets you not have to
 manually create a repo

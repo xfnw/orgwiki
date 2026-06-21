@@ -1,5 +1,4 @@
 #+TITLE: github
-#+SETUPFILE: setupfile.org
 
 * suggesting changes on pr's
 when commenting on a line, you can suggest replacing it by making a

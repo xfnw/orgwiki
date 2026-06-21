@@ -1,5 +1,4 @@
 #+TITLE: send traffic from docker containers through tor
-#+SETUPFILE: setupfile.org
 
 this can offer a bit of extra protection against your tor hidden
 service being accidentally deanonymized by unsafe server software.

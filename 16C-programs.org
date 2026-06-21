@@ -1,5 +1,4 @@
 #+TITLE: HP-16C programs
-#+SETUPFILE: setupfile.org
 
 press ~g P/R~ to toggle programming mode, ~GTO . <nnn>~ to jump to a
 line, ~BSP~ to delete a line, and ~g RTN~ to end a program.

@@ -1,5 +1,4 @@
 #+TITLE: xfburn FailureCBD error
-#+SETUPFILE: setupfile.org
 
 if you get the error 
 #+begin_quote

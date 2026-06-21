@@ -1,5 +1,4 @@
 #+TITLE: uart serial
-#+SETUPFILE: setupfile.org
 
 * repurposing a microcontroller as a serial adapter
 don't want to buy a dedicated usb-to-serial converter? many

@@ -1,5 +1,4 @@
 #+TITLE: gnu debugger
-#+SETUPFILE: setupfile.org
 
 gdb is a useful debugger
 

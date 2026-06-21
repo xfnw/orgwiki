@@ -1,5 +1,4 @@
 #+TITLE: logisim evolution
-#+SETUPFILE: setupfile.org
 
 * converting between logic and data values
 in logisim, inputs and outputs have a 'bitwidth', kind of like a

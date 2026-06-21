@@ -1,5 +1,4 @@
 #+TITLE: managing accounts on 9front
-#+SETUPFILE: setupfile.org
 
 this assumes you are using hjfs in a [[./9front-cpusetup.org][cpu setup]] (ie with a fileserver
 and auth). if you are using cwfs, you should be able to just replace

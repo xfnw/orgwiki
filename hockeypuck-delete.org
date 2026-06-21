@@ -1,5 +1,4 @@
 #+TITLE: delete keys from hockeypuck
-#+SETUPFILE: setupfile.org
 
 adapted from adulau's github gist
 

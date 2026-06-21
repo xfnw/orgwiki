@@ -1,5 +1,4 @@
 #+TITLE: docker X11
-#+SETUPFILE: setupfile.org
 
 *warning*: this is unsuitable for sandboxing, assume giving X11 socket
 access is equivalent to shell access

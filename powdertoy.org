@@ -1,5 +1,4 @@
 #+TITLE: powdertoy
-#+SETUPFILE: setupfile.org
 #+OPTIONS: ^:{}
 
 [[https://powdertoy.co.uk/][the powder toy]] is a 2D sandbox simulation thing

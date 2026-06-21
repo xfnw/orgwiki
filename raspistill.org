@@ -1,5 +1,4 @@
 #+TITLE: raspistill
-#+SETUPFILE: setupfile.org
 
 * cgi
 you can expose a pi cam to remote viewing with a cgi script

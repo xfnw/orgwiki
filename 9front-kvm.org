@@ -1,5 +1,4 @@
 #+TITLE: running 9front inside kvm
-#+SETUPFILE: setupfile.org
 
 * lapic timer period dmesg errors
 9front likes to request a smaller apic timer period than the default

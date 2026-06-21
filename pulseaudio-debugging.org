@@ -1,5 +1,4 @@
 #+TITLE: debugging pulseaudio
-#+SETUPFILE: setupfile.org
 
 * only gives a dummy output
 

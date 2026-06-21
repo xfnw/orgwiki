@@ -1,5 +1,4 @@
 #+TITLE: irccloud
-#+SETUPFILE: setupfile.org
 
 * irc ident
 irccloud's ident strings start with either ~uid~ or ~sid~, which

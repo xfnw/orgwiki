@@ -1,5 +1,4 @@
 #+TITLE: screen
-#+SETUPFILE: setupfile.org
 
 * using as a serial console
 when invoked with the path to a device and a baud rate, screen can act

@@ -1,5 +1,4 @@
 #+TITLE: building a 9front iso
-#+SETUPFILE: setupfile.org
 #+OPTIONS: ^:{}
 
 instructions for building an iso are detailed in [[http://fqa.9front.org/fqa5.html#5.3][fqa 5.3]].

@@ -1,5 +1,4 @@
 #+TITLE: using nxproxy
-#+SETUPFILE: setupfile.org
 
 nxproxy is the community maintained old foss version of NoMachine's
 now proprietary NX protocol. it's like X11 forwarding but a hell of a

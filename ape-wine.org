@@ -1,5 +1,4 @@
 #+TITLE: ape wine
-#+SETUPFILE: setupfile.org
 
 if you have wine installed, linux will annoyingly try to run APE's as windows executables
 

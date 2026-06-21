@@ -1,5 +1,4 @@
 #+TITLE: wireguard
-#+SETUPFILE: setupfile.org
 
 #+TOC: headlines 3
 

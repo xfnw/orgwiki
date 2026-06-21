@@ -1,5 +1,4 @@
 #+TITLE: keeping your storage tidy with pacman
-#+SETUPFILE: setupfile.org
 
 pacman is a lovely--and decently fast--package manager, used by arch
 linux. nothing beats [[./alpine.org][apk]] in speed though :P

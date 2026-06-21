@@ -1,5 +1,4 @@
 #+TITLE: generating a gpg key
-#+SETUPFILE: setupfile.org
 
 avoid pgp if you can, but if you have to use it, these are some useful
 options to use.

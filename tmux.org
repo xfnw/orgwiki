@@ -1,5 +1,4 @@
 #+TITLE: tmux
-#+SETUPFILE: setupfile.org
 
 * the interface
 

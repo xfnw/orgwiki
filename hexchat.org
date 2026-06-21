@@ -1,5 +1,4 @@
 #+TITLE: hexchat
-#+SETUPFILE: setupfile.org
 
 * running script commands on connect
 the on-connect commands tab in the server settings seem to not like

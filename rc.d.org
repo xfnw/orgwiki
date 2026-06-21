@@ -1,5 +1,4 @@
 #+TITLE: rc.d
-#+SETUPFILE: setupfile.org
 
 * rc_bg
 if you set ~rg_bg~ to ~YES~ it will background the process for you 

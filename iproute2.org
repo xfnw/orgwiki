@@ -1,5 +1,4 @@
 #+TITLE: iproute2
-#+SETUPFILE: setupfile.org
 
 iproute2, better known as the ~ip~ command, is a replacement for the
 old ~route~ and ~ipconfig~ utilities.

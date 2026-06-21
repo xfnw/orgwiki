@@ -1,5 +1,4 @@
 #+TITLE: generate webp's with ffmpeg
-#+SETUPFILE: setupfile.org
 
 * animated webp
 

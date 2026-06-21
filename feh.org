@@ -1,5 +1,4 @@
 #+TITLE: feh
-#+SETUPFILE: setupfile.org
 
 feh is a somewhat minimal image viewer
 

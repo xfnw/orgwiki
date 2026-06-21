@@ -1,5 +1,4 @@
 #+TITLE: emacs packages
-#+SETUPFILE: setupfile.org
 
 * updating packages
 

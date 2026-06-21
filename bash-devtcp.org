@@ -1,5 +1,4 @@
 #+TITLE: /dev/tcp shenanigans
-#+SETUPFILE: setupfile.org
 
 bash pretends weird files in ~/dev/tcp/<hostname>/<port>~ exist,
 allowing outgoing tcp connections without the need for external

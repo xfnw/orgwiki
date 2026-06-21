@@ -1,5 +1,4 @@
 #+TITLE: address sanitizer
-#+SETUPFILE: setupfile.org
 
 address sanitizer is google's cool memory checker thingy
 

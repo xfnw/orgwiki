@@ -1,5 +1,4 @@
 #+TITLE: forwarding ports with iptables
-#+SETUPFILE: setupfile.org
 
 this can be useful for giving ports to libvirt guests with the default
 nat configuration

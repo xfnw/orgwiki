@@ -1,5 +1,4 @@
 #+TITLE: pixelflut
-#+SETUPFILE: setupfile.org
 
 Pixelflut is a simple protocol for collaboratively editing pixels
 

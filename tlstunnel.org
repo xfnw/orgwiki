@@ -1,5 +1,4 @@
 #+TITLE: tlstunnel
-#+SETUPFILE: setupfile.org
 
 [[https://codeberg.org/emersion/tlstunnel][tlstunnel]] is a lovely tls reverse-proxy with automagic acme
 certificate renewal.
