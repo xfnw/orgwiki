@@ -4,6 +4,7 @@ id="https://xfnw.github.io/orgwiki"
 [[feed]]
 title="everything in orgwiki"
 path="feed.xml"
+max_items=69
 
 [[feed]]
 title="blog posts in orgwiki"
