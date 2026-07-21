@@ -3,6 +3,11 @@
 avoid pgp if you can, but if you have to use it, these are some useful
 options to use.
 
+#+begin_chat hi
+also consider using sequoia sq instead of gpg: most of these
+recommendations are sq's default behavior
+#+end_chat
+
 * Curve25519 keys
 using ~--full-generate-key --expert~ allows you to use all the hidden
 ECC options, including Curve25519
