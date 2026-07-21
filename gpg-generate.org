@@ -51,10 +51,16 @@ then use the ~expire~ command. ~save~ when done.
 ** generate revocation certificates for common reasons just in case
 generate a few for reasons such as 'i died', 'i forgot the password',
 'my key got compromised', etc, and store them in a safe place. gpg
-automatically makes revocation certificates that have a blank reason
-and can be used in a pinch, however it is better to have ones that
-have reasons.
+automatically makes revocation certificates that have an unspecified
+reason and can be used in a pinch, however +it is better to have ones
+that have reasons+.
 
 #+begin_example
 gpg --output revoke.asc --gen-revoke E621E926AAA69420
 #+end_example
+
+#+begin_chat vulpine/eepy
+or maybe not? anecdotally, i have had trouble with getting some
+keyservers to accept revocation certificates that specify a reason,
+but maybe i was just doing something wrong
+#+end_chat
