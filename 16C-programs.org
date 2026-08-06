@@ -1,7 +1,8 @@
 #+TITLE: HP-16C programs
 
-press ~g P/R~ to toggle programming mode, ~GTO . <nnn>~ to jump to a
-line, ~BSP~ to delete a line, and ~g RTN~ to end a program.
+press ~g P/R~ to toggle programming mode, ~SST~ and ~g BST~ to move
+around, ~GTO . <nnn>~ to jump to a line, ~BSP~ to delete a line, and
+~g RTN~ to end a program.
 
 #+TOC: headlines 3
 
