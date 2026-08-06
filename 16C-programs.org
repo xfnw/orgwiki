@@ -14,7 +14,7 @@ borrowed from [[https://imapenguin.com/simple-exponents-on-an-hp-16c/][this blog
 | num | keys  | display  | description                   |
 |-----+-------+----------+-------------------------------|
 | 001 | LBL E | 43,22, E | convenient entry point        |
-| 002 | STO I | 44 I     | store in I                    |
+| 002 | STO I | 44 32    | store in I                    |
 | 003 | R↓    | 33       | pop old I value               |
 | 004 | STO 0 | 44 0     | store in 0                    |
 | 005 | DSZ   | 43 23    | decrement I and nop branch    |
