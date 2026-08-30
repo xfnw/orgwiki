@@ -6,8 +6,16 @@ a fork of [[./firefox.org][firefox]] that is somewhat privacy focused
 enable ~browser.fixup.dns_first_for_single_words~ in about:config to
 make it check for hostnames instead of forcing them to be searches
 
+#+begin_src javascript :tangle user.js
+user_pref("browser.fixup.dns_first_for_single_words", true);
+#+end_src
+
 * url bar hiding protocol
 turn off ~browser.urlbar.trimURLs~ in about:config
+
+#+begin_src javascript :tangle user.js
+user_pref("browser.urlbar.trimURLs", false);
+#+end_src
 
 * space beside url bar
 to remove the wasted space, right click on them and go to Customize
@@ -18,6 +26,10 @@ not sure why this requires being in the customizing toolbar mode, the
 list all tabs button has an option to remove it without being in the
 customizing mode...
 
+#+begin_src javascript :tangle user.js
+user_pref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"vertical-spacer\",\"urlbar-container\",\"downloads-button\",\"fxa-toolbar-menu-button\",\"reset-pbm-toolbar-button\",\"ublock0_raymondhill_net-browser-action\",\"unified-extensions-button\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\"],\"vertical-tabs\":[],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"reset-pbm-toolbar-button\",\"ublock0_raymondhill_net-browser-action\",\"developer-button\",\"screenshot-button\"],\"dirtyAreaCache\":[\"unified-extensions-area\",\"nav-bar\",\"vertical-tabs\",\"toolbar-menubar\",\"TabsToolbar\",\"PersonalToolbar\"],\"currentVersion\":25,\"newElementCount\":3}");
+#+end_src
+
 * dark theme not working
 the ~ResistFingerprinting~ option intentionally breaks
 ~prefers-color-scheme~ :(
@@ -27,9 +39,22 @@ at least it actually tells you this in the settings now, instead of
 just silently not working...
 #+end_chat
 
+#+begin_src javascript :tangle user.js
+user_pref("privacy.resistFingerprinting", false);
+#+end_src
+
 * shut up about enabling drm
 turn off ~media.gmp-widevinecdm.visible~ in about:config
+
+#+begin_src javascript :tangle user.js
+user_pref("media.gmp-widevinecdm.visible", false);
+#+end_src
 
 * extra settings i like
 - disable Use smooth scrolling
 - enable Always show scrollbars
+
+#+begin_src javascript :tangle user.js
+user_pref("general.smoothScroll", false);
+user_pref("widget.gtk.overlay-scrollbars.enabled", false);
+#+end_src
