@@ -1,6 +1,6 @@
 #+TITLE: libre woof
 
-librewolf is a fork of [[./firefox.org][firefox]] that is somewhat privacy focused
+librewolf is a fork of firefox that is somewhat privacy focused
 
 * url bar overzealously searching
 enable ~browser.fixup.dns_first_for_single_words~ in about:config to

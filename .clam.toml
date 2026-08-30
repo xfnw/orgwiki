@@ -19,3 +19,7 @@ target="luanti.org"
 [[redirect]]
 path="minetest-skins.org"
 target="luanti.org"
+
+[[redirect]]
+path="firefox.org"
+target="librewolf.org"

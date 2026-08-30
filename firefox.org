@@ -1,6 +1,0 @@
-#+TITLE: firefox
-
-theres also some non-firefox-specific stuff in [[./librewolf.org][librewolf]]
-
-* fix theme
-you can use [[https://github.com/black7375/Firefox-UI-Fix][firefox-ui-fix]] to have tabs that actually look like tabs!
