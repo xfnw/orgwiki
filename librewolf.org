@@ -27,6 +27,9 @@ at least it actually tells you this in the settings now, instead of
 just silently not working...
 #+end_chat
 
+* shut up about enabling drm
+turn off ~media.gmp-widevinecdm.visible~ in about:config
+
 * extra settings i like
 - disable Use smooth scrolling
 - enable Always show scrollbars
