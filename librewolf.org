@@ -44,10 +44,10 @@ user_pref("privacy.resistFingerprinting", false);
 #+end_src
 
 * shut up about enabling drm
-turn off ~media.gmp-widevinecdm.visible~ in about:config
+turn off ~browser.eme.ui.enabled~ in about:config
 
 #+begin_src javascript :tangle user.js
-user_pref("media.gmp-widevinecdm.visible", false);
+user_pref("browser.eme.ui.enabled", false);
 #+end_src
 
 * extra settings i like
