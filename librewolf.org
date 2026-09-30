@@ -50,6 +50,17 @@ turn off ~browser.eme.ui.enabled~ in about:config
 user_pref("browser.eme.ui.enabled", false);
 #+end_src
 
+* give me back my rectangles
+i thought proton was bad, but mozilla has against all odds managed to
+make something even worse. the new 'we made everything round and gave
+everything a gradient so it looks like something an llm shat out'
+theme can be avoided by turning off ~browser.nova.enabled~ in
+about:config
+
+#+begin_src javascript :tangle user.js
+user_pref("browser.nova.enabled", false);
+#+end_src
+
 * extra settings i like
 - disable Use smooth scrolling
 - enable Always show scrollbars
