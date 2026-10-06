@@ -69,3 +69,13 @@ user_pref("browser.nova.enabled", false);
 user_pref("general.smoothScroll", false);
 user_pref("widget.gtk.overlay-scrollbars.enabled", false);
 #+end_src
+
+* ui density
+firefox has a Window Density option in the Appearence settings to make
+tabs and stuff nice and smol. not sure why this is missing from
+librewolf's settings, but this option can be still be set with
+~browser.uidensity~ in about:config anyways
+
+#+begin_src javascript :tangle user.js
+user_pref("browser.uidensity", 1);
+#+end_src
