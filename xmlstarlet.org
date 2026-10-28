@@ -1,0 +1,8 @@
+xml and xslt ftw!
+
+* retrieving page contents from a mediawiki dump
+#+begin_example
+xml sel -T -N m=http://www.mediawiki.org/xml/export-0.11/ \
+ -t -m '/m:mediawiki/m:page[m:title="Deathwatch"]' \
+ -v 'm:revision[last()]/m:text'
+#+end_example
