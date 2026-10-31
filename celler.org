@@ -1,0 +1,28 @@
+#+TITLE: celler binary cache
+
+attic is a pretty nice nix binary cache server
+
+celler is a fork of attic that makes it use nix daemon socket stuff
+instead of needing c++ ffi nonsense that is very coupled to c++ nix.
+this means it is much easier to use with lix!
+
+* tips
+
+** pushing build dependencies
+attic has [[https://github.com/zhaofengli/attic/issues/206][an open issue]] about supporting this, but that probably will
+not be happening any time soon. not sure what celler's stance on this
+is though. for now it can be worked around with some nix-store
+
+#+begin_example
+nix-store -q --valid-derivers result* |
+xargs nix-store -qR --include-outputs -- |
+grep -v '\.drv$' |
+celler push --stdin mycache
+#+end_example
+
+** pushing flake inputs
+#+begin_example
+nix flake archive --json |
+jq -r '.. | .path? | strings' |
+celler push --stdin mycache
+#+end_example
