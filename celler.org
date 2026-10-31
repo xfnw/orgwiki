@@ -26,3 +26,10 @@ nix flake archive --json |
 jq -r '.. | .path? | strings' |
 celler push --stdin mycache
 #+end_example
+
+** pushing npins inputs
+#+begin_example
+for p in `npins show -p`; do
+printf '%s\n' "$(npins get-path "$p")"
+done | celler push --stdin mycache
+#+end_example
