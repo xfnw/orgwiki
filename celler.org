@@ -20,6 +20,9 @@ grep -v '\.drv$' |
 celler push --stdin mycache
 #+end_example
 
+or just always leave ~celler watch-store~ running while you build
+stuff. it seems to be a lot less broken than attic's was
+
 ** pushing flake inputs
 #+begin_example
 nix flake archive --json |
