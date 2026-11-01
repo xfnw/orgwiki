@@ -1,0 +1,77 @@
+#+TITLE: vulpine's image compression benchmark
+
+in which i shove everything into imagemagick, with mostly default
+settings. lower is better, obviously.
+
+* irl photo of a sign
+the lossy formats should love this
+
+| percent |     size | name          |
+|---------+----------+---------------|
+|  441.67 | 12052988 | lossless.png  |
+|  279.18 |  7618534 | lossless.webp |
+|  240.88 |  6573558 | 8.gif         |
+|  191.25 |  5218990 | 8.png         |
+|  100.00 |  2728938 | sign.jpg      |
+|   59.43 |  1621737 | lossy.jxl     |
+|   45.97 |  1254510 | lossy.webp    |
+|   35.93 |   980413 | lossy.heif    |
+|   18.50 |   504861 | lossy.avif    |
+
+* unshaded digital art
+it's me! this should be extra easy for lossless formats
+
+| percent |   size | name          |
+|---------+--------+---------------|
+|  144.92 | 913113 | lossy.jpg     |
+|  100.00 | 630085 | vulpine.png   |
+|   69.03 | 434953 | lossy.jxl     |
+|   40.20 | 253268 | 8.gif         |
+|   39.22 | 247115 | 8.png         |
+|   36.94 | 232772 | lossless.webp |
+|   35.11 | 221216 | lossy.heif    |
+|   33.19 | 209098 | lossy.webp    |
+|   16.43 | 103495 | lossy.avif    |
+
+* foxbox's picture of a train
+i like trains
+
+| percent |   size | name                                                            |
+|---------+--------+-----------------------------------------------------------------|
+|  665.89 | 975529 | lossless.png                                                    |
+|  473.66 | 693922 | lossless.webp                                                   |
+|  373.34 | 546954 | 8.gif                                                           |
+|  320.67 | 469780 | 8.png                                                           |
+|  100.00 | 146501 | bnsf_3680_officer_car_special_2_by_sbinfox_dfeol3h-fullview.jpg |
+|   87.97 | 128875 | lossy.jxl                                                       |
+|   70.06 | 102640 | lossy.heif                                                      |
+|   37.14 |  54408 | lossy.webp                                                      |
+|   29.13 |  42670 | lossy.avif                                                      |
+
+* dog
+dog
+
+| percent |    size | name          |
+|---------+---------+---------------|
+|  896.94 | 8072128 | lossless.png  |
+|  559.87 | 5038606 | 8.gif         |
+|  555.75 | 5001548 | lossless.webp |
+|  423.61 | 3812379 | 8.png         |
+|  100.73 |  906523 | lossy.jxl     |
+|  100.00 |  899967 | dog.jpg       |
+|   75.16 |  676434 | lossy.heif    |
+|   42.92 |  386276 | lossy.webp    |
+|   35.15 |  316321 | lossy.avif    |
+
+* remarks
+avif was the best for every image, av1 ftw!
+
+except for png8 and gif, which look like ass, all the formats look
+fine to my untrained fox eyeballs.
+
+i keep hearing people say jxl is better at compression than webp, but
+for every image i have ever lossfully converted to both jxl and webp,
+the webp has been the smaller one. one jxl was even larger than the
+original jpg it came from! is everyone just repeating bullshit they've
+heard without checking for themselves? or is imagemagick's jxl encoder
+just that uniquely bad?
