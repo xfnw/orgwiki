@@ -1,0 +1,19 @@
+linux is slop now. time to use netbsd.
+
+* running without swap
+if you chose to not make a swap partition in the installer, it'll put
+a warning in the logs every boot about not having swap, unless you set
+~no_swap=YES~ in ~/etc/rc.conf~
+
+* ca store breaking when ~mozilla-rootcerts-openssl~ uninstalled
+run ~certctl rehash~ to repopulate ~/etc/openssl/certs~
+
+* IPV6_V6ONLY
+unlike on [[https://man.openbsd.org/ip6#IPV6_V6ONLY][openbsd, where ipv6 sockets are always ipv6-only]], [[https://man.netbsd.org/ip6.4#:~:text=IPV6_V6ONLY][netbsd
+does seem to allow setting IPV6_V6ONLY]]. not quite how it is on linux,
+where just listening on ~::~ handles both ipv6 and ipv4 by default
+without having to do anything special, but i'll take it.
+
+* the hardlink thing
+just remember to make a ~/usr~ partition when you install if you plan
+on having untrustworthy users, i guess? :(
