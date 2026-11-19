@@ -1,0 +1,12 @@
+* virt-sparsify missing lvm2 feature
+#+begin_example
+virt-sparsify: error: libguestfs error: lvs_full: feature 'lvm2' is not 
+available in this
+build of libguestfs.  Read 'AVAILABILITY' in the guestfs(3) man page for
+how to check for the availability of features.
+#+end_example
+
+apparently on arch, libguestfs lvm2 support is optional, and only
+works if you have the ~lvm2~ package installed. oddly, i had to poke
+it by reinstalling ~libguestfs~ and ~guestfs-tools~ to get it to
+realize ~lvm2~ was installed.
